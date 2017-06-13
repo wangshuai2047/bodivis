@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "08073aa6-b7fe-3b4c-9b2d-cd559e5792eb",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "08073aa6-b7fe-3b4c-9b2d-cd559e5792eb" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "08073aa6-b7fe-3b4c-9b2d-cd559e5792eb" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9701A227-A535-43A4-8B40-1EC76A1CE1C5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "08073aa6-b7fe-3b4c-9b2d-cd559e5792eb" : "HealthCode"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TFHealth",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "branches\/TFHealth.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/111.204.224.226\/svn\/HealthCode",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "08073aa6-b7fe-3b4c-9b2d-cd559e5792eb"
+    }
+  ]
+}

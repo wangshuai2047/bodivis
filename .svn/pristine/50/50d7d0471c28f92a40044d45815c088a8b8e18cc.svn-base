@@ -1,0 +1,37 @@
+//
+// Prefix header for all source files of the 'TFHealth' target in the 'TFHealth' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "MagicalRecord/CoreData+MagicalRecord.h"
+#endif
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define TH_BackgroundImage @"bg"
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+
+
+#define UserIcon_UrlPre  @"http://service.bodivis.com.cn/photo/user/"
+
+#define Chinese_Simplified @"zh-Hans"//简体
+#define Chinese_Traditional_HK @"zh-Hant-HK"//香港繁体
+#define Chinese_Traditional_TW @"zh-Hant-TW"//台湾繁体
+#define English @"en"
+#define changeLanguage @"changeLanguage"//改变语言的通知名称
+
+#define AppLanguage @"appLanguage"
+#define CustomLocalizedString(key, comment) \
+[[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:@"" table:@"TFLanguage"]
+
+#define TempUserData @"TempUserData"
+
+
+

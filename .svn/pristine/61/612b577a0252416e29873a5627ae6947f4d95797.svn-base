@@ -1,0 +1,235 @@
+//
+//  MoreLanguageViewController.m
+//  TFHealth
+//
+//  Created by 王帅 on 17/3/22.
+//  Copyright © 2017年 studio37. All rights reserved.
+//
+
+#import "MoreLanguageViewController.h"
+#import "UIViewController+MMDrawerController.h"
+#import "AppDelegate.h"
+#import "NSBundle+Language.h"
+
+
+@interface MoreLanguageViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    UINavigationItem *item;//导航栏item
+    NSArray *arrTable;
+    UITableView *tableV;
+    NSIndexPath *selectPath;//存放被点击的哪一行的标志
+    NSIndexPath *currentPath;//当前语言所在行的标志
+    AppDelegate *appDelegate;
+    UIButton *right;//导航栏右侧保存item上的按钮
+}
+
+@end
+
+@implementation MoreLanguageViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    //接收改变语言的通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeLanguageNotification:) name:changeLanguage object:nil];
+    
+    //设置背景
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
+    appDelegate = [UIApplication sharedApplication].delegate;
+    //设置导航栏
+    [self initWithNavigationItem];
+    //数组
+    [self initWithArray];
+    //表格
+    [self initWithTableView];
+}
+
+#pragma mark - 设置导航栏
+-(void)initWithNavigationItem{
+    UINavigationBar *bar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    item = [[UINavigationItem alloc] initWithTitle:CustomLocalizedString(@"moreLanguage", nil)];
+    UIButton *left = [UIButton buttonWithType:UIButtonTypeCustom];
+    [left setFrame:CGRectMake(0, 2, 28, 28)];
+    [left setImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [left addTarget:self action:@selector(backBtn:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:left];
+    right = [UIButton buttonWithType:UIButtonTypeCustom];
+    [right setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 20, 2, 35, 28)];
+    [right setTitle:CustomLocalizedString(@"save", nil) forState:UIControlStateNormal];
+    [right addTarget:self action:@selector(rightBtn:) forControlEvents:UIControlEventTouchUpInside];
+    right.titleLabel.font = [UIFont systemFontOfSize:15];
+    right.titleLabel.alpha = 0.5;
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:right];
+    [item setLeftBarButtonItem:leftButton];
+    [item setRightBarButtonItem:rightButton];
+    [bar pushNavigationItem:item animated:NO];
+    [self.view addSubview:bar];
+}
+
+//导航栏返回按钮
+-(void)backBtn:(UIButton*)sender{
+    
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+}
+
+//导航栏右侧编辑保存按钮
+#pragma mark - 保存按钮
+-(void)rightBtn:(UIButton*)sender{
+    if (sender.titleLabel.alpha == 1) {
+        currentPath = selectPath;
+        appDelegate.languageIndex = currentPath.row;
+        
+        //改变完成之后发送通知，告诉其他页面修改完成，提示刷新界面
+        [[NSNotificationCenter defaultCenter] postNotificationName:changeLanguage object:nil];
+        [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+        sender.titleLabel.alpha = 0.5;
+    }
+}
+
+#pragma mark - 数组内容
+-(void)initWithArray{
+//    arrTable = [NSArray arrayWithObjects:@"简体中文",@"繁體中文（台灣）",@"繁體中文（香港）",@"English", nil];
+    arrTable = [NSArray arrayWithObjects:@"简体中文",@"English", nil];
+
+}
+
+#pragma mark - 表格
+-(void)initWithTableView{
+    tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64) style:UITableViewStyleGrouped];
+    tableV.delegate = self;
+    tableV.dataSource = self;
+    tableV.backgroundColor = [UIColor clearColor];
+    //设置默认选中行
+    currentPath= [NSIndexPath indexPathForRow:appDelegate.languageIndex inSection:0];
+    selectPath = currentPath;
+    [self.view addSubview:tableV];
+}
+
+#pragma mark UITableViewDelegateFlowLayout
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return arrTable.count;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellIdentifier = @"cellIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.textLabel.text = arrTable[indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.tintColor = [UIColor whiteColor];
+    if (selectPath == indexPath) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];//取消选中
+    
+    //选中当前语言,保存按钮变灰且不可点击,非当前语言可点击
+    if (currentPath == indexPath) {
+        right.titleLabel.alpha = 0.5;
+    }else{
+        right.titleLabel.alpha = 1;
+    }
+    //选中行显示勾选，非选中行不显示
+    int newRow = (int)[indexPath row];
+    int oldRow = (int)(selectPath != nil) ? (int)[selectPath row]:-1;
+    if (newRow != oldRow) {
+        UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+        newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+        UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:selectPath];
+        oldCell.accessoryType = UITableViewCellAccessoryNone;
+        selectPath = [indexPath copy];
+    }
+    
+}
+
+#pragma mark - 接收改变语言的通知
+-(void)changeLanguageNotification:(NSNotification*)sender{
+    
+    switch (appDelegate.languageIndex) {
+        case 0://简体中文
+            [self changeLanguageTo:Chinese_Simplified];
+            break;
+        case 1://英语
+            [self changeLanguageTo:English];
+            break;
+            
+        default:
+            break;
+    }
+    
+    /*
+    switch (appDelegate.languageIndex) {
+        case 0://简体中文
+            [self changeLanguageTo:Chinese_Simplified];
+            break;
+        case 1://繁体中文（台湾）
+            [self changeLanguageTo:Chinese_Traditional_TW];
+            break;
+        case 2://繁体中文（香港）
+            [self changeLanguageTo:Chinese_Traditional_HK];
+            break;
+        case 3://英语
+//            [[NSUserDefaults standardUserDefaults] setObject:English forKey:AppLanguage];
+            [self changeLanguageTo:English];
+            break;
+            
+        default:
+            break;
+    }
+     */
+    /*
+    //保存设置
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    //刷新界面
+    [item setTitle:CustomLocalizedString(@"moreLanguage", nil)];
+    [right setTitle:CustomLocalizedString(@"save", nil) forState:UIControlStateNormal];
+     */
+}
+
+- (void)changeLanguageTo:(NSString *)language {
+    // 设置语言
+    [NSBundle setLanguage:language];
+    
+    // 然后将设置好的语言存储好，下次进来直接加载
+    [[NSUserDefaults standardUserDefaults] setObject:language forKey:AppLanguage];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
+    //    appdelegate.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"vc"];
+    
+    appdelegate.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] // 在main bundle中（当bundle参数值设置为nil时）获取名为Main的故事板
+                                             instantiateInitialViewController];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

@@ -1,0 +1,77 @@
+[
+  {
+    "ZITEMNAME" : "细胞外液",
+    "ZUNIT" : "<null>",
+    "ZITEMID" : "15"
+  },
+  {
+    "ZITEMNAME" : "细胞内液",
+    "ZUNIT" : "<null>",
+    "ZITEMID" : "16"
+  },
+  {
+    "ZITEMNAME" : "总水分",
+    "ZUNIT" : "kg",
+    "ZITEMID" : "2"
+  },
+  {
+    "ZITEMNAME" : "蛋白质",
+    "ZUNIT" : "%",
+    "ZITEMID" : "6"
+  },
+  {
+    "ZITEMNAME" : "骨质重",
+    "ZUNIT" : "kg",
+    "ZITEMID" : "7"
+  },
+  {
+    "ZITEMNAME" : "体重",
+    "ZUNIT" : "kg",
+    "ZITEMID" : "1"
+  },
+  {
+    "ZITEMNAME" : "脂肪",
+    "ZUNIT" : "%",
+    "ZITEMID" : "5"
+  },
+  {
+    "ZITEMNAME" : "肌肉",
+    "ZUNIT" : "kg",
+    "ZITEMID" : "8"
+  },
+  {
+    "ZITEMNAME" : "骨骼肌",
+    "ZUNIT" : "kg",
+    "ZITEMID" : "9"
+  },
+  {
+    "ZITEMNAME" : "血压",
+    "ZUNIT" : "<null>",
+    "ZITEMID" : "10"
+  },
+  {
+    "ZITEMNAME" : "身体年龄",
+    "ZUNIT" : "<null>",
+    "ZITEMID" : "11"
+  },
+  {
+    "ZITEMNAME" : "健康得分",
+    "ZUNIT" : "<null>",
+    "ZITEMID" : "12"
+ },
+ {
+    "ZITEMNAME" : "躯干脂肪",
+    "ZUNIT" : "<null>",
+    "ZITEMID" : "13"
+ },
+ {
+ "ZITEMNAME" : "水分率",
+ "ZUNIT" : "<null>",
+ "ZITEMID" : "14"
+ },
+ {
+ "ZITEMNAME" : "内脏脂肪率",
+ "ZUNIT" : "<null>",
+ "ZITEMID" : "4"
+ }
+]

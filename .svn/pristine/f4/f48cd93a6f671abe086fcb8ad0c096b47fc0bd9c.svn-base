@@ -1,0 +1,392 @@
+//
+//  FamilyManagementViewController.m
+//  TFHealth
+//
+//  Created by 王帅 on 17/3/13.
+//  Copyright © 2017年 studio37. All rights reserved.
+//
+
+#import "FamilyManagementViewController.h"
+#import "UIViewController+MMDrawerController.h"
+#import "FamilyManagementCollectionViewCell.h"
+#import "AppDelegate.h"
+#import "Members.h"
+#import "User.h"
+#import "HealthStatusViewController.h"
+#import "SportsRecordsViewController.h"
+#import "CXAlertView.h"
+#import "User_Comprehensive_Eval.h"
+#import "UserCoreValues.h"
+#import "DalidFood.h"
+#import "AppCloundService.h"
+#import "MBProgressHUD.h"
+
+//宏是完全替换
+#define CellWidthSpace   30
+#define CellWidth       ([UIScreen mainScreen].bounds.size.width - (4 * CellWidthSpace))/3
+#define CellLineSpace   20
+#define CellIdentifier @"userIcoCollectionViewCell"
+
+@interface FamilyManagementViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,ServiceObjectDelegate>{
+    UICollectionView *collectionV;
+    NSMutableArray *userIcons,*userNames,*userIds;//用户头像  用户昵称    用户id（最后添加成员id为0
+    AppDelegate *appdelegate;
+    BOOL isDelete;//1、删除  2、完成
+    NSInteger deleteIndex;//删除用户所在下标
+    MBProgressHUD *loading;//加载控件
+}
+
+@end
+
+@implementation FamilyManagementViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    //设置背景
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
+    isDelete = NO;
+    //设置导航栏
+    [self initWithNavigationItem];
+    //数组
+    [self initWithArray];
+    //网格
+    [self initWithCollectionView];
+   
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self initWithArray];
+    [collectionV reloadData];
+}
+
+#pragma mark - 设置导航栏
+-(void)initWithNavigationItem{
+    UINavigationBar *bar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:CustomLocalizedString(@"familyMembers", nil)];
+    UIButton *left = [UIButton buttonWithType:UIButtonTypeCustom];
+    [left setFrame:CGRectMake(0, 2, 28, 28)];
+    [left setImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [left addTarget:self action:@selector(backBtn:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:left];
+    UIButton *right = [UIButton buttonWithType:UIButtonTypeCustom];
+    [right setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 20, 2, 65, 28)];
+    [right setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+    [right setTitle:CustomLocalizedString(@"delete", nil) forState:UIControlStateNormal];
+    [right setTitle:CustomLocalizedString(@"complete", nil) forState:UIControlStateSelected];
+    [right addTarget:self action:@selector(rightBtn:) forControlEvents:UIControlEventTouchUpInside];
+    right.titleLabel.font = [UIFont systemFontOfSize:14];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:right];
+    [item setLeftBarButtonItem:leftButton];
+    [item setRightBarButtonItem:rightButton];
+    [bar pushNavigationItem:item animated:NO];
+    [self.view addSubview:bar];
+}
+
+//导航栏返回按钮
+-(void)backBtn:(UIButton*)sender{
+    
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+}
+
+//导航栏右侧编辑删除按钮
+-(void)rightBtn:(UIButton*)sender{
+    
+    sender.selected = !sender.isSelected;
+    isDelete = !isDelete;
+    [collectionV reloadData];
+}
+
+#pragma mark - 数组内容
+-(void)initWithArray{
+    userIcons = [NSMutableArray array];
+    userNames = [NSMutableArray array];;
+    userIds = [NSMutableArray array];
+    
+    appdelegate =(AppDelegate*) [[UIApplication sharedApplication] delegate];
+    NSString *uId = [NSString stringWithFormat:@"%d",appdelegate.userId];
+    
+    //添加主账号
+    NSArray *mainUsers = [User MR_findByAttribute:@"userId" withValue:[NSNumber numberWithInt:appdelegate.userId] inContext:[NSManagedObjectContext MR_defaultContext]];
+    User *mainUser = mainUsers[0];
+    if (mainUser.userIco != nil) {
+        [userIcons addObject:mainUser.userIco];
+    }else{
+        [userIcons addObject:@"userico"];
+    }
+    
+    [userNames addObject:[mainUsers[0] nickName]];
+    [userIds addObject:[NSString stringWithFormat:@"%d",mainUser.userId.intValue]];
+    
+    //添加家庭成员
+    NSArray *AllUsers = [Members MR_findByAttribute:@"appUserId" withValue:uId inContext:[NSManagedObjectContext MR_defaultContext]];
+    NSArray *users = [AllUsers sortedArrayUsingComparator:^NSComparisonResult(Members *p1, Members *p2){
+        return [p1.userId compare:p2.userId];
+    }];
+    
+    for (Members *member in users) {
+        if (member.memberType.intValue==1) {//访客
+            continue;
+        }
+         //家人
+        User *user = [User MR_findFirstByAttribute:@"userId" withValue:member.userId inContext:[NSManagedObjectContext MR_defaultContext]];
+        if (user!=nil && user.nickName != nil && user.nickName!= NULL && ![user.nickName isEqualToString:@""]) {
+            if (user.userIco == nil) {
+                [userIcons addObject:@"userico"];
+//                [userIcons addObject:UIImagePNGRepresentation([UIImage imageNamed:@"userico"])];
+            } else {
+                [userIcons addObject:user.userIco];
+            }
+            [userNames addObject:user.nickName];
+            [userIds addObject:[NSString stringWithFormat:@"%d",user.userId.intValue]];
+        }
+    }
+    
+    //最后一项：添加成员（id为0）
+    [userIcons addObject:@"add"];
+    [userNames addObject:CustomLocalizedString(@"addMember", nil)];
+    [userIds addObject:[NSString stringWithFormat:@"%d",0]];
+}
+
+#pragma mark - 网格
+-(void)initWithCollectionView{
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    
+    collectionV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64) collectionViewLayout:flowLayout];
+    collectionV.delegate = self;
+    collectionV.dataSource = self;
+    [collectionV registerClass:[FamilyManagementCollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
+    collectionV.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:collectionV];
+}
+
+#pragma mark UICollectionViewDelegateFlowLayout
+//设置每个Cell 的宽高
+- (CGSize)collectionView:(UICollectionView *)collectionView  layout:(nonnull UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    return CGSizeMake(CellWidth, CellWidth + 40);
+}
+//设置Cell分区 之间的间距 （上，左，下，右）
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(CellLineSpace, CellWidthSpace, CellLineSpace, CellWidthSpace);
+}
+//设置每个cell之间的上下距离
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return CellLineSpace;
+}
+//设置每个cell之间的横向距离
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return CellWidthSpace;
+}
+
+#pragma mark UICollectionViewDataSource
+//设置九宫格Cell 的个数
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return userNames.count;
+}
+//设置Cell
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    FamilyManagementCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    //设置用户头像(最后添加成员是自定义本地图片)
+    if (indexPath.row == userIcons.count - 1) {
+        cell.userIco.image = [UIImage imageNamed:userIcons[indexPath.row]];
+    } else {
+        if ([userIcons[indexPath.row] isKindOfClass:[NSData class]]) {
+            cell.userIco.image = [UIImage imageWithData:userIcons[indexPath.row]];
+        }else{
+            cell.userIco.image = [UIImage imageNamed:userIcons[indexPath.row]];
+        }
+        
+    }
+    
+    //设置右下角选中图片(最后添加成员没有选中功能)
+    if ([userIds[indexPath.row] intValue] == appdelegate.user.userId.intValue) {
+        cell.choosedImage.hidden = NO;//当前用户显示选中状态
+    } else {
+        cell.choosedImage.hidden = YES;
+    }
+    
+    //右上角删除小图片(主账号和最后添加成员没有删除权限)
+    if (!(indexPath.row == 0 || indexPath.row == userNames.count - 1)) {
+        if (isDelete) {
+            cell.deleteBtn.hidden = NO;
+        }else{
+            cell.deleteBtn.hidden = YES;
+        }
+    }else{
+        cell.deleteBtn.hidden = YES;
+    }
+    cell.deleteBtn.tag = indexPath.row;
+    [cell.deleteBtn addTarget:self action:@selector(deleteMember:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //用户昵称
+    cell.userName.text = userNames[indexPath.row];
+    
+    return cell;
+}
+
+#pragma mark UICollectionViewDelegate
+//设置点击 Cell的点击事件
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];//取消选中
+    
+    //非编辑删除状态才可点击操作，删除状态不可点击
+    if (isDelete) {//编辑删除状态
+        
+    }else{//非编辑状态
+        
+        if (indexPath.row == userIcons.count - 1){//添加成员
+            //跳转到完善信息界面(完善信息界面点保存跳转到主界面，点返回按钮返回家庭成员界面)
+            SportsRecordsViewController * srvc = [[UIStoryboard storyboardWithName:@"Account" bundle:nil] instantiateViewControllerWithIdentifier:@"WriteFamilyInfNavViewController"];
+            [self presentViewController:srvc animated:YES completion:nil];
+        }else{//点击现有家庭成员，跳到主界面健康状态界面
+            int focusRow = (int)[indexPath row];
+            NSString *uid = [userIds objectAtIndex:focusRow];
+            
+            User *_user = [User MR_findFirstByAttribute:@"userId" withValue:uid inContext:[NSManagedObjectContext MR_defaultContext]];
+            if (_user!=nil) {
+                appdelegate.user=_user;
+            }
+            
+            HealthStatusViewController * srvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HealthStatusNavViewController"];
+            //创建动画
+            CATransition *animation = [CATransition animation];
+            //设置运动轨迹的速度
+            animation.timingFunction = UIViewAnimationCurveEaseInOut;
+            //设置动画类型为立方体动画
+            animation.type = @"push";
+            //设置动画时长
+            animation.duration =0.3f;
+            //设置运动的方向
+            animation.subtype =kCATransitionFromLeft;
+            //控制器间跳转动画
+            [[UIApplication sharedApplication].keyWindow.layer addAnimation:animation forKey:nil];
+            [self.mm_drawerController setCenterViewController:srvc withCloseAnimation:YES completion:nil];
+            
+        }
+    }
+    
+}
+
+//点击红色删除按钮
+-(void)deleteMember:(UIButton*)sender{
+    if (!(sender.tag == 0 || sender.tag == userNames.count - 1)) {
+        
+        if ([userIds[sender.tag] intValue] == appdelegate.user.userId.intValue) {
+            [self initWithCustomAlertTitle:CustomLocalizedString(@"tip", nil) message:CustomLocalizedString(@"CurrentUserNotDel", nil)];
+        }else{
+            CXAlertView *alertViewMe = [[CXAlertView alloc] initWithTitle:CustomLocalizedString(@"tip", nil) message:CustomLocalizedString(@"DelSelectedUser", nil) cancelButtonTitle:nil];
+            [alertViewMe addButtonWithTitle:CustomLocalizedString(@"cancel", nil)
+                                       type:CXAlertViewButtonTypeCancel
+                                    handler:^(CXAlertView *alertView, CXAlertButtonItem *button) {
+                                        [alertView dismiss];
+                                    }];
+            [alertViewMe addButtonWithTitle:CustomLocalizedString(@"yes", nil)
+                                       type:CXAlertViewButtonTypeDefault
+                                    handler:^(CXAlertView *alertView, CXAlertButtonItem *button) {
+                                        [alertView dismiss];
+                                        //加载控件
+                                        loading = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                                        loading.dimBackground = YES;
+                                        loading.animationType = 2;
+                                        
+                                        deleteIndex = sender.tag;
+                                        
+                                        AppCloundService* s= [[AppCloundService alloc] initWidthDelegate:self];
+                                        [s deleteMemberWithMemberId:[[userIds objectAtIndex:sender.tag] intValue]];
+                                        
+                                        
+                                    }];
+            
+            
+            
+            [alertViewMe show];
+        }
+        
+    }
+}
+
+-(void)initWithCustomAlertTitle:(NSString*)title message:(NSString*)message{
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:CustomLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil];
+    [controller addAction:actionOK];
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+-(void)serviceSuccessed:(NSDictionary*)keyValues pMethod:(NSString*)method{
+    //隐藏加载控件
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [loading hide:YES];
+        
+    });
+    if ([method isEqualToString:@"DeleteUserMembersJson"]) {
+        if ([keyValues[@"res"] intValue] == 1) {
+            NSLog(@"删除成功");
+            NSString *uid = [userIds objectAtIndex:deleteIndex];
+            
+            BOOL user_del_result = [User MR_deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"userId==%@",uid] inContext:[NSManagedObjectContext MR_defaultContext]];
+            
+            BOOL member_del_result = [Members MR_deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"userId==%@",uid] inContext:[NSManagedObjectContext MR_defaultContext]];
+            
+            BOOL iteminfo_del_result = [User_Item_Info MR_deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"userId==%@",uid] inContext:[NSManagedObjectContext MR_defaultContext]];
+            
+            BOOL comp_del_result = [User_Comprehensive_Eval MR_deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"userId==%@",uid] inContext:[NSManagedObjectContext MR_defaultContext]];
+            
+            BOOL core_del_result = [UserCoreValues MR_deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"userId==%@",uid] inContext:[NSManagedObjectContext MR_defaultContext]];
+            
+            BOOL food_del_result = [DalidFood MR_deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"userId==%@",uid] inContext:[NSManagedObjectContext MR_defaultContext]];
+
+            
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            
+            NSString *uId = [NSString stringWithFormat:@"%d",appdelegate.userId];
+            User *_user = [User MR_findFirstByAttribute:@"userId" withValue:uId inContext:[NSManagedObjectContext MR_defaultContext]];
+            if (_user!=nil) {
+                
+                appdelegate.user=_user;
+                
+                //发送通知更新主界面
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshMainUI" object:_user];
+            }
+            
+            //重新获取数组刷新界面
+            [self initWithArray];
+            [collectionV reloadData];
+        }
+    }
+}
+
+-(void)serviceFailed:(NSString*) message pMethod:(NSString*)method{
+    //隐藏加载控件
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [loading hide:YES];
+        
+    });
+    
+    [self initWithCustomAlertTitle:CustomLocalizedString(@"tip", nil) message:CustomLocalizedString(@"DeleteFailed", nil)];
+    NSLog(@"删除失败");
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

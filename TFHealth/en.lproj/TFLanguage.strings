@@ -1,0 +1,309 @@
+/* 
+  TFLanguage.strings
+  TFHealth
+
+  Created by 王帅 on 17/3/22.
+  Copyright © 2017年 studio37. All rights reserved.
+*/
+
+//左侧表格
+"labelBodyAssessment" = "BodyAssessment";
+"labelSportsMate" = "SportsMate";
+"labelDiteManagement" = "DiteManagement";
+"labelInterimReport" = "InterimReport";
+"labelRankingList" = "RankingList";
+"labelHelp" = "Help";
+"labelTestVersion" = "TestVersion";
+"labelHotline" = "Hotline";
+
+//右侧表格
+"labelPersonalSetting" = "PersonalSetting";
+"labelFamilyMembersManagement" = "FamilyMembersManagement";
+"labelGuestMode" = "GuestMode";
+"labelModifyDatabase" = "ModifyData";
+"labelSwitchLanguage" = "SwitchLanguage";
+"labelExitAccount" = "LogOut";
+
+//主页（体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；体脂率：深度分析labelPBF；骨质：深度分析labelBone；蛋白质：深度分析labelProtein）
+"labelYaoYiYao" = "Shake,Shake";
+"labelBodyScore" = "BodyScore";//身体评估界面状态指数；
+"labelHistoryCurve" = "HistoryCurve";//历史曲线界面主标题
+"labelShare" = "Share";
+"labelLow" = "Low";
+"labelNormal" = "Normal";
+"labelHigh" = "High";
+"noData" = "noData";
+"nothing" = "nothing";
+
+//主页的分享界面
+"labelMicroBlog" = "MicroBlog";
+"labelQzone" = "Qzone";
+"labelFriendCircle" = "FriendCircle";
+"labelWetChat" = "WetChat";
+
+//历史曲线（历史曲线：主页labelHistoryCurve；体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；脂肪：深度分析labelFat）
+"labelWeek" = "Week";
+"labelMonth" = "Month";
+"labelSeason" = "Season";
+"labelYear" = "Year";
+
+
+//深度分析
+"labelDeepAnalysis" = "DeepAnalysis";
+"labelNormalItem" = "According to the test,following is the normal item. Click to see the details.";
+"labelUnormalItem" = "According to the test,following is the unnormal item. Click to see the details.";
+"labelWeight" = "Weight";//主页体重；阶段报告体重
+"labelPBF" = "PBF";//主页体脂率；阶段报告体脂率
+"labelBone" = "Bone";//主页骨质；
+"labelProtein" = "Protein";//主页蛋白质；
+"labelWater" = "Water";//主页水分；历史曲线界面水分
+"labelMuscle" = "Muscle";//主页肌肉；历史曲线界面肌肉
+"labelFat" = "Fat";//历史曲线脂肪
+"labelVisceralFatAnalysis" = "VisceralFat";
+"labelSMM" = "SMM";
+"labelBMIGrade" = "BMIGrade";
+
+//身体评估（状态指数：主页labelBodyScore）
+"labelAssessmentReport" = "PhysicalReport";
+"labelBodyAge" = "BodyAge";
+"labelBasalMetabolicRate" = "BasalMetabolicRate";
+"labelTestingDate" = "TestingDate";
+"labelComprehensiveAssessment" = "ComprehensiveAssessment";
+"labelWorkoutSuggestion" = "WorkoutSuggestion";
+"labelNutritionSuggestion" = "NutritionSuggestion";
+"labelBreakfast" = "Breakfast";
+"labelLunch" = "Lunch";
+"labelDinner" = "Dinner";
+"standard" = "standard";
+"littleLow" = "littleLow";
+"littleHigh" = "littleHigh";
+"idealWeight" = "idealWeight";
+"FFM" = "FFM";
+"WeightControl" = "WeightControl";
+"FatControl" = "FatControl";
+"MuscleControl" = "MuscleControl";
+"thin" = "thin";
+"lowFat" = "lowFat";
+"athletic" = "athletic";
+"lightlyMuscled" = "lightlyMuscled";
+"fit" = "fit";
+"muscular" = "muscular";
+"invisibleFat" = "invisibleFat";
+"fatty" = "fatty";
+"obese" = "obese";
+
+//膳食管理
+//选择膳食
+"foodNutritionalReservoir" = "foodReservoir";
+"myDiet" = "myDiet";
+"userDefined" = "user-defined";
+//添加膳食
+"breakfast" = "breakfast";
+"lunch" = "lunch";
+"dinner" = "dinner";
+"snacks" = "snacks";
+"keywordSearch" = "Enter the keyword to search";
+
+//阶段报告(阶段报告标题：左侧表格labelInterimReport；体重：深度分析labelWeight；体脂率：深度分析labelPBF)
+"labelDietReport" = "DietReport";
+"labelExerciseReport" = "ExerciseReport";
+
+//排行榜(排行榜标题：左侧表格labelRankingList)
+"labelRankingListContent1" = "Your body condition defeated %@ %% users";
+"labelRankingListContent2" = "%% users";
+
+//切换语言
+"moreLanguage" = "Language";
+"save" = "save";
+
+//家庭成员管理
+"familyMembers" = "familyMembers";
+"delete" = "delete";
+"complete" = "complete";
+"addMember" = "addMember";
+
+"cancel" = "cancel";
+"OK" = "OK";
+"yes" = "yes";
+"call" = "call";
+"update" = "update";
+"Sports" = "Sports";
+"Record" = "Record";
+"tip" = "tip";
+
+//深度分析
+"underweight" = "underweight";
+"overweight" = "overweight";
+"ObeseClass1" = "Obese Class 1";
+"ObeseClass2" = "Obese Class 2";
+"ObeseClass3" = "Obese Class 3";
+"Exceeding" = "Exceeding";
+"BMIGrade" = "BMI Grade is ";
+"PleaseKeep" = " belongs to the normal range. Please keep";
+"deficient" = " is deficient. Pleas follow the nutrition advice to keep reasonable diet to reach the standard.";
+"excessive" = " is excessive. Please follow the exercise suggestion to exercise to reach the standard.";
+"BoneRange" = "Greater than %.1f belongs to the normal bone range. Please keep.";
+"excessiveFat" = "Visceral fat is excessive.Pleas follow the nutrition advice to keep reasonable diet to reach the standard.";
+"ExerciseTips" = "Exercise tips";
+"Total" = "Total:";
+"Subtotal" = "Subtotal:";
+"calories" = "cal";
+"Kcalories" = "Kcal";
+
+//阶段报告
+"report_desc" = "You setted target weight to %.1fkg at %@.";
+"food_desc" = "From %@ to %@, you absorbed %.f calories totally, with an average daily intake of %.f calories. Human's health inhalation is 600-800 calories.";
+"sport_desc" = "From %@ to %@, you carried out %d time sports, burning a total of %.f calories.";
+"todayCalories" = "Today you intaked %.1f calories.";
+
+//帮助
+"instructions" = "instructions";
+"titleLabel1" = "One、instructions";
+"helpInfoItem1" = "comprehensively monitor the 21 kinds of  human health data;";
+"helpInfoItem2" = "provide motion monitoring and sleep monitoring;";
+"helpInfoItem3" = "Smart Health Cloud offers you professional sports advice and nutritional dietary advice.";
+"helpInfoItem4" = "Use Flow:";
+"helpInfoItemA" = "A．download and install App;";
+"helpInfoItemB" = "B．register and log in App;";
+"helpInfoItemC" = "C．Shake your phone,stand on the scale to test, and get down from the scale when complete the test;";
+"helpInfoItemD" = "D．Check the 21 kinds of health data, as well as the exercise suggestion and diet suggestion;";
+"helpInfoItemE" = "E．Use bracelet for exercise and sleep monitoring.";
+
+"titleLabel2" = "Two、register and login";
+"helpLoginItemA" = "A．Enter the phone number or email address, fill in the password;";
+"helpLoginItemB" = "B．fill in personal information (height, age, gender);";
+"helpLoginItemC" = "C．Choose your user type:bracelet, body composition scale or both;";
+"helpLoginItemD" = "D．Registration is completed.Please enter the user name and password, and then login.";
+
+"titleLabel3" = "Three、test";
+"helpTestItem1" = "1．Open the bluetooth.";
+"helpTestItem1A" = "The bluetooth default for system automatically open.After opening,bluetooth icon will appear at the top right of the phone.";
+"helpTestItem1B" = "bluetooth is not open, please turn on it manually. The way to open the bluetooth:'settings' - 'connection' - 'Bluetooth'. Open the bluetooth.";
+"helpTestItem2" = "2．Open and login the App to enter the test interface. Shake the phone, and then stand on the scale, and get dowm from the scale when complete the test. Check the testing data and intelligent data analysis through the App.";
+
+"helpWarnItem1" = "warning:";
+"helpWarnItem2" = "Do not use for person with cardiac pacemakers and  metal fixtures within their body!";
+"helpWarnItem3" = "Pregnant women are banned.";
+"helpWarnItem4" = "Suitable age:7-99 years old.";
+
+"TodayMeal" = "Today's meal";
+"FoodBreakfast" = "breakfast";
+"FoodLunch" = "lunch";
+"FoodDinner" = "dinner";
+"extraMeal" = "extra meal";
+"ChooseMeal" = "choose meal";
+"UnitcCalories" = "unitcCalories";
+"AddDietary" = "add dietary";
+"ModifyDietary" = "modify dietary";
+"AllCategories" = "All categories";
+"custom" = "custom";
+"Hotline" = "Online Customer Service：00:00-12:30";
+
+"NoReach" = "not reach";
+"Reach" = "reach";
+"Connecting" = "connecting…";
+"Time" = "time";
+"Steps" = "steps";
+"kilometre" = "kilometre";
+"Minute" = "minute";
+"Sleep" = "sleep";
+"Step" = "step";
+"Target" = "target";
+"Hour" = "hour";
+"StateConnected" = "state:connected";
+"StatedisConnected" = "state:disconnected";
+"DeepSleep" = "deep sleep ";
+"LightSleep" = "light sleep ";
+"BeingSynchronized" = "BeingSynchronized...";
+"SleepDuration" = "SleepDuration";
+"AcquisitionPower" = "acquisition power";
+"description" = "Data is incomplete, no analysis of data, please carry out testing";
+"NoData" = " no data";
+"NoTestData" = "No test data, please check first";
+
+
+"NameFormatNotCorrect" = "Your username is not formatted correctly. Please use the correct email or mobile phone number as your username.";
+"PwdLengthNotCorrect" = "Your password length is incorrect and the correct length is 6-12 characters.";
+"LoginFailed" = "Login failed, please check your user password is correct.";
+"connectNetworkFails" = "If the connection network fails, check that the network connection is normal";
+"BraceletUser" = "braceletUser";
+"ScaleUser" = "scaleUser";
+"PWDNotUnified" = "Your two passwords are not unified, please re-enter.";
+"UserNameExists" = "The user name you registered already exists. Please replace the other user.";
+"RegistFailed" = "Registration failed, please check that the information you entered is correct and try again.";
+
+"AlertBody" = "You set the physical test time is up, please test!";
+
+"FillFoodName" = "Please fill in the name of the food";
+"FillCorrectUnit" = "Please fill in the correct unit";
+"EmptyAmount" = "The amount can not be empty, and the number of integers";
+"AddMealSuccess" = "To add a meal to success, you can return for other operations";
+"AddMealFailure" = "Add a meal failure, you can try again later";
+"ModifyMealSuccess" = "Modify the meal successfully, you can return to other operations";
+"ModifyMealFails" = "To change the meal fails, you can try again late";
+"EmptyMovementTime" = "The movement time can not be empty";
+"UnitIntakeCalorie" = "Unit intake calorie number for the number of plastic, the value of the format is wrong, please check after the submission";
+"AddSportSuccess" = "To add a sport item successfully, you can go back and do something else";
+"SelectDevice" = "Please select at least one of the device types you are using.";
+"ChooseThreeSports" = "Please choose three sports items you usually like.";
+"CurrentUserNotDel" = "The current user can not be deleted";
+"DelSelectedUser" = "Are you sure you want to delete selected users and their local related test information?";
+"DeleteFailed" = "Delete failed, please check your network";
+"ExistsMealName" = "The meal name already exists";
+"AddMealToNut" = "Your meal has been successfully added to the food nutrient library.";
+"AddCustomMealFail" = "Add a custom meal failure, please try again later";
+"AdFoodFaiInt" = "Add food failed, please check the internet connection";
+"CalFormatWrong" = "Unit intake calorie value format is wrong, please check after submission";
+"ConBraceletFirst" = "Please connect the bracelet first to get the power information.";
+"ConBraceletRadSleep" = "You need to connect the bracelet before you can read the sleep information.";
+"DisconBra" = "Do you really want to disconnect from the bracelet?";
+"ConBraBeforeSleep" = "Before starting to sleep, please connect the bracelet first.";
+"StopSleep" = "Is currently sleeping, do you really want to stop sleep?";
+"IsEnd" = "Is ending ...";
+"UpdateFirmware" = "Do you really detect and update the firmware?";
+"NewVersion" = "New version comes";
+"LatestVersion" = "You are currently the latest version";
+"PersonSetSuccess" = "Your personal settings have been saved successfully.";
+"PerSetFaiCheckInfo" = "Personal settings save failed, please check your information is correct.";
+"WeightValueWrong" = "Your weight target is incorrect. Please enter a value between 10 and 200.";
+"WeightGreater" = "Your weight target is greater than or equal to the current weight and can not be weight loss.";
+"WeightReduction" = "Your week weight reduction target is incorrect. Please enter a value between 0.1 and 0.9.";
+"DietaryWeight" = "Your dietary weight loss target is not correct, exercise weight loss and dietary weight loss should be two total of 100.";
+"SleepTimeWrong" = "Your sleep time is not correct, the correct duration should be between 5-10 hours.";
+"StepGoalWrong" = "Your goal is incorrect and your goal is the number of steps you plan to take.";
+"RemindTimeWrong" = "You remind the time is not correct, the normal format such as 08:30.";
+"EveryDayTime" = "%d o'clock every day";
+"DelSelectUser" = "Do you really want to delete selected users and their local related test information?";
+"SubSportFaile" = "Submitting a custom sport item failed";
+"OnlyDleTodayDiet" = "Can only delete today's diet";
+"OnlyModTodayDiet" = "Can only modify today's diet";
+"DelDietary" = "Do you really want to delete the dietary record?";
+"FillCorrectName" = "Please fill in the correct nickname or name";
+"LongNickName" = "Nickname can not be longer than 12 characters";
+"FillCorrectAge" = "Please fill in the correct age information.";
+"ApplicableAge" = "Applicable age: 7-99 years old";
+"FillCorrectHeight" = "Please fill in the correct height information.";
+"ValidHeight" = "Please enter valid height";
+"SaveDataFail" = "To save the data failed, please check that the information you have filled out is correct and check the network";
+"AddFamilyFail" = "To add a family failure, please check that the information you filled out is correct and try again.";
+"ModyDataFaiNet" = "User data modification failed, please check your network connection is normal.";
+"ProfileFailInfo" = "The user profile has failed. Please check that the information you entered is correct and retry.";
+"ImpDaFaiNet" = "Improve data failure, please check your network connection is normal.";
+"DataFaiInfo" = "If the data fails, please check that the information you have filled out is correct and retry.";
+"DataFailInfoAndNet" = "To save the data failed, please check that the information you have filled out is correct and check the network";
+"AddVisitFailInfo" = "Add visitors failed, please check that the information you filled out is correct and try again.";
+"alreadyConnect" = "connected,begin testing.";
+"QueryMoreData" = "Unable to query more than today's data";
+"ReQuery" = "Query failed, please re-query";
+"ContainSpaces" = "Nickname can not contain spaces.";
+"DigitsOrLetters" = "The password consists of 6-12 digits or letters.";
+"WeightTargetNFormat" = "Your weight target format is incorrect. Please re-enter it.";
+"WeekWeightNFormat" = "Your week weight loss format is incorrect, please re-enter.";
+"WeightLossExeNFormat" = "Your weight loss through exercise format is incorrect. Please re-enter it.";
+"WeightLossDietNFormat" = "Your weight loss through diet format is incorrect. Please re-enter it.";
+"SleepLengthNFormat" = "Your SleepLength is not formatted correctly. Please re-enter it.";
+"GoalSettingNFormat" = "Your GoalSetting is not formatted correctly. Please re-enter it.";
+"Maximum" = "Has been put to the maximum";
+"ConNetFailed" = "The connection network failed. Check that your network connection is normal.";
+"AnaNutriFailed" = "Analysis nutrition advice failed, please check your network connection is normal.";
+

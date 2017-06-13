@@ -1,0 +1,311 @@
+/* 
+  TFLanguage.strings
+  TFHealth
+
+  Created by 王帅 on 17/3/22.
+  Copyright © 2017年 studio37. All rights reserved.
+*/
+
+
+//左侧表格
+"labelBodyAssessment" = "身体评估";
+"labelSportsMate" = "运动伴侣";
+"labelDiteManagement" = "膳食管理";
+"labelInterimReport" = "阶段报告";
+"labelRankingList" = "排行榜";
+"labelHelp" = "帮助";
+"labelTestVersion" = "检测版本";
+"labelHotline" = "服务热线";
+
+//右侧表格
+"labelPersonalSetting" = "个人设定";
+"labelFamilyMembersManagement" = "家庭成员管理";
+"labelGuestMode" = "访客模式";
+"labelModifyDatabase" = "修改资料";
+"labelSwitchLanguage" = "切换语言";
+"labelExitAccount" = "退出账户";
+
+//主页（体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；体脂率：深度分析labelPBF；骨质：深度分析labelBone；蛋白质：深度分析labelProtein）
+"labelYaoYiYao" = "摇一摇再上秤";
+"labelBodyScore" = "身体状态指数";//身体评估界面状态指数；
+"labelHistoryCurve" = "历史曲线";//历史曲线界面主标题；
+"labelShare" = "分享";
+"labelLow" = "低";
+"labelNormal" = "正常";
+"labelHigh" = "高";
+"noData" = "无数据";
+"nothing" = "无";
+
+//主页的分享界面
+"labelMicroBlog" = "微博";
+"labelQzone" = "QQ空间";
+"labelFriendCircle" = "朋友圈";
+"labelWetChat" = "微信好友";
+
+//历史曲线（历史曲线：主页labelHistoryCurve；体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；脂肪：深度分析labelFat）
+"labelWeek" = "周";
+"labelMonth" = "月";
+"labelSeason" = "季";
+"labelYear" = "年";
+
+//深度分析
+"labelDeepAnalysis" = "深度分析";
+"labelNormalItem" = "根据测试，以下为合格项，点击可查看详细";
+"labelUnormalItem" = "根据测试，以下为不合格项，点击可查看详细";
+"labelWeight" = "体重";//主页体重；阶段报告体重
+"labelPBF" = "体脂率";//主页体脂率；阶段报告体脂率
+"labelBone" = "骨质";//主页骨质；
+"labelProtein" = "蛋白质";//主页蛋白质；
+"labelWater" = "水分";//主页水分；历史曲线界面水分
+"labelMuscle" = "肌肉";//主页肌肉；历史曲线界面肌肉
+"labelFat" = "脂肪";//历史曲线脂肪
+"labelVisceralFatAnalysis" = "内脏脂肪";
+"labelSMM" = "骨骼肌";
+"labelBMIGrade" = "肥胖等级";
+
+
+//身体评估（状态指数：主页labelBodyScore）
+"labelAssessmentReport" = "评估报告";
+"labelBodyAge" = "身体年龄";
+"labelBasalMetabolicRate" = "基础代谢";
+"labelTestingDate" = "测试日期";
+"labelComprehensiveAssessment" = "综合评定";
+"labelWorkoutSuggestion" = "运动建议";
+"labelNutritionSuggestion" = "营养建议";
+"labelBreakfast" = "早餐";
+"labelLunch" = "午餐";
+"labelDinner" = "晚餐";
+"standard" = "标准";
+"littleLow" = "偏低";
+"littleHigh" = "偏高";
+"idealWeight" = "标准体重";
+"FFM" = "去脂体重";
+"WeightControl" = "体重控制量";
+"FatControl" = "脂肪控制量";
+"MuscleControl" = "肌肉控制量";
+"thin" = "消瘦型";
+"lowFat" = "低脂肪型";
+"athletic" = "运动员型";
+"lightlyMuscled" = "肌肉不足型";
+"fit" = "健康匀称型";
+"muscular" = "超重肌肉型";
+"invisibleFat" = "隐性肥胖型";
+"fatty" = "脂肪过多型";
+"obese" = "肥胖型";
+
+//膳食管理
+//选择膳食
+"foodNutritionalReservoir" = "食品营养库";
+"myDiet" = "我的项目";
+"userDefined" = "自定义";
+//添加膳食
+"breakfast" = "早餐";
+"lunch" = "午餐";
+"dinner" = "晚餐";
+"snacks" = "加餐";
+"keywordSearch" = "输入关键字搜索";
+
+//阶段报告(阶段报告标题：左侧表格labelInterimReport；体重：深度分析labelWeight；体脂率：深度分析labelPBF)
+"labelDietReport" = "膳食报告";
+"labelExerciseReport" = "运动报告";
+
+//排行榜(排行榜标题：左侧表格labelRankingList)
+"labelRankingListContent1" = "您的身体状况击败了全国%@%%的用户";
+"labelRankingListContent2" = "%%的用户";
+
+//切换语言
+"moreLanguage" = "多语言";
+"save" = "保存";
+
+//家庭成员管理
+"familyMembers" = "家庭成员";
+"delete" = "删除";
+"complete" = "完成";
+"addMember" = "添加成员";
+
+"cancel" = "取消";
+"OK" = "好的";
+"yes" = "是的";
+"call" = "呼叫";
+"update" = "更新";
+"Sports" = "运动";
+"Record" = "记录";
+"tip" = "提示";
+
+//深度分析
+"underweight" = "较轻";
+"overweight" = "超重";
+"ObeseClass1" = "肥胖一级";
+"ObeseClass2" = "肥胖二级";
+"ObeseClass3" = "肥胖三级";
+"Exceeding" = "超标";
+"BMIGrade" = "肥胖等级为";
+"PleaseKeep" = "在正常范围内，请保持";
+"deficient" = "偏低,请根据营养建议合理饮食,以便达标";
+"excessive" = "偏高,请根据运动建议坚持运动,以便达标";
+"BoneRange" = "骨质大于%.1f均属正常范围内,请保持";
+"excessiveFat" = "内脏脂肪超标,请根据营养建议合理饮食,以便达标";
+"ExerciseTips" = "运动小贴士";
+"Total" = "合计：";
+"Subtotal" = "小计：";
+"calories" = "卡路里";
+"Kcalories" = "千卡";
+
+//阶段报告
+"report_desc" = "您%@设定体重目标%.1fkg。";
+"food_desc" = "在%@到%@期间，您共摄入了%.f卡路里热量，平均每天的摄入量为%.f卡路里，人体健康摄入量为600-800卡路里。";
+"sport_desc" = "在%@到%@期间，您共进行了%d次运动，共消耗%.f卡路里热量，为了健康，请您多参加体育运动。";
+"todayCalories" = "今日摄入 %.1f 卡路里";
+
+//帮助
+"instructions" = "使用说明";
+"titleLabel1" = "一、使用说明";
+"helpInfoItem1" = "全面监测人体21项健康数据；";
+"helpInfoItem2" = "提供运动监测和睡眠监测；";
+"helpInfoItem3" = "智能健康云为您提供专业的运动建议和营养膳食建议。";
+"helpInfoItem4" = "使用流程：";
+"helpInfoItemA" = "A．下载并安装App；";
+"helpInfoItemB" = "B．注册并登录App；";
+"helpInfoItemC" = "C．摇一摇，上秤测试，测试完毕后下秤；";
+"helpInfoItemD" = "D．查看21项健康数据，查看运动和膳食建议；";
+"helpInfoItemE" = "E．使用手环进行运动和睡眠监测。";
+
+"titleLabel2" = "二、注册登录";
+"helpLoginItemA" = "A．输入手机号或者邮箱地址，填写密码；";
+"helpLoginItemB" = "B．填写个人信息（身高、年龄、性别）；";
+"helpLoginItemC" = "C．选择您的用户类型，分为手环、成分称和两者皆有；";
+"helpLoginItemD" = "D．注册完毕，输入用户名和密码，登录。";
+
+"titleLabel3" = "三、测试";
+"helpTestItem1" = "1．打开蓝牙。";
+"helpTestItem1A" = "蓝牙默认为系统自动打开，打开后，手机右上方会出现蓝牙图标。";
+"helpTestItem1B" = "如蓝牙为关闭状态，请手动打开蓝牙，蓝牙的打开方式为：进入手机里的“设定”-“连接”-“蓝牙”，打开蓝牙即可。";
+"helpTestItem2" = "2．打开并登录App，进入测试界面，摇一摇，然后上称，测试完成后下称，通过手机App查看测试数据和智能数据分析。";
+
+"helpWarnItem1" = "警告：";
+"helpWarnItem2" = "体内装有心脏起搏器及金属装置者禁用！";
+"helpWarnItem3" = "孕妇请勿使用。";
+"helpWarnItem4" = "适用年龄：7-99岁";
+
+
+"TodayMeal" = "今日膳食";
+"FoodBreakfast" = "早餐食品";
+"FoodLunch" = "午餐食品";
+"FoodDinner" = "晚餐食品";
+"extraMeal" = "加餐食品";
+"ChooseMeal" = "选择膳食";
+"UnitcCalories" = "单位热量";
+"AddDietary" = "添加膳食";
+"ModifyDietary" = "修改膳食";
+"AllCategories" = "全部分类";
+"custom" = "自定义";
+"Hotline" = "客服在线时间：8:00-20:30";
+
+"NoReach" = "未达成";
+"Reach" = "已达成";
+"Connecting" = "正在连接...";
+"Time" = "时间";
+"Steps" = "步数";
+"kilometre" = "公里";
+"Minute" = "分钟";
+"Sleep" = "睡眠";
+"Step" = "步";
+"Target" = "目标";
+"Hour" = "小时";
+
+"StateConnected" = "状态：已连接";
+"StatedisConnected" = "状态：未连接";
+"DeepSleep" = "深睡";
+"LightSleep" = "浅睡";
+"BeingSynchronized" = "正在同步...";
+"SleepDuration" = "睡眠时长";
+"AcquisitionPower" = "获取电量...";
+"description" = "数据不完整，暂无分析数据，请进行检测";
+"NoData" = "暂无数据";
+"NoTestData" = "无检测数据，请先进行检测";
+
+
+"NameFormatNotCorrect" = "您的用户名称格式不正确，请使用正确的Email或手机号码作为用户名称。";
+"PwdLengthNotCorrect" = "您的密码长度不正确，正确长度为6-12个字符。";
+"LoginFailed" = "登录失败，请检查您的用户密码是否正确。";
+"connectNetworkFails" = "连接网络失败，请检查网络连接是否正常";
+"BraceletUser" = "手环用户";
+"ScaleUser" = "秤用户";
+"PWDNotUnified" = "您的两次密码不统一，请重新输入。";
+"UserNameExists" = "您注册的的用户名称已经存在，请更换其它用户。";
+"RegistFailed" = "注册失败，请检查您填写的信息是否正确并重试。";
+
+"AlertBody" = "您设定的身体测试时间到了，请测试！";
+
+"FillFoodName" = "请填写食物名称";
+"FillCorrectUnit" = "请填写正确的单位";
+"EmptyAmount" = "用量不能为空，并且为整型数";
+"AddMealSuccess" = "添加膳食成功，您可以返回进行其他操作";
+"AddMealFailure" = "添加膳食失败，您可以稍后重试";
+"ModifyMealSuccess" = "修改膳食成功，您可以返回进行其他操作";
+"ModifyMealFails" = "修改膳食失败，您可以稍后重试";
+"EmptyMovementTime" = "运动时间不能为空";
+"UnitIntakeCalorie" = "单位摄入量卡路里数为整形数，值格式错误,请检查后提交";
+"AddSportSuccess" = "添加运动项目成功，您可以返回进行其他操作";
+"SelectDevice" = "请至少选择一个您使用的设备类型。";
+"ChooseThreeSports" = "请选择三个您平时喜欢的运动项目。";
+"CurrentUserNotDel" = "当前用户不可删除";
+"DelSelectedUser" = "您确实要删除选中用户及其本地相关的测试信息吗？";
+"DeleteFailed" = "删除失败，请检查您的网络";
+"ExistsMealName" = "该膳食名称已存在";
+"AddMealToNut" = "您的膳食已成功添加到食品营养库。";
+"AddCustomMealFail" = "添加自定义膳食失败，请稍后重试";
+"AdFoodFaiInt" = "添加食物失败，请检查网络连接";
+"CalFormatWrong" = "单位摄入量卡路里数值格式错误,请检查后提交";
+"ConBraceletFirst" = "请先连接手环，才能获取电量信息。";
+"ConBraceletRadSleep" = "您需要先连接手环才能读取睡眠信息．";
+"DisconBra" = "您确实要断开与手环的连接吗？";
+"ConBraBeforeSleep" = "开始睡眠前，请先连接手环．";
+"StopSleep" = "当前正在睡眠状态，您确实要停止睡眠吗？";
+"IsEnd" = "正在结束...";
+"UpdateFirmware" = "您确实检测并更新固件吗？";
+"NewVersion" = "新版本来啦";
+"LatestVersion" = "您当前为最新版本";
+"PersonSetSuccess" = "您的个人设置已保存成功。";
+"PerSetFaiCheckInfo" = "个人设置保存失败，请检查您的信息是否正确。";
+"WeightValueWrong" = "您的体重目标不正确，请输入10至200之间的数值。";
+"WeightGreater" = "您的体重目标大于或等于当前体重，无法进行减重。";
+"WeightReduction" = "您的周减重目标不正确，请输入0.1至0.9之间的数值。";
+"DietaryWeight" = "您的膳食减重目标不正确，运动减重与膳食减重两项合计应为100。";
+"SleepTimeWrong" = "您的睡眠时长不正确，正确的时长应该为5-10小时之间。";
+"StepGoalWrong" = "您的步伐目标不正确，步伐目标指您计划阶段内走的步伐数量。";
+"RemindTimeWrong" = "您提醒时间不正确，正常的格式如 08:30。";
+"EveryDayTime" = "每天 %d点";
+"DelSelectUser" = "您确实要删除选中用户及其本地相关的测试信息吗？";
+"SubSportFaile" = "提交自定义运动项目失败";
+"OnlyDleTodayDiet" = "只能删除今日膳食";
+"OnlyModTodayDiet" = "只能修改今日膳食";
+"DelDietary" = "您确实要删除该膳食纪录吗？";
+"FillCorrectName" = "请填写正确的昵称或姓名";
+"LongNickName" = "昵称长度不能超过12个字符";
+"FillCorrectAge" = "请填写正确的年龄信息。";
+"ApplicableAge" = "适用年龄：7-99岁";
+"FillCorrectHeight" = "请填写正确的身高信息。";
+"ValidHeight" = "请输入有效身高";
+"SaveDataFail" = "保存数据失败，请检查您填写的信息是否正确并检查网络";
+"AddFamilyFail" = "添加家人失败，请检查您填写的信息是否正确并重试。";
+"ModyDataFaiNet" = "用户资料修改失败，请检测您的网络连接是否正常。";
+"ProfileFailInfo" = "用户资料修改失败，请检查您填写的信息是否正确并重试。";
+"ImpDaFaiNet" = "完善资料失败，请检测您的网络连接是否正常。";
+"DataFaiInfo" = "完善资料失败，请检查您填写的信息是否正确并重试。";
+"DataFailInfoAndNet" = "保存数据失败，请检查您填写的信息是否正确并检查网络";
+"AddVisitFailInfo" = "添加访客失败，请检查您填写的信息是否正确并重试。";
+"alreadyConnect" = "已连接开始测试";
+"QueryMoreData" = "无法查询超过今日的数据";
+"ReQuery" = "查询失败，请重新查询";
+"ContainSpaces" = "昵称不可包含空格";
+"DigitsOrLetters" = "密码需由6-12位数字或字母组成";
+"WeightTargetNFormat" = "您的体重目标格式不正确，请重新输入。";
+"WeekWeightNFormat" = "您的一周减重格式不正确，请重新输入。";
+"WeightLossExeNFormat" = "您的运动减重格式不正确，请重新输入。";
+"WeightLossDietNFormat" = "您的膳食减重格式不正确，请重新输入。";
+"SleepLengthNFormat" = "您的睡眠时长格式不正确，请重新输入。";
+"GoalSettingNFormat" = "您的目标设定格式不正确，请重新输入。";
+"Maximum" = "已经放至最大";
+"ConNetFailed" = "连接网络失败，请检查您的网络连接是否正常。";
+"AnaNutriFailed" = "分析营养建议失败，请检查您的网络连接是否正常。";

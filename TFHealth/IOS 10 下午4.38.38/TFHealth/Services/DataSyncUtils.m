@@ -1,0 +1,135 @@
+//
+//  DataSyncUtils.m
+//  TFHealth
+//
+//  Created by nico on 14-9-11.
+//  Copyright (c) 2014年 studio37. All rights reserved.
+//
+
+#import "DataSyncUtils.h"
+#import "AppDelegate.h"
+#import "User.h"
+#import "TestItemID.h"
+#import "AppCloundService.h"
+#import "User_Item_Info.h"
+
+@interface DataSyncUtils()<ServiceObjectDelegate>
+{
+    AppCloundService* service;
+}
+
+-(void)serviceSuccessed:(NSDictionary*)keyValues pMethod:(NSString*)method;
+-(void)serviceFailed:(NSString*) message pMethod:(NSString*)method;
+
+@end
+
+static NSMutableArray* itemIds;
+static int scoreID;
+static int uploadExists=0;
+
+@implementation DataSyncUtils
+
+-(void)SyncData
+{
+    service =[[AppCloundService alloc] initWidthDelegate:self];
+    AppDelegate *appdelegate =(AppDelegate*) [[UIApplication sharedApplication] delegate];
+    User* user = appdelegate.user;
+    if(user==nil)
+    {
+        NSLog(@"无上传用户");
+        return;
+    }
+    if(itemIds==nil)
+    {
+        itemIds=[[NSMutableArray alloc] initWithCapacity:10];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getBodyAge]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getExFluid]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getFat]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getHealthScore]]];
+        scoreID=[TestItemID getHealthScore];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getInFluid]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getMuscle]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getPercentWater]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getProtein]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getSclerotin]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getSMuscle]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getSplanchnaPercentFat]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getTotalWater]]];
+        [itemIds addObject:[NSNumber numberWithInt:[TestItemID getWeight]]];
+    }
+    if(uploadExists==1)
+    {
+        return;
+    }
+    uploadExists=1;
+    NSString* queueName=@"TFHealth_UploadData_Queue";
+    const char* qc=[queueName UTF8String];
+    dispatch_queue_t q = dispatch_queue_create(qc, nil);
+    
+    
+    dispatch_async(q, ^(void){
+        int count=1;
+        BOOL running=true;
+        while (running) {
+            BOOL changed=false;
+            NSLog(@"********data sync running");
+            for (NSNumber* itemId in itemIds) {
+                NSArray* datas = [User_Item_Info MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"userId==%d AND itemId==%d AND sync!=1",user.userId.intValue,itemId.intValue]];
+                for (User_Item_Info* info in datas) {
+                    if(info.itemId.intValue==scoreID)
+                    {
+                        [service uploadCompositeScore:user.userId.intValue score:info.testValue testDate:info.testDate];
+                    }
+                    else
+                    {
+                        [service uploadUserItemInfo:user.userId.intValue cId:-1 itemId:itemId.intValue testDate:info.testDate testValue:info.testValue];
+                    }
+                    [NSThread sleepForTimeInterval:3];
+                    info.sync=[NSNumber numberWithInt:1];
+                    if(!changed)
+                    {
+                        changed=true;
+                    }
+                }
+            }
+            if(changed)
+            {
+                [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
+            }
+            else
+            {
+                count=count+1;
+            }
+            if(count>2) //5次无数则退出，下次进入程序时在执行
+            {
+                running=false;
+                NSLog(@"********data sync stop");
+                uploadExists=0;
+            }
+            else
+            {
+                [NSThread sleepForTimeInterval:10];
+                //[NSThread sleepForTimeInterval:300];
+            }
+        }
+    });
+}
+
+-(void)serviceSuccessed:(NSDictionary*)keyValues pMethod:(NSString*)method
+{
+    if ([method isEqualToString:@"UploadCompositeScoreJson"]) {
+        if(keyValues.count>0 && [[keyValues allKeys] containsObject:@"res" ])
+        {
+            NSInteger res = [[keyValues objectForKey:@"res"] integerValue];
+            if (res>0) {
+            }
+        }
+    }
+}
+
+-(void)serviceFailed:(NSString*) message pMethod:(NSString*)method
+{
+    NSLog(@"数据同步失败:%@",method);
+}
+
+@end

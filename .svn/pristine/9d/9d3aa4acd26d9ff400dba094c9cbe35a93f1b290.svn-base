@@ -1,0 +1,93 @@
+//
+//  FamilyManagementCollectionViewCell.m
+//  TFHealth
+//
+//  Created by 王帅 on 17/3/13.
+//  Copyright © 2017年 studio37. All rights reserved.
+//
+
+#import "FamilyManagementCollectionViewCell.h"
+
+#define Bounds_width  self.bounds.size.width
+#define Bounds_height self.bounds.size.height
+#define choosedImageItem 18
+#define deleteBtnItem 20
+
+@implementation FamilyManagementCollectionViewCell
+
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        [self.contentView addSubview:self.userIco];
+        [self.contentView addSubview:self.choosedImage];
+        [self.contentView addSubview:self.deleteBtn];
+        [self.contentView addSubview:self.userName];
+    }
+    return self;
+}
+
+-(UIImageView *)userIco{
+    if (!_userIco) {
+        
+        _userIco = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, Bounds_width, Bounds_width)];
+        //切圆角
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_userIco.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:_userIco.bounds.size];
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
+        //设置大小
+        maskLayer.frame = _userIco.bounds;
+        //设置图形样子
+        maskLayer.path = maskPath.CGPath;
+        _userIco.layer.mask = maskLayer;
+        
+    }
+    return _userIco;
+}
+
+-(UIImageView *)choosedImage{
+    if (!_choosedImage) {
+        _choosedImage = [[UIImageView alloc]initWithFrame:CGRectMake(Bounds_width - choosedImageItem, Bounds_height - 40 - choosedImageItem, choosedImageItem, choosedImageItem)];
+        _choosedImage.image = [UIImage imageNamed:@"choosed"];
+        //切圆角
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_choosedImage.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:_choosedImage.bounds.size];
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
+        //设置大小
+        maskLayer.frame = _choosedImage.bounds;
+        //设置图形样子
+        maskLayer.path = maskPath.CGPath;
+        _choosedImage.layer.mask = maskLayer;
+        _choosedImage.hidden = YES;
+    }
+    return _choosedImage;
+}
+
+-(UIButton *)deleteBtn{
+    if (!_deleteBtn) {
+        _deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(Bounds_width - deleteBtnItem, 0, deleteBtnItem, deleteBtnItem)];
+        [_deleteBtn setBackgroundImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+        //切圆角
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_deleteBtn.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:_deleteBtn.bounds.size];
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
+        //设置大小
+        maskLayer.frame = _deleteBtn.bounds;
+        //设置图形样子
+        maskLayer.path = maskPath.CGPath;
+        _deleteBtn.layer.mask = maskLayer;
+        _deleteBtn.hidden = YES;
+        
+    }
+    return _deleteBtn;
+}
+
+-(UILabel *)userName{
+    if (!_userName) {
+        _userName = [[UILabel alloc]initWithFrame:CGRectMake(-5, Bounds_height - 40, Bounds_width + 10, 40)];
+        _userName.textAlignment = NSTextAlignmentCenter;
+        _userName.textColor = [UIColor whiteColor];
+        _userName.font = [UIFont systemFontOfSize:13];
+    }
+    return _userName;
+}
+
+@end

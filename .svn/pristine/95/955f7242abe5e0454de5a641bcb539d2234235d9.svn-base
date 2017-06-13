@@ -1,0 +1,87 @@
+/* 
+  Localizable.strings
+  TFHealth
+
+  Created by 王帅 on 16/11/30.
+  Copyright © 2016年 studio37. All rights reserved.
+*/
+
+//左侧表格
+"labelBodyAssessment" = "身体评估";
+"labelSportsMate" = "运动伴侣";
+"labelDiteManagement" = "膳食管理";
+"labelInterimReport" = "阶段报告";
+"labelRankingList" = "排行榜";
+"labelHelp" = "帮助";
+"labelHotline" = "服务热线";
+
+//右侧表格
+"labelPersonalSetting" = "个人设定";
+"labelFamilyMembersManagement" = "家庭成员管理";
+"labelGuestMode" = "访客模式";
+"labelModifyDatabase" = "修改资料";
+"labelExitAccount" = "退出账户";
+
+//主页（体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；体脂率：深度分析labelPBF；骨质：深度分析labelBone；蛋白质：深度分析labelProtein）
+"labelYaoYiYao" = "摇一摇再上秤";
+"labelBodyScore" = "身体状态指数";//身体评估界面状态指数；
+"labelHistoryCurve" = "历史曲线";//历史曲线界面主标题；
+"labelShare" = "分享";
+"labelLow" = "低";
+"labelNormal" = "正常";
+"labelHigh" = "高";
+
+//主页的分享界面
+"labelMicroBlog" = "微博";
+"labelTencentMicroBlog" = "腾讯微博";
+"labelQzone" = "QQ空间";
+"labelDouban" = "豆瓣";
+"labelFriendCircle" = "朋友圈";
+"labelWetChat" = "微信好友";
+"labelMessage" = "短信";
+
+//历史曲线（历史曲线：主页labelHistoryCurve；体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；脂肪：深度分析labelFat）
+"labelWeek" = "周";
+"labelMonth" = "月";
+"labelSeason" = "季";
+"labelYear" = "年";
+
+//深度分析
+"labelDeepAnalysis" = "深度分析";
+"labelNormalItem" = "根据测试，以下为合格项，点击可查看详细";
+"labelUnormalItem" = "根据测试，以下为不合格项，点击可查看详细";
+"labelWeight" = "体重";//主页体重；阶段报告体重
+"labelPBF" = "体脂率";//主页体脂率；阶段报告体脂率
+"labelBone" = "骨质";//主页骨质；
+"labelProtein" = "蛋白质";//主页蛋白质；
+"labelWater" = "水分";//主页水分；历史曲线界面水分
+"labelMuscle" = "肌肉";//主页肌肉；历史曲线界面肌肉
+"labelFat" = "脂肪";//历史曲线脂肪
+"labelVisceralFatAnalysis" = "内脏脂肪";
+"labelSMM" = "骨骼肌";
+"labelBMIGrade" = "肥胖等级";
+
+//身体评估（状态指数：主页labelBodyScore）
+"labelAssessmentReport" = "评估报告";
+"labelBodyAge" = "身体年龄";
+"labelBasalMetabolicRate" = "基础代谢";
+"labelTestingDate" = "测试日期";
+"labelComprehensiveAssessment" = "综合评定";
+"labelWorkoutSuggestion" = "运动建议";
+"labelNutritionSuggestion" = "营养建议";
+"labelBreakfast" = "早餐";
+"labelLunch" = "午餐";
+"labelDinner" = "晚餐";
+
+//阶段报告(阶段报告标题：左侧表格labelInterimReport；体重：深度分析labelWeight；体脂率：深度分析labelPBF)
+"labelDietReport" = "膳食报告";
+"labelExerciseReport" = "运动报告";
+
+//排行榜(排行榜标题：左侧表格labelRankingList)
+"labelRankingListContent1" = "您的身体状况击败了全国";
+"labelRankingListContent2" = "%%的用户";
+
+
+
+
+

@@ -1,0 +1,65 @@
+//
+//  AppDelegate.h
+//  TFHealth
+//
+//  Created by nico on 14-5-12.
+//  Copyright (c) 2014年 studio37. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import "User_Item_Info.h"
+#import "User.h"
+#import "Services/ServiceCallbackDelegate.h"
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate,ServiceObjectDelegate>
+{
+    User *user;
+    int userId;
+    int deviceType;
+    
+}
+@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) User *user;
+@property (assign,nonatomic) int userId;
+@property (assign,nonatomic) int deviceType;//设备类型：0-手环用户，1-秤用户，2-两者都有
+@property (assign,nonatomic) int isShowVersion;
+@property (assign,nonatomic) int isFirstLaunch;
+/*
+ 0、简体中文  1、台湾繁体  2、香港繁体   3、英文
+ 0、简体中文  1、英文
+ */
+@property (assign,nonatomic) NSInteger languageIndex;
+@property (strong,nonatomic) NSString *openUrl;
+
+-(void)goMainView:(UIViewController*)sender;
+-(void)initHealItem;
+-(void)setRootWindow:(UIViewController*)sender;
+-(void)updateUMSocial:(NSString*)urlParam;
+-(void) applicationNNotification;
+
+-(void)loadSimilarAdsToLocalImage;
+
+/**
+ *  判断文件是否存在
+ */
+- (BOOL)isFileExistWithFilePath:(NSString *)filePath;
+/**
+ *  初始化广告页面
+ */
+- (void)getAdvertisingImage;
+/**
+ *  下载新图片
+ */
+- (void)downloadAdImageWithUrl:(NSString *)imageUrl imageName:(NSString *)imageName;
+/**
+ *  删除旧图片
+ */
+- (void)deleteOldImage;
+/**
+ *  根据图片名拼接文件路径
+ */
+- (NSString *)getFilePathWithImageName:(NSString *)imageName;
+
+
+@end

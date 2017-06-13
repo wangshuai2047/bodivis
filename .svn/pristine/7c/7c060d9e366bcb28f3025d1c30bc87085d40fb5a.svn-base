@@ -1,0 +1,181 @@
+/* 
+  TFLanguage.strings
+  TFHealth
+
+  Created by 王帅 on 17/3/22.
+  Copyright © 2017年 studio37. All rights reserved.
+*/
+
+
+//左侧表格
+"labelBodyAssessment" = "身体评估";
+"labelSportsMate" = "运动伴侣";
+"labelDiteManagement" = "膳食管理";
+"labelInterimReport" = "阶段报告";
+"labelRankingList" = "排行榜";
+"labelHelp" = "帮助";
+"labelTestVersion" = "检测版本";
+"labelHotline" = "服务热线";
+
+//右侧表格
+"labelPersonalSetting" = "个人设定";
+"labelFamilyMembersManagement" = "家庭成员管理";
+"labelGuestMode" = "访客模式";
+"labelModifyDatabase" = "修改资料";
+"labelSwitchLanguage" = "切换语言";
+"labelExitAccount" = "退出账户";
+
+//主页（体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；体脂率：深度分析labelPBF；骨质：深度分析labelBone；蛋白质：深度分析labelProtein）
+"labelYaoYiYao" = "摇一摇再上秤";
+"labelBodyScore" = "身体状态指数";//身体评估界面状态指数；
+"labelHistoryCurve" = "历史曲线";//历史曲线界面主标题；
+"labelShare" = "分享";
+"labelLow" = "低";
+"labelNormal" = "正常";
+"labelHigh" = "高";
+"noData" = "无数据";
+"nothing" = "无";
+
+//主页的分享界面
+"labelMicroBlog" = "微博";
+"labelQzone" = "QQ空间";
+"labelFriendCircle" = "朋友圈";
+"labelWetChat" = "微信好友";
+
+//历史曲线（历史曲线：主页labelHistoryCurve；体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；脂肪：深度分析labelFat）
+"labelWeek" = "周";
+"labelMonth" = "月";
+"labelSeason" = "季";
+"labelYear" = "年";
+
+//深度分析
+"labelDeepAnalysis" = "深度分析";
+"labelNormalItem" = "根据测试，以下为合格项，点击可查看详细";
+"labelUnormalItem" = "根据测试，以下为不合格项，点击可查看详细";
+"labelWeight" = "体重";//主页体重；阶段报告体重
+"labelPBF" = "体脂率";//主页体脂率；阶段报告体脂率
+"labelBone" = "骨质";//主页骨质；
+"labelProtein" = "蛋白质";//主页蛋白质；
+"labelWater" = "水分";//主页水分；历史曲线界面水分
+"labelMuscle" = "肌肉";//主页肌肉；历史曲线界面肌肉
+"labelFat" = "脂肪";//历史曲线脂肪
+"labelVisceralFatAnalysis" = "内脏脂肪";
+"labelSMM" = "骨骼肌";
+"labelBMIGrade" = "肥胖等级";
+
+
+//身体评估（状态指数：主页labelBodyScore）
+"labelAssessmentReport" = "评估报告";
+"labelBodyAge" = "身体年龄";
+"labelBasalMetabolicRate" = "基础代谢";
+"labelTestingDate" = "测试日期";
+"labelComprehensiveAssessment" = "综合评定";
+"labelWorkoutSuggestion" = "运动建议";
+"labelNutritionSuggestion" = "营养建议";
+"labelBreakfast" = "早餐";
+"labelLunch" = "午餐";
+"labelDinner" = "晚餐";
+"standard" = "标准";
+"littleLow" = "偏低";
+"littleHigh" = "偏高";
+"idealWeight" = "标准体重";
+"FFM" = "去脂体重";
+"WeightControl" = "体重控制量";
+"FatControl" = "脂肪控制量";
+"MuscleControl" = "肌肉控制量";
+"thin" = "消瘦型";
+"lowFat" = "低脂肪型";
+"athletic" = "运动员型";
+"lightlyMuscled" = "肌肉不足型";
+"fit" = "健康匀称型";
+"muscular" = "超重肌肉型";
+"invisibleFat" = "隐性肥胖型";
+"fatty" = "脂肪过多型";
+"obese" = "肥胖型";
+
+//膳食管理
+//选择膳食
+"foodNutritionalReservoir" = "食品营养库";
+"myDiet" = "我的项目";
+"userDefined" = "自定义";
+//添加膳食
+"breakfast" = "早餐";
+"lunch" = "午餐";
+"dinner" = "晚餐";
+"snacks" = "加餐";
+
+//阶段报告(阶段报告标题：左侧表格labelInterimReport；体重：深度分析labelWeight；体脂率：深度分析labelPBF)
+"labelDietReport" = "膳食报告";
+"labelExerciseReport" = "运动报告";
+
+//排行榜(排行榜标题：左侧表格labelRankingList)
+"labelRankingListContent1" = "您的身体状况击败了全国%@%%的用户";
+"labelRankingListContent2" = "%%的用户";
+
+//切换语言
+"moreLanguage" = "多语言";
+"save" = "保存";
+
+//新增词汇
+"EmailOrTel" = "邮箱/手机号码";
+"password" = "密码";
+"logIn" = "登录";
+"RegisteringNewUser" = "注册新用户";
+"forgetPassword" = "忘记密码";
+"confirmPasword" = "确认密码（二次输入密码确认）";
+"completeMaterial" = "完善资料";
+"setUpCommonSports" = "设定我的常用运动项目";
+"selectUserType" = "选择用户类型";
+"scale" = "秤";
+"bracelet" = "手环";
+"walking" = "散步";
+"briskWalking" = "健步走";
+"fastWalking" = "快步走";
+"jogging" = "慢跑";
+"moderateRunning" = "中速跑";
+"fastRunning" = "快速跑";
+"cyclingOrdinarySpeed" = "自行车普通";
+"cyclingMediumSpeed" = "自行车中速";
+"cyclingSpinning" = "自行车动感单车";
+"ClimbStairs" = "爬楼梯";
+"climing" = "爬山";
+"breaststroke" = "游泳蛙泳";
+"Backstroke" = "游泳仰泳";
+"freestyle" = "游泳自由泳";
+"butterfly" = "游泳蝶泳";
+"kickingShuttlecock" = "踢毽子";
+"twirls" = "转呼啦圈";
+"aerobics" = "有氧（健美操）";
+"Stretching gymnastics" = "伸展体操（广播操）";
+"slowDancing" = "跳舞（舒缓）";
+"fastDancing" = "跳舞（快节奏）";
+"aerobicDancing" = "有氧舞蹈";
+"shadowboxing" = "太极拳（剑）";
+"wushuRoutine" = "武术套路";
+"badminton" = "羽毛球";
+"tableTennis" = "乒乓球";
+"tennis" = "网球";
+"basketball" = "篮球";
+"football" = "足球";
+"volleyball" = "排球";
+"beach volleyball" = "沙滩排球";
+"billiards" = "台球";
+
+"TargetWeight" = "体重目标";
+"weightLossOneWeek" = "一周减重";
+"weightLossThroughExercise" = "运动减重";
+"weightLossThroughDiet" = "膳食减重";
+"sleepLength" = "睡眠时长";
+"GoalSetting" = "目标设定";
+"ReminderTime" = "提醒时间";
+"hour" = "小时（时长单位）";
+"minute" = "时:分（时间单位）";
+"step" = "步（距离单位）";
+"braceletUser" = "手环用户";
+"scaleUser" = "秤用户";
+"both" = "二者都有";
+//"save" = "保存设置";
+
+
+
+

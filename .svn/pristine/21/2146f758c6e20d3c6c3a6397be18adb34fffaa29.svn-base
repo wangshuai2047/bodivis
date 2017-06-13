@@ -1,0 +1,712 @@
+//
+//  WriteFamilyInfViewController.m
+//  TFHealth
+//
+//  Created by hzth hzth－mac2 on 6/3/14.
+//  Copyright (c) 2014 studio37. All rights reserved.
+//
+
+#import "WriteFamilyInfViewController.h"
+#import "HealthStatusViewController.h"
+#import "UIViewController+MMDrawerController.h"
+#import "Members.h"
+#import "User.h"
+#import "CXAlertView.h"
+#import "VPImageCropperViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <QuartzCore/QuartzCore.h>
+#import "AppDelegate.h"
+#import "AppCloundService.h"
+#import "UserDevices.h"
+#import "MBProgressHUD.h"
+
+#define ORIGINAL_MAX_WIDTH 640.0f
+
+@interface WriteFamilyInfViewController ()<UIImagePickerControllerDelegate, UIActionSheetDelegate, VPImageCropperDelegate,UITextFieldDelegate>
+{
+    MBProgressHUD *loading;
+    UITextField *_currentTF;
+}
+@property (weak, nonatomic) IBOutlet UIView *boyView;
+@property (weak, nonatomic) IBOutlet UIView *girlView;
+- (IBAction)boyViewClicked:(id)sender;//男
+- (IBAction)girlViewClicked:(id)sender;//女
+- (IBAction)saveFamily:(id)sender;//保存按钮
+@property (weak, nonatomic) IBOutlet UITextField *txtName;
+@property (weak, nonatomic) IBOutlet UITextField *txtAge;
+@property (weak, nonatomic) IBOutlet UITextField *txtHeight;
+@property (weak, nonatomic) IBOutlet UIImageView *portraitImageView;//用户头像
+@property (weak, nonatomic) IBOutlet UINavigationItem *titleBar;
+
+@end
+
+@implementation WriteFamilyInfViewController
+
+@synthesize isModifyMode;
+@synthesize isOnclicks;
+
+- (IBAction)textFieldDoneEditing:(id)sender {
+    [sender resignFirstResponder];
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+#pragma mark - 导航栏返回按钮
+- (IBAction)backButtonClikc:(id)sender {
+    
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    isOnclicks=0;
+    UIImage *bgImage=[UIImage imageNamed:@"sex.png"];
+    UIColor *bgColor=[UIColor colorWithPatternImage:bgImage];
+    [_boyView setBackgroundColor:bgColor];
+    _sexId=1;
+    [self portraitImageView];
+    
+    if (self.isModifyMode == 1)
+    {
+        [self loadUserInfo];
+    }
+    
+    self.txtName.delegate = self;
+    self.txtAge.delegate = self;
+    self.txtHeight.delegate = self;
+    
+    [self cancelSexButtonUpControl];
+    
+}
+
+//去掉男女按钮上的其他控件的交互
+-(void)cancelSexButtonUpControl
+{
+    for (UIView *obj in self.boyView.subviews)
+    {
+        obj.userInteractionEnabled = NO;
+    }
+    
+    for (UIView *obj in self.girlView.subviews)
+    {
+        obj.userInteractionEnabled = NO;
+    }
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.txtName resignFirstResponder];
+    [self.txtAge resignFirstResponder];
+    [self.txtHeight resignFirstResponder];
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    _currentTF = textField;
+    return YES;
+}
+
+//添加通知中心
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+//移除通知中心
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+
+-(void)keyboardWillShow:(NSNotification*)notification
+{
+    
+    //1、取得键盘最后的frame
+    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat height = keyboardFrame.origin.y;
+    //2、计算控制器的view需要移动的距离
+    CGFloat textField_maxY = _currentTF.superview.frame.origin.y +  _currentTF.superview.superview.frame.origin.y + _currentTF.frame.size.height;
+    CGFloat transformY = height - textField_maxY;
+    //3、当键盘挡道到输入框的时候就开始移动，不然不移动，有时要考虑导航栏＋64
+    if (transformY < 0) {
+        /*
+        // 开始动画(定义了动画的名字)
+        [UIView beginAnimations:@"viewUp" context:nil];
+        // 设置时长
+        [UIView setAnimationDuration:0.5];
+        
+        CGRect frame = self.view.frame;
+        frame.origin.y = transformY ;
+        self.view.frame = frame;
+        
+        // 提交动画
+        [UIView commitAnimations];
+         */
+        NSNumber *duration = [notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+        NSNumber *curve = [notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+        NSValue *keyboardBeginBounds=[[notification userInfo]objectForKey:UIKeyboardFrameBeginUserInfoKey];
+        CGRect beginRect=[keyboardBeginBounds CGRectValue];
+        
+        NSValue *keyboardEndBounds=[[notification userInfo]objectForKey:UIKeyboardFrameEndUserInfoKey];
+        CGRect endRect=[keyboardEndBounds CGRectValue];
+        CGFloat deltaY=endRect.origin.y-beginRect.origin.y;
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationDuration:[duration doubleValue]];
+        [UIView setAnimationCurve:[curve intValue]];
+        //更改聊天窗口table的inset  位置  inputbar位置
+        CGRect frame = self.view.frame;
+        frame.origin.y = transformY ;
+        self.view.frame = frame;
+        [UIView commitAnimations];
+    }
+    
+}
+
+-(void)keyboardWillHide:(NSNotification*)notification
+{
+    /*
+    // 开始动画(定义了动画的名字)
+    [UIView beginAnimations:@"viewdDown" context:nil];
+    // 设置时长
+    [UIView setAnimationDuration:0.5];
+    
+    //恢复到默认y为0的状态，有时候要考虑导航栏要+64
+    CGRect frame = self.view.frame;
+    frame.origin.y = 0;
+    self.view.frame = frame;
+    
+    // 提交动画
+    [UIView commitAnimations];
+     */
+    
+    NSNumber *duration = [notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    NSValue *keyboardBeginBounds=[[notification userInfo]objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect beginRect=[keyboardBeginBounds CGRectValue];
+    
+    NSValue *keyboardEndBounds=[[notification userInfo]objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect endRect=[keyboardEndBounds CGRectValue];
+    CGFloat deltaY=endRect.origin.y-beginRect.origin.y;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:[duration doubleValue]];
+    [UIView setAnimationCurve:[curve intValue]];
+    //更改聊天窗口table的inset  位置  inputbar位置
+    CGRect frame = self.view.frame;
+    frame.origin.y = 0;
+    self.view.frame = frame;
+    [UIView commitAnimations];
+}
+
+-(void)loadUserInfo
+{
+    AppDelegate *appdelegate =(AppDelegate*) [[UIApplication sharedApplication] delegate];
+    User* user = appdelegate.user;
+    [UIView animateWithDuration:0.1 animations:^{
+        _txtName.text = [NSString stringWithFormat:@"%@",user.nickName];
+        _txtAge.text = [NSString stringWithFormat:@"%d",user.birthday.intValue];
+        _txtHeight.text = [NSString stringWithFormat:@"%d",user.height.intValue];
+        
+        if (user.sex.intValue==1) {
+            [self boyViewClicked:nil];
+        }
+        else
+        {
+            [self girlViewClicked:nil];
+        }
+        if (user.userIco!=nil&& user.userIco!=NULL) {
+            UIImage *image = [UIImage imageWithData:user.userIco];
+            self.portraitImageView.image=image;
+        }
+    }];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+#pragma mark - 男
+- (IBAction)boyViewClicked:(id)sender {
+    UIImage *bgImage=[UIImage imageNamed:@"sex.png"];
+    UIColor *bgColor=[UIColor colorWithPatternImage:bgImage];
+    [_boyView setBackgroundColor:bgColor];
+    
+    [_girlView setBackgroundColor:[UIColor clearColor]];
+    _sexId=1;
+    
+}
+#pragma mark - 女
+- (IBAction)girlViewClicked:(id)sender {
+    UIImage *bgImage=[UIImage imageNamed:@"sex.png"];
+    UIColor *bgColor=[UIColor colorWithPatternImage:bgImage];
+    [_girlView setBackgroundColor:bgColor];
+    [_boyView setBackgroundColor:[UIColor clearColor]];
+    _sexId=2;
+}
+
+#pragma mark - 保存按钮
+- (IBAction)saveFamily:(id)sender {
+    /*
+     <=17 少年
+     18～39  青年
+     40～65  中年
+     >=66   老年
+     */
+    
+    if (isOnclicks==1) {
+        return;
+    }
+    isOnclicks=1;
+    NSString *name = _txtName.text;
+    int age =_txtAge.text.intValue;
+    int height=_txtHeight.text.intValue;
+    if ([name isEqualToString:@""]||name==NULL||[name length]==0) {
+        [self showSystemAlert:@"请填写正确的昵称或姓名。"];
+        return;
+    }
+    if (age==0) {
+        [self showSystemAlert:@"请填写正确的年龄信息。"];
+        return;
+    }else if (age < 7 || age > 99){
+        [self showSystemAlert:@"适用年龄：7-99岁"];
+        return;
+    }
+    if (height==0) {
+        [self showSystemAlert:@"请填写正确的身高信息。"];
+        return;
+    }else if (height < 30 || height > 250){
+        [self showSystemAlert:@"请输入有效身高"];
+        return;
+    }
+    AppDelegate *appdelegate =(AppDelegate*) [[UIApplication sharedApplication] delegate];
+    
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *formate = [[NSDateFormatter alloc] init];
+    [formate setDateFormat:@"yyyy-MM-dd"];
+    
+    if ([UIImagePNGRepresentation(self.portraitImageView.image) isEqual:UIImagePNGRepresentation([UIImage imageNamed:@"userico"])]){
+        if (_txtAge.text.intValue <= 17) {//少年
+            if (_sexId == 1) {//男
+                self.portraitImageView.image = [UIImage imageNamed:@"boyxiao"];
+            } else if(_sexId == 2) {//女
+                self.portraitImageView.image = [UIImage imageNamed:@"girlxiao"];
+            }
+            
+        }else if (_txtAge.text.intValue <= 39){//青年
+            if (_sexId == 1) {//男
+                self.portraitImageView.image = [UIImage imageNamed:@"boyqing"];
+            } else if(_sexId == 2) {//女
+                self.portraitImageView.image = [UIImage imageNamed:@"girlqing"];
+            }
+        }else if (_txtAge.text.intValue <= 65){//中年
+            if (_sexId == 1) {//男
+                self.portraitImageView.image = [UIImage imageNamed:@"boyzhong"];
+            } else if(_sexId == 2) {//女
+                self.portraitImageView.image = [UIImage imageNamed:@"girlzhong"];
+            }
+        }else{//老年
+            if (_sexId == 1) {//男
+                self.portraitImageView.image = [UIImage imageNamed:@"boylao"];
+            } else if(_sexId == 2) {//女
+                self.portraitImageView.image = [UIImage imageNamed:@"girllao"];
+            }
+        }
+    }
+    
+    //加载菊花
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+        loading = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        loading.dimBackground = YES;
+        loading.animationType = 2;
+//    });
+//    loading.hidden = NO;
+    
+    AppCloundService* s= [[AppCloundService alloc] initWidthDelegate:self];
+    if (isModifyMode!=1) {
+        //正常模式(添加家庭成员模式)
+        [s AddMembers:appdelegate.userId userIco:UIImagePNGRepresentation(self.portraitImageView.image) nick:name userHeight:height userWeight:60 userSex:_sexId userAge:age userType:@"0" relationshipName:@"家人" addTime:[formate stringFromDate:currentDate]];
+    }
+    else
+    {
+        //修改模式
+        [s ImproveUserData:appdelegate.user.userId.intValue userIco:UIImagePNGRepresentation(self.portraitImageView.image) nick:name userAge:age userSex:_sexId userHeight:height remark:@""];
+    }
+}
+
+-(void)serviceSuccessed:(NSDictionary*)keyValues pMethod:(NSString*)method
+{
+    
+    //隐藏菊花
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [loading hide:YES];
+        
+    });
+    isOnclicks=0;
+    if ([method isEqualToString:@"AddMembersJson"]) {
+        [self AddUser:keyValues];
+    }
+    else if([method isEqualToString:@"PerfectUserInfoJson"])
+    {
+        [self UpdateUser:keyValues];
+    }
+}
+
+-(void)serviceFailed:(NSString*) message pMethod:(NSString*)method
+{
+    //隐藏菊花
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [loading hide:YES];
+        
+    });
+    [self showSystemAlert:@"保存数据失败，请检查您填写的信息是否正确并检查网络"];
+    isOnclicks=0;
+}
+
+-(void)AddUser:(NSDictionary*)keyValues
+{
+    if(keyValues.count>0 && [[keyValues allKeys] containsObject:@"res" ])
+    {
+        NSInteger res = [[keyValues objectForKey:@"res"] integerValue];
+        if (res>0) {
+            AppDelegate *appdelegate =(AppDelegate*) [[UIApplication sharedApplication] delegate];
+            
+            NSString *name = _txtName.text;
+            int age =_txtAge.text.intValue;
+            int height=_txtHeight.text.intValue;
+            
+            User *user =[User MR_createEntity];
+            user.userName = appdelegate.user.userName;
+            user.nickName=name;//姓名
+            user.sex=[NSNumber numberWithInt:_sexId];//性别
+            user.height=[NSNumber numberWithInteger:height];//身高
+            user.birthday=[NSNumber numberWithInteger:age];//年龄
+            user.userId=[NSNumber numberWithInteger:res];//userid
+            user.userIco= UIImagePNGRepresentation(self.portraitImageView.image);//用户头像
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            
+            
+            
+            Members *member=[Members MR_createEntity];
+            member.appUserId=[NSNumber numberWithInteger:appdelegate.userId];
+            member.userId=[NSNumber numberWithInteger:res];
+            member.memberType=0;
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            
+            //[self showSystemAlert:[NSString stringWithFormat:@"您的家人%@添加成功。",name]];
+            
+            UserDevices *device = [UserDevices MR_findFirstByAttribute:@"userName" withValue:_txtName.text];
+            if (device!=nil) {
+                if (device.deviceType.intValue==0) {
+                    device.state=[NSNumber numberWithInt:1];
+                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                }
+            }
+//            appdelegate.user=user;
+            [self dismissViewControllerAnimated:YES completion:nil];
+            UIViewController *vc2 = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HealthStatusNavViewController"];
+            
+            //UIViewController *vc3 = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AboutViewController"];
+            
+            [self.mm_drawerController setCenterViewController:vc2 withCloseAnimation:YES completion:nil];
+        }
+        else
+        {
+            [self showSystemAlert:@"添加家人失败，请检查您填写的信息是否正确并重试。"];
+        }
+    }
+    else
+    {
+        [self showSystemAlert:@"添加家人失败，请检查您填写的信息是否正确并重试。"];
+    }
+}
+
+-(void)UpdateUser:(NSDictionary*)keyValues
+{
+    if(keyValues.count>0 && [[keyValues allKeys] containsObject:@"res" ])
+    {
+        NSInteger res = [[keyValues objectForKey:@"res"] integerValue];
+        if (res==8) {
+            AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
+            User *user=appdelegate.user;
+            user.nickName=[_txtName text];
+            user.sex=[NSNumber numberWithInt:_sexId];
+            user.height=[NSNumber numberWithInteger:[_txtHeight.text integerValue]];
+            user.birthday=[NSNumber numberWithInteger:_txtAge.text.intValue];
+            user.userId=appdelegate.user.userId;
+            user.userIco= UIImagePNGRepresentation(self.portraitImageView.image);
+            
+            [[NSManagedObjectContext MR_defaultContext] MR_save];
+
+            [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+        }
+        else
+        {
+            [self showSystemAlert:@"用户资料修改失败，请检测您的网络连接是否正常。"];
+        }
+    }
+    else
+    {
+        [self showSystemAlert:@"用户资料修改失败，请检查您填写的信息是否正确并重试。"];
+    }
+}
+
+- (IBAction)showSystemAlert:(id)sender
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:CustomLocalizedString(@"tip", nil) message:sender delegate:nil cancelButtonTitle:CustomLocalizedString(@"OK", nil) otherButtonTitles: nil];
+    
+    [alertView show];
+}
+
+- (void)editPortrait {
+    UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:CustomLocalizedString(@"cancel", nil)
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"拍照", @"从相册中选取", nil];
+    [choiceSheet showInView:self.view];
+}
+
+#pragma mark VPImageCropperDelegate
+- (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
+    self.portraitImageView.image = editedImage;
+    [cropperViewController dismissViewControllerAnimated:YES completion:^{
+        // TO DO
+    }];
+}
+
+- (void)imageCropperDidCancel:(VPImageCropperViewController *)cropperViewController {
+    [cropperViewController dismissViewControllerAnimated:YES completion:^{
+    }];
+}
+
+#pragma mark UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        // 拍照
+        if ([self isCameraAvailable] && [self doesCameraSupportTakingPhotos]) {
+            UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+            controller.sourceType = UIImagePickerControllerSourceTypeCamera;
+            if ([self isFrontCameraAvailable]) {
+                controller.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+            }
+            NSMutableArray *mediaTypes = [[NSMutableArray alloc] init];
+            [mediaTypes addObject:(__bridge NSString *)kUTTypeImage];
+            controller.mediaTypes = mediaTypes;
+            controller.delegate = self;
+            [self presentViewController:controller
+                               animated:YES
+                             completion:^(void){
+                                 NSLog(@"Picker View Controller is presented");
+                             }];
+        }
+        
+    } else if (buttonIndex == 1) {
+        // 从相册中选取
+        if ([self isPhotoLibraryAvailable]) {
+            UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+            controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            NSMutableArray *mediaTypes = [[NSMutableArray alloc] init];
+            [mediaTypes addObject:(__bridge NSString *)kUTTypeImage];
+            controller.mediaTypes = mediaTypes;
+            controller.delegate = self;
+            [self presentViewController:controller
+                               animated:YES
+                             completion:^(void){
+                                 NSLog(@"Picker View Controller is presented");
+                             }];
+        }
+    }
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [picker dismissViewControllerAnimated:YES completion:^() {
+        UIImage *portraitImg = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        portraitImg = [self imageByScalingToMaxSize:portraitImg];
+        // present the cropper view controller
+        VPImageCropperViewController *imgCropperVC = [[VPImageCropperViewController alloc] initWithImage:portraitImg cropFrame:CGRectMake(0, 100.0f, self.view.frame.size.width, self.view.frame.size.width) limitScaleRatio:3.0];
+        imgCropperVC.delegate = self;
+        [self presentViewController:imgCropperVC animated:YES completion:^{
+            // TO DO
+        }];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:^(){
+    }];
+}
+
+#pragma mark image scale utility
+- (UIImage *)imageByScalingToMaxSize:(UIImage *)sourceImage {
+    if (sourceImage.size.width < ORIGINAL_MAX_WIDTH) return sourceImage;
+    CGFloat btWidth = 0.0f;
+    CGFloat btHeight = 0.0f;
+    if (sourceImage.size.width > sourceImage.size.height) {
+        btHeight = ORIGINAL_MAX_WIDTH;
+        btWidth = sourceImage.size.width * (ORIGINAL_MAX_WIDTH / sourceImage.size.height);
+    } else {
+        btWidth = ORIGINAL_MAX_WIDTH;
+        btHeight = sourceImage.size.height * (ORIGINAL_MAX_WIDTH / sourceImage.size.width);
+    }
+    CGSize targetSize = CGSizeMake(btWidth, btHeight);
+    return [self imageByScalingAndCroppingForSourceImage:sourceImage targetSize:targetSize];
+}
+
+- (UIImage *)imageByScalingAndCroppingForSourceImage:(UIImage *)sourceImage targetSize:(CGSize)targetSize {
+    UIImage *newImage = nil;
+    CGSize imageSize = sourceImage.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    CGFloat targetWidth = targetSize.width;
+    CGFloat targetHeight = targetSize.height;
+    CGFloat scaleFactor = 0.0;
+    CGFloat scaledWidth = targetWidth;
+    CGFloat scaledHeight = targetHeight;
+    CGPoint thumbnailPoint = CGPointMake(0.0,0.0);
+    if (CGSizeEqualToSize(imageSize, targetSize) == NO)
+    {
+        CGFloat widthFactor = targetWidth / width;
+        CGFloat heightFactor = targetHeight / height;
+        
+        if (widthFactor > heightFactor)
+            scaleFactor = widthFactor; // scale to fit height
+        else
+            scaleFactor = heightFactor; // scale to fit width
+        scaledWidth  = width * scaleFactor;
+        scaledHeight = height * scaleFactor;
+        
+        // center the image
+        if (widthFactor > heightFactor)
+        {
+            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;
+        }
+        else
+            if (widthFactor < heightFactor)
+            {
+                thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;
+            }
+    }
+    UIGraphicsBeginImageContext(targetSize); // this will crop
+    CGRect thumbnailRect = CGRectZero;
+    thumbnailRect.origin = thumbnailPoint;
+    thumbnailRect.size.width  = scaledWidth;
+    thumbnailRect.size.height = scaledHeight;
+    
+    [sourceImage drawInRect:thumbnailRect];
+    
+    newImage = UIGraphicsGetImageFromCurrentImageContext();
+    if(newImage == nil) NSLog(@"could not scale image");
+    
+    //pop the context to get back to the default
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+#pragma mark - UINavigationControllerDelegate
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+}
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
+}
+
+#pragma mark camera utility
+- (BOOL) isCameraAvailable{
+    return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+}
+
+- (BOOL) isRearCameraAvailable{
+    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
+}
+
+- (BOOL) isFrontCameraAvailable {
+    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
+}
+
+- (BOOL) doesCameraSupportTakingPhotos {
+    return [self cameraSupportsMedia:(__bridge NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypeCamera];
+}
+
+- (BOOL) isPhotoLibraryAvailable{
+    return [UIImagePickerController isSourceTypeAvailable:
+            UIImagePickerControllerSourceTypePhotoLibrary];
+}
+- (BOOL) canUserPickVideosFromPhotoLibrary{
+    return [self
+            cameraSupportsMedia:(__bridge NSString *)kUTTypeMovie sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+- (BOOL) canUserPickPhotosFromPhotoLibrary{
+    return [self
+            cameraSupportsMedia:(__bridge NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+- (BOOL) cameraSupportsMedia:(NSString *)paramMediaType sourceType:(UIImagePickerControllerSourceType)paramSourceType{
+    __block BOOL result = NO;
+    if ([paramMediaType length] == 0) {
+        return NO;
+    }
+    NSArray *availableMediaTypes = [UIImagePickerController availableMediaTypesForSourceType:paramSourceType];
+    [availableMediaTypes enumerateObjectsUsingBlock: ^(id obj, NSUInteger idx, BOOL *stop) {
+        NSString *mediaType = (NSString *)obj;
+        if ([mediaType isEqualToString:paramMediaType]){
+            result = YES;
+            *stop= YES;
+        }
+    }];
+    return result;
+}
+
+#pragma mark portraitImageView getter
+
+- (UIImageView*)portraitImageView {
+
+    [_portraitImageView.layer setCornerRadius:(_portraitImageView.frame.size.height/2)];
+    [_portraitImageView.layer setMasksToBounds:YES];
+    [_portraitImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [_portraitImageView setClipsToBounds:YES];
+    _portraitImageView.layer.shadowColor = UIColorFromRGB(0x6d91e2).CGColor;
+    _portraitImageView.layer.shadowOffset = CGSizeMake(4, 4);
+    _portraitImageView.layer.shadowOpacity = 0.5;
+    _portraitImageView.layer.shadowRadius = 2.0;
+    _portraitImageView.layer.borderColor = UIColorFromRGB(0x6d91e2).CGColor;
+    _portraitImageView.layer.borderWidth = 5.0f;
+    _portraitImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editPortrait)];
+    [_portraitImageView addGestureRecognizer:portraitTap];
+    return _portraitImageView;
+}
+
+@end

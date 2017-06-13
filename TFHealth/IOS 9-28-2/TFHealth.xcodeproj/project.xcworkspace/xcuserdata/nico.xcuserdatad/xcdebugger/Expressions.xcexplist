@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "newItem.unit">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppCloundService requestSuccessed:]:AppCloundService.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[NSString stringWithFormat:@&quot;//%@Response/%@Result&quot;,self.methodName]">
+            </PersistentString>
+            <PersistentString
+               value = "self.methodName">
+            </PersistentString>
+            <PersistentString
+               value = "* doc = [[GDataXMLDocument alloc]initWithXMLString:request options:0 error:&amp;error];&#10;    NSArray* nodes =[doc nodesForXPath:[NSString stringWithFormat:@&quot;//%@Response/%@Result&quot;,self.methodName,self.methodName] error:&amp;error]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__27-[AppDelegate initHealItem]_block_invoke:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[Health_Items MR_findAll]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__125+[WebServiceProxy getSOAP11WebServiceResponseAsync:webServiceFile:xmlNameSpace:webServiceName:wsParameters:callbackInstance:]_block_invoke76:WebServiceProxy.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[request error] localizedDescription]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ColorBar setLevel:]:ColorBar.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.frame.size.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HealthStatusViewController viewDidLoad]:HealthStatusViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "lastWeightItem.testValue">
+            </PersistentString>
+            <PersistentString
+               value = "[NSPredicate predicateWithFormat:@&quot;userId==%d AND itemId==%d&quot;,user.userId.intValue,[TestItemID getWeight]]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate application:didFinishLaunchingWithOptions:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "personsAgeEuqals25.userId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[BodyAnalysisViewController viewDidLoad]:BodyAnalysisViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "lastWeightItem.testValue">
+            </PersistentString>
+            <PersistentString
+               value = "user.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HealthStatusViewController tableView:cellForRowAtIndexPath:]:HealthStatusViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[NSString stringWithFormat:@&quot;%f&quot;,pbf.doubleValue]">
+            </PersistentString>
+            <PersistentString
+               value = "[TestItemID getWeight]">
+            </PersistentString>
+            <PersistentString
+               value = "[TestItemID getFat]">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath row">
+            </PersistentString>
+            <PersistentString
+               value = "user.userId">
+            </PersistentString>
+            <PersistentString
+               value = "minPbf&gt;=pbf">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HealthStatusViewController setIndicaterViewWithWeight:]:HealthStatusViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "3.14159265358979323846264338327950288*weight">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -1,0 +1,447 @@
+
+/* Class = "UILabel"; text = "56.8%"; ObjectID = "0DI-wF-Ylh"; */
+"0DI-wF-Ylh.text" = "56.8%";
+
+/* Class = "UILabel"; text = "一、使用说明"; ObjectID = "0cF-Hk-55d"; */
+"0cF-Hk-55d.text" = "One、instructions";
+
+/* Class = "UILabel"; text = "单位热量"; ObjectID = "19E-Vf-vTw"; */
+"19E-Vf-vTw.text" = "UnitcCalories";
+
+/* Class = "UIButton"; normalTitle = "标准"; ObjectID = "1dI-pU-mrG"; */
+"1dI-pU-mrG.normalTitle" = "标准";
+
+/* Class = "UILabel"; text = "早餐"; ObjectID = "2Zg-gY-uoD"; */
+"2Zg-gY-uoD.text" = "breakfast";
+
+/* Class = "UIButton"; normalTitle = "分享"; ObjectID = "2hH-k0-d2g"; */
+"2hH-k0-d2g.normalTitle" = "share";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "3c6-L3-Jor"; */
+"3c6-L3-Jor.normalTitle" = "save";
+
+/* Class = "UIButton"; normalTitle = "中餐"; ObjectID = "3nt-dU-BWe"; */
+"3nt-dU-BWe.normalTitle" = "lunch";
+
+/* Class = "UILabel"; text = "单位"; ObjectID = "5CO-bP-0ps"; */
+"5CO-bP-0ps.text" = "单位";
+
+/* Class = "UILabel"; text = "运动名称"; ObjectID = "5UP-lC-GSl"; */
+"5UP-lC-GSl.text" = "运动名称";
+
+/* Class = "UINavigationItem"; title = "膳食日历"; ObjectID = "6SU-CA-gX8"; */
+"6SU-CA-gX8.title" = "膳食日历";
+
+/* Class = "UIButton"; normalTitle = "早餐"; ObjectID = "6Yv-vs-wZY"; */
+"6Yv-vs-wZY.normalTitle" = "breakfast";
+
+/* Class = "UIBarButtonItem"; title = "记录"; ObjectID = "6wn-kY-Pab"; */
+"6wn-kY-Pab.title" = "Record";
+
+/* Class = "UIBarButtonItem"; title = "记录"; ObjectID = "79s-SA-MS2"; */
+"79s-SA-MS2.title" = "Record";
+
+/* Class = "UILabel"; text = "健康知识"; ObjectID = "7gt-Iq-nA1"; */
+"7gt-Iq-nA1.text" = "健康知识";
+
+/* Class = "UILabel"; text = "脂肪"; ObjectID = "8Dg-tV-XvI"; */
+"8Dg-tV-XvI.text" = "Fat";
+
+/* Class = "UILabel"; text = "我的项目"; ObjectID = "8dn-zF-e7I"; */
+"8dn-zF-e7I.text" = "my diet";
+
+/* Class = "UILabel"; text = "隐性肥胖型"; ObjectID = "8lI-bJ-Q3d"; */
+"8lI-bJ-Q3d.text" = "invisibleFat";
+
+/* Class = "UIButton"; normalTitle = "5月12日"; ObjectID = "8rZ-Oz-Iec"; */
+"8rZ-Oz-Iec.normalTitle" = "5-12";
+
+/* Class = "UINavigationItem"; title = "食品营养库"; ObjectID = "8u1-Tb-ssY"; */
+"8u1-Tb-ssY.title" = "food nutritional reservoir";
+
+/* Class = "UIButton"; normalTitle = "体重"; ObjectID = "9dL-tg-9Yi"; */
+"9dL-tg-9Yi.normalTitle" = "Weight";
+
+/* Class = "UILabel"; text = "超重肌肉型"; ObjectID = "9dh-am-aHM"; */
+"9dh-am-aHM.text" = "muscular";
+
+/* Class = "UILabel"; text = "关于"; ObjectID = "A96-Nz-dAm"; */
+"A96-Nz-dAm.text" = "about";
+
+/* Class = "UILabel"; text = "健康匀称型"; ObjectID = "ACP-5O-qFM"; */
+"ACP-5O-qFM.text" = "fit";
+
+/* Class = "UINavigationItem"; title = "历史曲线"; ObjectID = "APB-tj-8s2"; */
+"APB-tj-8s2.title" = "historyCurve";
+
+/* Class = "UILabel"; text = "20大卡"; ObjectID = "Agz-Bj-naj"; */
+"Agz-Bj-naj.text" = "20大卡";
+
+/* Class = "UIButton"; normalTitle = "晚餐"; ObjectID = "Ail-7t-Pfi"; */
+"Ail-7t-Pfi.normalTitle" = "dinner";
+
+/* Class = "UINavigationItem"; title = "托斯卡的兰"; ObjectID = "B83-Ts-sSN"; */
+"B83-Ts-sSN.title" = "托斯卡的兰";
+
+/* Class = "UINavigationItem"; title = "伙伴"; ObjectID = "BE0-CR-bDR"; */
+"BE0-CR-bDR.title" = "伙伴";
+
+/* Class = "UILabel"; text = "晚餐"; ObjectID = "BIl-BG-zM0"; */
+"BIl-BG-zM0.text" = "dinner";
+
+/* Class = "UIButton"; normalTitle = "34岁"; ObjectID = "BU0-lI-wkj"; */
+"BU0-lI-wkj.normalTitle" = "34岁";
+
+/* Class = "UILabel"; text = "肥胖型"; ObjectID = "C9i-il-woA"; */
+"C9i-il-woA.text" = "obese";
+
+/* Class = "UILabel"; text = "卡路里"; ObjectID = "CFS-Ig-x0c"; */
+"CFS-Ig-x0c.text" = "calorie";
+
+/* Class = "UILabel"; text = "20大卡"; ObjectID = "CRB-9q-pHv"; */
+"CRB-9q-pHv.text" = "20大卡";
+
+/* Class = "UINavigationItem"; title = "排行榜"; ObjectID = "CSZ-2Z-zdo"; */
+"CSZ-2Z-zdo.title" = "ranking list";
+
+/* Class = "UILabel"; text = "BMI"; ObjectID = "CZf-03-nyl"; */
+"CZf-03-nyl.text" = "BMI";
+
+/* Class = "UILabel"; text = "脂肪过多型"; ObjectID = "Chn-kX-C2S"; */
+"Chn-kX-C2S.text" = "fatty";
+
+/* Class = "UINavigationItem"; title = "添加运动项目"; ObjectID = "CnL-Eo-Uuz"; */
+"CnL-Eo-Uuz.title" = "添加运动项目";
+
+/* Class = "UILabel"; text = "数值"; ObjectID = "Ctk-x0-BET"; */
+"Ctk-x0-BET.text" = "数值";
+
+/* Class = "UILabel"; text = "三、测试"; ObjectID = "DBI-u0-5Vh"; */
+"DBI-u0-5Vh.text" = "三、测试";
+
+/* Class = "UILabel"; text = "kg"; ObjectID = "DUF-3m-UMU"; */
+"DUF-3m-UMU.text" = "kg";
+
+/* Class = "UILabel"; text = "消耗卡路里"; ObjectID = "DnX-HC-Gkw"; */
+"DnX-HC-Gkw.text" = "calorie";
+
+/* Class = "UILabel"; text = "运动员型"; ObjectID = "Dsd-iG-Ej7"; */
+"Dsd-iG-Ej7.text" = "athletic";
+
+/* Class = "UIButton"; normalTitle = "摇一摇再上秤"; ObjectID = "Dvq-nB-tVv"; */
+"Dvq-nB-tVv.normalTitle" = "Shake,step on";
+
+/* Class = "UILabel"; text = "7月17日"; ObjectID = "E0d-75-At1"; */
+"E0d-75-At1.text" = "7月17日";
+
+/* Class = "UIBarButtonItem"; title = "记录"; ObjectID = "E1k-IW-v01"; */
+"E1k-IW-v01.title" = "Record";
+
+/* Class = "UILabel"; text = "项目库"; ObjectID = "EJA-5J-zDs"; */
+"EJA-5J-zDs.text" = "项目库";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "FPY-OH-gRw"; */
+"FPY-OH-gRw.normalTitle" = "save";
+
+/* Class = "UINavigationItem"; title = "使用说明"; ObjectID = "Fba-ns-3Wn"; */
+"Fba-ns-3Wn.title" = "instructions";
+
+/* Class = "UIButton"; normalTitle = "添加餐点"; ObjectID = "Fr4-5m-A6G"; */
+"Fr4-5m-A6G.normalTitle" = "addFood";
+
+/* Class = "UILabel"; text = "托斯卡乐"; ObjectID = "Ggd-sG-8Oj"; */
+"Ggd-sG-8Oj.text" = "托斯卡乐";
+
+/* Class = "UINavigationItem"; title = "今日膳食"; ObjectID = "H7K-lo-2b8"; */
+"H7K-lo-2b8.title" = "Today's meal";
+
+/* Class = "UILabel"; text = "常用"; ObjectID = "HMg-3R-2GD"; */
+"HMg-3R-2GD.text" = "Common food";
+
+/* Class = "UILabel"; text = "测试日期"; ObjectID = "He5-OD-jKE"; */
+"He5-OD-jKE.text" = "TestDate";
+
+/* Class = "UILabel"; text = "全部分类"; ObjectID = "Hqx-as-5tK"; */
+"Hqx-as-5tK.text" = "All categories";
+
+/* Class = "UINavigationItem"; title = "运动项目"; ObjectID = "IIe-dq-9KQ"; */
+"IIe-dq-9KQ.title" = "运动项目";
+
+/* Class = "UILabel"; text = "摄入卡路里"; ObjectID = "Ixb-x4-kuc"; */
+"Ixb-x4-kuc.text" = "calories";
+
+/* Class = "UILabel"; text = "早餐"; ObjectID = "J06-ym-uis"; */
+"J06-ym-uis.text" = "breakfast";
+
+/* Class = "UITextView"; text = "根据您的体成份分析得出您的身体状况：体脂肪22%(偏高)，体重66kg（标准）、BMI48%（正常），以及其他健康指标信息，请在成份分析中查看，有效指示客人的身体健康状况。"; ObjectID = "Jsg-Ze-j8k"; */
+"Jsg-Ze-j8k.text" = "根据您的体成份分析得出您的身体状况：体脂肪22%(偏高)，体重66kg（标准）、BMI48%（正常），以及其他健康指标信息，请在成份分析中查看，有效指示客人的身体健康状况。";
+
+/* Class = "UILabel"; text = "0.2%"; ObjectID = "Jxw-EL-SaH"; */
+"Jxw-EL-SaH.text" = "0.2%";
+
+/* Class = "UILabel"; text = "消耗热量"; ObjectID = "LFC-Xe-QBp"; */
+"LFC-Xe-QBp.text" = "消耗热量";
+
+/* Class = "UILabel"; text = "卡路里"; ObjectID = "LZt-fm-pna"; */
+"LZt-fm-pna.text" = "calorie";
+
+/* Class = "UILabel"; text = "BMI"; ObjectID = "ME5-g0-LqP"; */
+"ME5-g0-LqP.text" = "BMI";
+
+/* Class = "UILabel"; text = " g"; ObjectID = "MtZ-5P-cA8"; */
+"MtZ-5P-cA8.text" = " g";
+
+/* Class = "UIButton"; normalTitle = "午餐"; ObjectID = "N54-52-Zam"; */
+"N54-52-Zam.normalTitle" = "lunch";
+
+/* Class = "UILabel"; text = "肌肉不足型"; ObjectID = "NBv-1t-oV5"; */
+"NBv-1t-oV5.text" = "lightlyMuscled";
+
+/* Class = "UINavigationItem"; title = "帮助"; ObjectID = "NHK-b5-NUi"; */
+"NHK-b5-NUi.title" = "help";
+
+/* Class = "UILabel"; text = "综合评定"; ObjectID = "NZB-wN-3oz"; */
+"NZB-wN-3oz.text" = "comprehensiveAssessment";
+
+/* Class = "UINavigationItem"; title = "成分分析"; ObjectID = "Pf2-tI-lln"; */
+"Pf2-tI-lln.title" = "成分分析";
+
+/* Class = "UILabel"; text = "单位热量"; ObjectID = "Psn-Af-GwH"; */
+"Psn-Af-GwH.text" = "UnitcCalories";
+
+/* Class = "UILabel"; text = "卡/100g"; ObjectID = "QGh-Uv-4UY"; */
+"QGh-Uv-4UY.text" = "卡/100g";
+
+/* Class = "UIButton"; normalTitle = "历史曲线"; ObjectID = "RSO-gT-iQi"; */
+"RSO-gT-iQi.normalTitle" = "historyCurve";
+
+/* Class = "UILabel"; text = "体脂率"; ObjectID = "TDg-Ro-cwZ"; */
+"TDg-Ro-cwZ.text" = "PBF";
+
+/* Class = "UIButton"; normalTitle = "添加"; ObjectID = "Uy5-i0-57s"; */
+"Uy5-i0-57s.normalTitle" = "add";
+
+/* Class = "UILabel"; text = "加餐"; ObjectID = "Uzg-sf-AaR"; */
+"Uzg-sf-AaR.text" = "snacks";
+
+/* Class = "UILabel"; text = "0.2%"; ObjectID = "V3g-ao-MO9"; */
+"V3g-ao-MO9.text" = "0.2%";
+
+/* Class = "UINavigationItem"; title = "身体分析"; ObjectID = "VQ0-EP-Bux"; */
+"VQ0-EP-Bux.title" = "bodyAnalysis";
+
+/* Class = "UILabel"; text = " 用量"; ObjectID = "Vpk-ZA-bWa"; */
+"Vpk-ZA-bWa.text" = " intakes";
+
+/* Class = "UILabel"; text = "二、注册登录"; ObjectID = "Vsu-zQ-MmS"; */
+"Vsu-zQ-MmS.text" = "二、注册登录";
+
+/* Class = "UILabel"; text = "2014年6月8日"; ObjectID = "W0w-EE-mPX"; */
+"W0w-EE-mPX.text" = "2014年6月8日";
+
+/* Class = "UILabel"; text = "20.4%"; ObjectID = "WOR-of-Fge"; */
+"WOR-of-Fge.text" = "20.4%";
+
+/* Class = "UILabel"; text = "单位名称"; ObjectID = "Wdc-ti-lvz"; */
+"Wdc-ti-lvz.text" = "单位名称";
+
+/* Class = "UILabel"; text = "这里是名字"; ObjectID = "Wk8-C8-5EH"; */
+"Wk8-C8-5EH.text" = "这里是名字";
+
+/* Class = "UIButton"; normalTitle = "超标"; ObjectID = "Wyp-Yk-MjV"; */
+"Wyp-Yk-MjV.normalTitle" = "Exceeding";
+
+/* Class = "UILabel"; text = "肌肉"; ObjectID = "XAG-Qm-64C"; */
+"XAG-Qm-64C.text" = "Muscle";
+
+/* Class = "UILabel"; text = "2014年5月26日"; ObjectID = "XfI-6L-pgd"; */
+"XfI-6L-pgd.text" = "2014年5月26日";
+
+/* Class = "UILabel"; text = "午餐"; ObjectID = "Y6S-Iq-g94"; */
+"Y6S-Iq-g94.text" = "lunch";
+
+/* Class = "UIButton"; normalTitle = "晚餐"; ObjectID = "YMX-Za-H8T"; */
+"YMX-Za-H8T.normalTitle" = "dinner";
+
+/* Class = "UILabel"; text = "体重"; ObjectID = "ZUx-7J-tyS"; */
+"ZUx-7J-tyS.text" = "Weight";
+
+/* Class = "UILabel"; text = "20大卡"; ObjectID = "ZhJ-Gy-eEJ"; */
+"ZhJ-Gy-eEJ.text" = "20大卡";
+
+/* Class = "UILabel"; text = "运动"; ObjectID = "ZqX-l4-w2Y"; */
+"ZqX-l4-w2Y.text" = "Sports";
+
+/* Class = "UILabel"; text = "这里是描述信息，写写什么么呢"; ObjectID = "aH7-Sd-RWc"; */
+"aH7-Sd-RWc.text" = "这里是描述信息，写写什么么呢";
+
+/* Class = "UITextField"; placeholder = "搜索"; ObjectID = "aTg-D9-XLS"; */
+"aTg-D9-XLS.placeholder" = "search";
+
+/* Class = "UILabel"; text = "129.9"; ObjectID = "bju-n4-j0Q"; */
+"bju-n4-j0Q.text" = "129.9";
+
+/* Class = "UILabel"; text = "78.0"; ObjectID = "ccb-AE-yOf"; */
+"ccb-AE-yOf.text" = "78.0";
+
+/* Class = "UILabel"; text = "kg"; ObjectID = "ceo-Yi-5n0"; */
+"ceo-Yi-5n0.text" = "kg";
+
+/* Class = "UILabel"; text = "名字"; ObjectID = "dCv-W9-amZ"; */
+"dCv-W9-amZ.text" = "name";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur "; ObjectID = "dme-Wa-7YL"; */
+"dme-Wa-7YL.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur ";
+
+/* Class = "UILabel"; text = "名字"; ObjectID = "eQE-Qk-cyK"; */
+"eQE-Qk-cyK.text" = "name";
+
+/* Class = "UILabel"; text = "消瘦型"; ObjectID = "eQa-wu-255"; */
+"eQa-wu-255.text" = "thin";
+
+/* Class = "UIButton"; normalTitle = "早餐"; ObjectID = "efV-gb-sOV"; */
+"efV-gb-sOV.normalTitle" = "breakfast";
+
+/* Class = "UINavigationItem"; title = "阶段报告"; ObjectID = "eow-Lm-Vod"; */
+"eow-Lm-Vod.title" = "interimReport";
+
+/* Class = "UIButton"; normalTitle = "加餐"; ObjectID = "fQ8-No-FWw"; */
+"fQ8-No-FWw.normalTitle" = "snacks";
+
+/* Class = "UILabel"; text = "2014年6月8日"; ObjectID = "foV-QB-yym"; */
+"foV-QB-yym.text" = "2014年6月8日";
+
+/* Class = "UILabel"; text = "已进行的运动项目"; ObjectID = "geX-P1-1kM"; */
+"geX-P1-1kM.text" = "已进行的运动项目";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "grh-F0-DLN"; */
+"grh-F0-DLN.normalTitle" = "save";
+
+/* Class = "UILabel"; text = "6月1日 - 6月7日"; ObjectID = "h1I-mu-U1D"; */
+"h1I-mu-U1D.text" = "6月1日 - 6月7日";
+
+/* Class = "UILabel"; text = "食物名称"; ObjectID = "h4n-wg-9aO"; */
+"h4n-wg-9aO.text" = "食物名称";
+
+/* Class = "UILabel"; text = "早餐"; ObjectID = "h5R-u6-aPD"; */
+"h5R-u6-aPD.text" = "breakfast";
+
+/* Class = "UILabel"; text = "77.8"; ObjectID = "hoB-jb-ca7"; */
+"hoB-jb-ca7.text" = "77.8";
+
+/* Class = "UILabel"; text = "食品库"; ObjectID = "how-Jj-Eq0"; */
+"how-Jj-Eq0.text" = "foodBank";
+
+/* Class = "UINavigationItem"; title = "食品添加"; ObjectID = "htw-6y-3Dm"; */
+"htw-6y-3Dm.title" = "食品添加";
+
+/* Class = "UILabel"; text = "这里是名字"; ObjectID = "i6Y-9c-Hu9"; */
+"i6Y-9c-Hu9.text" = "这里是名字";
+
+/* Class = "UILabel"; text = "已燃烧的卡路里"; ObjectID = "iAF-94-wOI"; */
+"iAF-94-wOI.text" = "已燃烧的卡路里";
+
+/* Class = "UILabel"; text = "基础代谢"; ObjectID = "is2-Ig-8dA"; */
+"is2-Ig-8dA.text" = "BMR";
+
+/* Class = "UILabel"; text = "营养建议"; ObjectID = "jhj-JJ-eAA"; */
+"jhj-JJ-eAA.text" = " NutritionAdvice";
+
+/* Class = "UILabel"; text = "身体年龄"; ObjectID = "k9p-KQ-kkU"; */
+"k9p-KQ-kkU.text" = "bodyAge";
+
+/* Class = "UILabel"; text = "身体状态指数"; ObjectID = "kCy-Yj-Qnw"; */
+"kCy-Yj-Qnw.text" = "HealthIndex";
+
+/* Class = "UILabel"; text = "41.2%"; ObjectID = "kfw-fA-gji"; */
+"kfw-fA-gji.text" = "41.2%";
+
+/* Class = "UILabel"; text = "运动建议"; ObjectID = "knd-gv-rdQ"; */
+"knd-gv-rdQ.text" = "exerciseAdvice";
+
+/* Class = "UILabel"; text = "155.5"; ObjectID = "lFu-Jp-mCk"; */
+"lFu-Jp-mCk.text" = "155.5";
+
+/* Class = "UILabel"; text = "20大卡"; ObjectID = "m4n-SF-ooo"; */
+"m4n-SF-ooo.text" = "20大卡";
+
+/* Class = "UILabel"; text = "低脂肪型"; ObjectID = "msR-GF-PJo"; */
+"msR-GF-PJo.text" = "lowFat";
+
+/* Class = "UINavigationItem"; title = "健康知识"; ObjectID = "nIQ-1g-gTU"; */
+"nIQ-1g-gTU.title" = "健康知识";
+
+/* Class = "UINavigationItem"; title = "营养建议"; ObjectID = "pit-CR-Ofo"; */
+"pit-CR-Ofo.title" = "营养建议";
+
+/* Class = "UILabel"; text = "kg"; ObjectID = "qGG-fe-CXu"; */
+"qGG-fe-CXu.text" = "kg";
+
+/* Class = "UINavigationItem"; title = "运动伙伴"; ObjectID = "qYc-jA-BjF"; */
+"qYc-jA-BjF.title" = "运动伙伴";
+
+/* Class = "UILabel"; text = "单位热量"; ObjectID = "qb8-XG-66e"; */
+"qb8-XG-66e.text" = "UnitcCalories";
+
+/* Class = "UILabel"; text = "1230"; ObjectID = "qxw-b5-hjW"; */
+"qxw-b5-hjW.text" = "1230";
+
+/* Class = "UILabel"; text = "这里是名字label"; ObjectID = "rCm-lC-rsG"; */
+"rCm-lC-rsG.text" = "这里是名字label";
+
+/* Class = "UILabel"; text = "状态指数"; ObjectID = "rEA-g4-NQe"; */
+"rEA-g4-NQe.text" = "HealthIndex";
+
+/* Class = "UILabel"; text = "食品名称"; ObjectID = "rEa-If-uSf"; */
+"rEa-If-uSf.text" = "FoodName";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "rJ8-ZO-8V6"; */
+"rJ8-ZO-8V6.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "单位用量"; ObjectID = "rU3-pV-iGu"; */
+"rU3-pV-iGu.text" = "intakes";
+
+/* Class = "UINavigationItem"; title = "关于"; ObjectID = "s44-Mj-nI3"; */
+"s44-Mj-nI3.title" = "关于";
+
+/* Class = "UIButton"; normalTitle = "营养建议"; ObjectID = "sRR-nw-ZLN"; */
+"sRR-nw-ZLN.normalTitle" = "NutritionAdvice";
+
+/* Class = "UIButton"; normalTitle = "运动建议"; ObjectID = "smg-nG-ZB5"; */
+"smg-nG-ZB5.normalTitle" = "ExerciseAdvice";
+
+/* Class = "UILabel"; text = "名称"; ObjectID = "tVA-cV-fMa"; */
+"tVA-cV-fMa.text" = "name";
+
+/* Class = "UINavigationItem"; title = "运动建议"; ObjectID = "uiC-FD-Euy"; */
+"uiC-FD-Euy.title" = "exerciseAdvice";
+
+/* Class = "UILabel"; text = "运动名称"; ObjectID = "uqz-J3-blC"; */
+"uqz-J3-blC.text" = "运动名称";
+
+/* Class = "UIButton"; normalTitle = "78"; ObjectID = "vIy-Iw-wpF"; */
+"vIy-Iw-wpF.normalTitle" = "78";
+
+/* Class = "UIButton"; normalTitle = "33"; ObjectID = "vd9-It-tE9"; */
+"vd9-It-tE9.normalTitle" = "33";
+
+/* Class = "UILabel"; text = "描述信息..."; ObjectID = "vpi-5E-Yy3"; */
+"vpi-5E-Yy3.text" = "Descriptive information...";
+
+/* Class = "UILabel"; text = "水分"; ObjectID = "vuQ-Mo-qFB"; */
+"vuQ-Mo-qFB.text" = "Water";
+
+/* Class = "UILabel"; text = "20.4%"; ObjectID = "wbB-rB-Pi2"; */
+"wbB-rB-Pi2.text" = "20.4%";
+
+/* Class = "UILabel"; text = "单位时间"; ObjectID = "wgB-XV-tw1"; */
+"wgB-XV-tw1.text" = "单位时间";
+
+/* Class = "UILabel"; text = "0.8%"; ObjectID = "xe5-CJ-zhz"; */
+"xe5-CJ-zhz.text" = "0.8%";
+
+/* Class = "UILabel"; text = "体重"; ObjectID = "z3a-PB-PFd"; */
+"z3a-PB-PFd.text" = "Weight";
+
+/* Class = "UINavigationItem"; title = "运动记录"; ObjectID = "zGR-Yp-HRm"; */
+"zGR-Yp-HRm.title" = "运动记录";

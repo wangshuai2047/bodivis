@@ -1,0 +1,223 @@
+//
+//  WriteVisitorInfViewController.m
+//  TFHealth
+//
+//  Created by hzth hzth－mac2 on 6/3/14.
+//  Copyright (c) 2014 studio37. All rights reserved.
+//
+
+#import "WriteVisitorInfViewController.h"
+#import "HealthStatusViewController.h"
+#import "UIViewController+MMDrawerController.h"
+#import "Members.h"
+#import "User.h"
+#import "CXAlertView.h"
+#import "VPImageCropperViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <QuartzCore/QuartzCore.h>
+#import "AppDelegate.h"
+#import "AppCloundService.h"
+#import "UserDevices.h"
+
+@interface WriteVisitorInfViewController ()
+@property (weak, nonatomic) IBOutlet UIView *boyView;
+@property (weak, nonatomic) IBOutlet UIView *girlView;
+- (IBAction)boyViewClicked:(id)sender;
+- (IBAction)girlViewClicked:(id)sender;
+- (IBAction)saveFamily:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *txtName;
+@property (weak, nonatomic) IBOutlet UITextField *txtAge;
+@property (weak, nonatomic) IBOutlet UITextField *txtHeight;
+
+@end
+
+@implementation WriteVisitorInfViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (IBAction)textFieldDoneEditing:(id)sender {
+    [sender resignFirstResponder];
+}
+
+- (IBAction)backButtonClikc:(id)sender {
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    UIImage *bgImage=[UIImage imageNamed:@"sex.png"];
+    UIColor *bgColor=[UIColor colorWithPatternImage:bgImage];
+    [_boyView setBackgroundColor:bgColor];
+    _sexId=1;
+    
+    [self cancelSexButtonUpControl];
+}
+
+//去掉男女按钮上的其他控件的交互
+-(void)cancelSexButtonUpControl
+{
+    for (UIView *obj in self.boyView.subviews)
+    {
+        obj.userInteractionEnabled = NO;
+    }
+    
+    for (UIView *obj in self.girlView.subviews)
+    {
+        obj.userInteractionEnabled = NO;
+    }
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.txtName resignFirstResponder];
+    [self.txtAge resignFirstResponder];
+    [self.txtHeight resignFirstResponder];
+}
+
+- (IBAction)boyViewClicked:(id)sender {
+    UIImage *bgImage=[UIImage imageNamed:@"sex.png"];
+    UIColor *bgColor=[UIColor colorWithPatternImage:bgImage];
+    [_boyView setBackgroundColor:bgColor];
+    
+    [_girlView setBackgroundColor:[UIColor clearColor]];
+    _sexId=1;
+    
+}
+
+- (IBAction)girlViewClicked:(id)sender {
+    UIImage *bgImage=[UIImage imageNamed:@"sex.png"];
+    UIColor *bgColor=[UIColor colorWithPatternImage:bgImage];
+    [_girlView setBackgroundColor:bgColor];
+    [_boyView setBackgroundColor:[UIColor clearColor]];
+    _sexId=2;
+}
+
+- (IBAction)saveFamily:(id)sender {
+    NSString *name = _txtName.text;
+    int age =_txtAge.text.intValue;
+    int height=_txtHeight.text.intValue;
+    if (name==nil||name==NULL||[name length]==0) {
+        [self showSystemAlert:@"请填写正确的昵称或姓名。"];
+        return;
+    }
+    if (age==0) {
+        [self showSystemAlert:@"请填写正确的年龄信息。"];
+        return;
+    }
+    if (height==0) {
+        [self showSystemAlert:@"请填写正确的身高信息。"];
+        return;
+    }
+    AppDelegate *appdelegate =(AppDelegate*) [[UIApplication sharedApplication] delegate];
+    
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *formate = [[NSDateFormatter alloc] init];
+    [formate setDateFormat:@"yyyy-MM-dd"];
+    
+    AppCloundService* s= [[AppCloundService alloc] initWidthDelegate:self];
+    [s AddMembers:appdelegate.userId userIco:nil nick:name userHeight:height userWeight:60 userSex:_sexId userAge:age userType:@"1" relationshipName:@"访客" addTime:[formate stringFromDate:currentDate]];
+    
+}
+
+-(void)serviceSuccessed:(NSDictionary*)keyValues pMethod:(NSString*)method
+{
+    [self AddUser:keyValues];
+}
+
+-(void)serviceFailed:(NSString*) message pMethod:(NSString*)method
+{
+    [self showSystemAlert:@"保存数据失败，请检查您填写的信息是否正确并检查网络"];
+}
+
+-(void)AddUser:(NSDictionary*)keyValues
+{
+    if(keyValues.count>0 && [[keyValues allKeys] containsObject:@"res" ])
+    {
+        NSInteger res = [[keyValues objectForKey:@"res"] integerValue];
+        if (res>0) {
+            NSString *name = _txtName.text;
+            int age =_txtAge.text.intValue;
+            int height=_txtHeight.text.intValue;
+            
+            User *user =[User MR_createEntity];
+            user.nickName=name;
+            user.sex=[NSNumber numberWithInt:_sexId];
+            user.height=[NSNumber numberWithInteger:height];
+            user.birthday=[NSNumber numberWithInteger:age];
+            user.userId=[NSNumber numberWithInteger:res];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            
+            AppDelegate *appdelegate =(AppDelegate*) [[UIApplication sharedApplication] delegate];
+            
+            Members *member=[Members MR_createEntity];
+            member.appUserId=[NSNumber numberWithInteger:appdelegate.userId];
+            member.userId=[NSNumber numberWithInteger:res];
+            member.memberType=[NSNumber numberWithInt:1];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            
+            appdelegate.user=user;
+            //[self showSystemAlert:[NSString stringWithFormat:@"访客%@添加成功。",name]];
+            
+            /* 这里忘了是什么作用了，先注掉了，用到再开启吧
+            UserDevices *device = [UserDevices MR_findFirstByAttribute:@"userName" withValue:_txtName.text];
+            if (device!=nil) {
+                if (device.deviceType.intValue==0) {
+                    device.state=[NSNumber numberWithInt:1];
+                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                }
+            }
+            */
+            UIViewController *vc2 = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HealthStatusNavViewController"];
+            
+            //UIViewController *vc3 = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AboutViewController"];
+            
+            [self.mm_drawerController setCenterViewController:vc2 withCloseAnimation:YES completion:nil];
+        }
+        else
+        {
+            [self showSystemAlert:@"添加访客失败，请检查您填写的信息是否正确并重试。"];
+        }
+    }
+    else
+    {
+        [self showSystemAlert:@"添加访客失败，请检查您填写的信息是否正确并重试。"];
+    }
+}
+
+- (IBAction)showSystemAlert:(id)sender
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:CustomLocalizedString(@"tip", nil) message:sender delegate:nil cancelButtonTitle:CustomLocalizedString(@"OK", nil) otherButtonTitles: nil];
+    
+    [alertView show];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

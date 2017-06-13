@@ -1,0 +1,35 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9b25fe7d-da4b-d246-ac2c-bf72397b697b++8296",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "9b25fe7d-da4b-d246-ac2c-bf72397b697b++8296" : {
+
+    },
+    "9b25fe7d-da4b-d246-ac2c-bf72397b697b++1210" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9b25fe7d-da4b-d246-ac2c-bf72397b697b++8296" : 0,
+    "9b25fe7d-da4b-d246-ac2c-bf72397b697b++1210" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D76231D5-9783-45FB-ABDF-D744D24CEAAF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9b25fe7d-da4b-d246-ac2c-bf72397b697b++8296" : "bodivis-IOS(%E6%9C%89%E7%BF%BB%E8%AF%91%E7%89%88)\/",
+    "9b25fe7d-da4b-d246-ac2c-bf72397b697b++1210" : "bodivis-IOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TFHealth",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TFHealth.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/www.tfht.com.cn\/svn\/IOS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9b25fe7d-da4b-d246-ac2c-bf72397b697b++1210"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/www.tfht.com.cn\/svn\/IOS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9b25fe7d-da4b-d246-ac2c-bf72397b697b++8296"
+    }
+  ]
+}

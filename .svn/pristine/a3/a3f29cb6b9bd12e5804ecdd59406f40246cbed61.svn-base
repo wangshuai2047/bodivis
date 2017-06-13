@@ -1,0 +1,116 @@
+/* 
+  TFLanguage.strings
+  TFHealth
+
+  Created by 王帅 on 17/3/22.
+  Copyright © 2017年 studio37. All rights reserved.
+*/
+
+//左侧表格
+"labelBodyAssessment" = "身體評估";
+"labelSportsMate" = "運動伴侶";
+"labelDiteManagement" = "膳食管理";
+"labelInterimReport" = "階段報告";
+"labelRankingList" = "排行榜";
+"labelHelp" = "幫助";
+"labelTestVersion" = "檢測版本";
+"labelHotline" = "服務熱線";
+
+//右侧表格
+"labelPersonalSetting" = "個人設定";
+"labelFamilyMembersManagement" = "家庭成員管理";
+"labelGuestMode" = "訪客模式";
+"labelModifyDatabase" = "修改資料";
+"labelSwitchLanguage" = "切換語言";
+"labelExitAccount" = "退出賬戶";
+
+//主页（体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；体脂率：深度分析labelPBF；骨质：深度分析labelBone；蛋白质：深度分析labelProtein）
+"labelYaoYiYao" = "搖一搖再上秤";
+"labelBodyScore" = "身體狀態指數";//身体评估界面状态指数；
+"labelHistoryCurve" = "歷史曲線";//历史曲线界面主标题；
+"labelShare" = "分享";
+"labelLow" = "低";
+"labelNormal" = "正常";
+"labelHigh" = "高";
+"noData" = "無數據";
+"nothing" = "無";
+
+//主页的分享界面
+"labelMicroBlog" = "微博";
+"labelQzone" = "QQ空間";
+"labelFriendCircle" = "朋友圈";
+"labelWetChat" = "微信好友";
+
+//历史曲线（历史曲线：主页labelHistoryCurve；体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；脂肪：深度分析labelFat）
+"labelWeek" = "周";
+"labelMonth" = "月";
+"labelSeason" = "季";
+"labelYear" = "年";
+
+//深度分析
+"labelDeepAnalysis" = "深度分析";
+"labelNormalItem" = "根據測試，以下為合格項，點擊可查看詳細";
+"labelUnormalItem" = "根據測試，以下為不合格項，點擊可查看詳細";
+"labelWeight" = "體重";//主页体重；阶段报告体重
+"labelPBF" = "體脂率";//主页体脂率；阶段报告体脂率
+"labelBone" = "骨質";//主页骨质；
+"labelProtein" = "蛋白質";//主页蛋白质；
+"labelWater" = "水分";//主页水分；历史曲线界面水分
+"labelMuscle" = "肌肉";//主页肌肉；历史曲线界面肌肉
+"labelFat" = "脂肪";//历史曲线脂肪
+"labelVisceralFatAnalysis" = "內臟脂肪";
+"labelSMM" = "骨骼肌";
+"labelBMIGrade" = "肥胖等級";
+
+//身体评估（状态指数：主页labelBodyScore）
+"labelAssessmentReport" = "評估報告";
+"labelBodyAge" = "身體年齡";
+"labelBasalMetabolicRate" = "基礎代謝";
+"labelTestingDate" = "測試日期";
+"labelComprehensiveAssessment" = "綜合評定";
+"labelWorkoutSuggestion" = "運動建議";
+"labelNutritionSuggestion" = "營養建議";
+"labelBreakfast" = "早餐";
+"labelLunch" = "午餐";
+"labelDinner" = "晚餐";
+"standard" = "標準";
+"littleLow" = "偏低";
+"littleHigh" = "偏高";
+"idealWeight" = "標準體重";
+"FFM" = "去脂體重";
+"WeightControl" = "體重控制量";
+"FatControl" = "脂肪控制量";
+"MuscleControl" = "肌肉控制量";
+"thin" = "消瘦型";
+"lowFat" = "低脂肪型";
+"athletic" = "運動員型";
+"lightlyMuscled" = "肌肉不足型";
+"fit" = "健康勻稱型";
+"muscular" = "超重肌肉型";
+"invisibleFat" = "隱性肥胖型";
+"fatty" = "脂肪過多型";
+"obese" = "肥胖型";
+
+//膳食管理
+//选择膳食
+"foodNutritionalReservoir" = "食品营养库";
+"myDiet" = "我的项目";
+"userDefined" = "自定义";
+//添加膳食
+"breakfast" = "早餐";
+"lunch" = "午餐";
+"dinner" = "晚餐";
+"snacks" = "加餐";
+
+//阶段报告(阶段报告标题：左侧表格labelInterimReport；体重：深度分析labelWeight；体脂率：深度分析labelPBF)
+"labelDietReport" = "膳食報告";
+"labelExerciseReport" = "運動報告";
+
+//排行榜(排行榜标题：左侧表格labelRankingList)
+"labelRankingListContent1" = "您的身體狀況擊敗了全國%@%%的用戶";
+"labelRankingListContent2" = "%%的用戶";
+
+//切换语言
+"moreLanguage" = "多語言";
+"save" = "保存";
+

@@ -1,0 +1,167 @@
+/* 
+  TFLanguage.strings
+  TFHealth
+
+  Created by 王帅 on 17/3/22.
+  Copyright © 2017年 studio37. All rights reserved.
+*/
+
+//左侧表格
+"labelBodyAssessment" = "BodyAssessment";
+"labelSportsMate" = "SportsMate";
+"labelDiteManagement" = "DiteManagement";
+"labelInterimReport" = "InterimReport";
+"labelRankingList" = "RankingList";
+"labelHelp" = "Help";
+"labelTestVersion" = "TestVersion";
+"labelHotline" = "Hotline";
+
+//右侧表格
+"labelPersonalSetting" = "PersonalSetting";
+"labelFamilyMembersManagement" = "FamilyMembersManagement";
+"labelGuestMode" = "GuestMode";
+"labelModifyDatabase" = "ModifyData";
+"labelSwitchLanguage" = "SwitchLanguage";
+"labelExitAccount" = "LogOut";
+
+//主页（体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；体脂率：深度分析labelPBF；骨质：深度分析labelBone；蛋白质：深度分析labelProtein）
+"labelYaoYiYao" = "Shake,Shake";
+"labelBodyScore" = "BodyScore";//身体评估界面状态指数；
+"labelHistoryCurve" = "HistoryCurve";//历史曲线界面主标题
+"labelShare" = "Share";
+"labelLow" = "Low";
+"labelNormal" = "Normal";
+"labelHigh" = "High";
+"noData" = "noData";
+"nothing" = "nothing";
+
+//主页的分享界面
+"labelMicroBlog" = "MicroBlog";
+"labelQzone" = "Qzone";
+"labelFriendCircle" = "FriendCircle";
+"labelWetChat" = "WetChat";
+
+//历史曲线（历史曲线：主页labelHistoryCurve；体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；脂肪：深度分析labelFat）
+"labelWeek" = "Week";
+"labelMonth" = "Month";
+"labelSeason" = "Season";
+"labelYear" = "Year";
+
+
+//深度分析
+"labelDeepAnalysis" = "DeepAnalysis";
+"labelNormalItem" = "According to the test,following is the normal item. Click to see the details.";
+"labelUnormalItem" = "According to the test,following is the unnormal item. Click to see the details.";
+"labelWeight" = "Weight";//主页体重；阶段报告体重
+"labelPBF" = "PBF";//主页体脂率；阶段报告体脂率
+"labelBone" = "Bone";//主页骨质；
+"labelProtein" = "Protein";//主页蛋白质；
+"labelWater" = "Water";//主页水分；历史曲线界面水分
+"labelMuscle" = "Muscle";//主页肌肉；历史曲线界面肌肉
+"labelFat" = "Fat";//历史曲线脂肪
+"labelVisceralFatAnalysis" = "VisceralFatAnalysis";
+"labelSMM" = "SMM";
+"labelBMIGrade" = "BMIGrade";
+
+//身体评估（状态指数：主页labelBodyScore）
+"labelAssessmentReport" = "PhysicalReport";
+"labelBodyAge" = "BodyAge";
+"labelBasalMetabolicRate" = "BasalMetabolicRate";
+"labelTestingDate" = "TestingDate";
+"labelComprehensiveAssessment" = "ComprehensiveAssessment";
+"labelWorkoutSuggestion" = "WorkoutSuggestion";
+"labelNutritionSuggestion" = "NutritionSuggestion";
+"labelBreakfast" = "Breakfast";
+"labelLunch" = "Lunch";
+"labelDinner" = "Dinner";
+"standard" = "standard";
+"littleLow" = "littleLow";
+"littleHigh" = "littleHigh";
+"idealWeight" = "idealWeight";
+"FFM" = "FFM";
+"WeightControl" = "WeightControl";
+"FatControl" = "FatControl";
+"MuscleControl" = "MuscleControl";
+"thin" = "thin";
+"lowFat" = "lowFat";
+"athletic" = "athletic";
+"lightlyMuscled" = "lightlyMuscled";
+"fit" = "fit";
+"muscular" = "muscular";
+"invisibleFat" = "invisibleFat";
+"fatty" = "fatty";
+"obese" = "obese";
+
+//膳食管理
+//选择膳食
+"foodNutritionalReservoir" = "foodNutritionalReservoir";
+"myDiet" = "myDiet";
+"userDefined" = "user-defined";
+//添加膳食
+"breakfast" = "breakfast";
+"lunch" = "lunch";
+"dinner" = "dinner";
+"snacks" = "snacks";
+"keywordSearch" = "Enter the keyword to search";
+
+//阶段报告(阶段报告标题：左侧表格labelInterimReport；体重：深度分析labelWeight；体脂率：深度分析labelPBF)
+"labelDietReport" = "DietReport";
+"labelExerciseReport" = "ExerciseReport";
+
+//排行榜(排行榜标题：左侧表格labelRankingList)
+"labelRankingListContent1" = "Your body condition defeated %@ %% users";
+"labelRankingListContent2" = "%% users";
+
+//切换语言
+"moreLanguage" = "Language";
+"save" = "save";
+
+//家庭成员管理
+"familyMembers" = "familyMembers";
+"delete" = "delete";
+"complete" = "complete";
+"addMember" = "addMember";
+
+"cancel" = "cancel";
+"OK" = "OK";
+"yes" = "yes";
+"update" = "update";
+"Sports" = "Sports";
+"Record" = "Record";
+"tip" = "tip";
+
+"report_desc" = "You setted target weight to %.1fkg at %@.";
+"food_desc" = "From %@ to %@, you absorbed %.f calories totally, with an average daily intake of %.f calories. Human's health inhalation is 600-800 calories.";
+"todayCalories" = "Today you intaked %.1f calories.";
+
+//帮助
+"instructions" = "instructions";
+"titleLabel1" = "One、instructions";
+"helpInfoItem1" = "comprehensively monitor the 21 kinds of  human health data;";
+"helpInfoItem2" = "provide motion monitoring and sleep monitoring;";
+"helpInfoItem3" = "Smart Health Cloud offers you professional sports advice and nutritional dietary advice.";
+"helpInfoItem4" = "Use Flow:";
+"helpInfoItemA" = "A．download and install App;";
+"helpInfoItemB" = "B．register and log in App;";
+"helpInfoItemC" = "C．Shake your phone,stand on the scale to test, and get down from the scale when complete the test;";
+"helpInfoItemD" = "D．Check the 21 kinds of health data, as well as the exercise suggestion and diet suggestion;";
+"helpInfoItemE" = "E．Use bracelet for exercise and sleep monitoring.";
+
+"titleLabel2" = "Two、注册登录";
+"helpLoginItemA" = "A．Enter the phone number or email address, fill in the password;";
+"helpLoginItemB" = "B．fill in personal information (height, age, gender);";
+"helpLoginItemC" = "C．Choose your user type:bracelet, body composition scale or both;";
+"helpLoginItemD" = "D．Registration is completed.Please enter the user name and password, and then login.";
+
+"titleLabel3" = "Three、测试";
+"helpTestItem1" = "1．Open the bluetooth.";
+"helpTestItem1A" = "The bluetooth default for system automatically open.After opening,bluetooth icon will appear at the top right of the phone.";
+"helpTestItem1B" = "bluetooth is not open, please turn on it manually. The way to open the bluetooth:'settings' - 'connection' - 'Bluetooth'. Open the bluetooth.";
+"helpTestItem2" = "2．Open and login the App to enter the test interface. Shake the phone, and then stand on the scale, and get dowm from the scale when complete the test. Check the testing data and intelligent data analysis through the App.";
+
+"helpWarnItem1" = "warning:";
+"helpWarnItem2" = "Do not use for person with cardiac pacemakers and  metal fixtures within their body!";
+"helpWarnItem3" = "Pregnant women are banned.";
+"helpWarnItem4" = "Suitable age:7-99 years old.";
+
+

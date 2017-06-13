@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DalidFood" syncable="YES">
+        <attribute name="calorieValue" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="foodId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="foodName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intakeDate" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="intakeValue" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="其它餐点" value="3"/>
+                <entry key="晚餐" value="2"/>
+                <entry key="午餐" value="1"/>
+                <entry key="早餐" value="0"/>
+            </userInfo>
+        </attribute>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="dalidFood_foodDictionary_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodDictionary" inverseName="foodDictionary_dalidFood_ship" inverseEntity="FoodDictionary" syncable="YES"/>
+        <relationship name="dalidFood_user_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="user_dalidDood_ship" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="FoodClass" syncable="YES">
+        <attribute name="classDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="classId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="cName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="foodClass_foodDictionary_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodDictionary" inverseName="foodDictionary_foodclass_ship" inverseEntity="FoodDictionary" syncable="YES"/>
+    </entity>
+    <entity name="FoodDictionary" syncable="YES">
+        <attribute name="caloriesValue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="classId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="foodId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="foodName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gramValue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="unitName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="foodDictionary_dalidFood_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DalidFood" inverseName="dalidFood_foodDictionary_ship" inverseEntity="DalidFood" syncable="YES"/>
+        <relationship name="foodDictionary_foodclass_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodClass" inverseName="foodClass_foodDictionary_ship" inverseEntity="FoodClass" syncable="YES"/>
+    </entity>
+    <entity name="Health_Items" syncable="YES">
+        <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="healthItems_UserIteminfo_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Item_Info" inverseName="userItemInfo_healthItems_ship" inverseEntity="User_Item_Info" syncable="YES"/>
+    </entity>
+    <entity name="ItemDataSyncStatus" syncable="YES">
+        <attribute name="compflag" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemflag" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Members" syncable="YES">
+        <attribute name="appUserId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="memberType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="访客" value="1"/>
+                <entry key="粉丝" value="3"/>
+                <entry key="好友" value="2"/>
+                <entry key="家人" value="0"/>
+            </userInfo>
+        </attribute>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <relationship name="members_user_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="user_members_ship" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="PersonalSet" syncable="YES">
+        <attribute name="completedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="foodSubtract" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="personId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="remindTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remindWay" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="每天" value="1"/>
+                <entry key="每月" value="3"/>
+                <entry key="每周" value="2"/>
+            </userInfo>
+        </attribute>
+        <attribute name="sleepTimeLength" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sportSubtract" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="stepLength" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="stepTargetCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="targetWeight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="weekTarget" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="personal_user_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="user_personal_ship" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Sport_Item_Value" syncable="YES">
+        <attribute name="consumptionCalories" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="movementTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sportId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="testDate" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="sportItemValue_sportItems_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sport_Items" inverseName="sportItems_sportItemValue_ship" inverseEntity="Sport_Items" syncable="YES"/>
+        <relationship name="sportItemValue_user_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="user_sportItemValue_ship" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Sport_Items" syncable="YES">
+        <attribute name="caloriesValue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="met" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sportId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sportName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeSpan" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sportItems_sportItemValue_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sport_Item_Value" inverseName="sportItemValue_sportItems_ship" inverseEntity="Sport_Item_Value" syncable="YES"/>
+    </entity>
+    <entity name="SportCoefficient" syncable="YES">
+        <attribute name="coefficientValue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SystemInfo" syncable="YES">
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remindTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="remindWay" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="loginType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="百度云登录" value="1"/>
+                <entry key="本地登录" value="0"/>
+                <entry key="微信登录" value="2"/>
+            </userInfo>
+        </attribute>
+        <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="男" value="1"/>
+                <entry key="女" value="2"/>
+            </userInfo>
+        </attribute>
+        <attribute name="userIco" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="userId" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="user_comprehensiveEval_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Comprehensive_Eval" inverseName="comprehensiveEval_user_ship" inverseEntity="User_Comprehensive_Eval" syncable="YES"/>
+        <relationship name="user_dalidDood_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DalidFood" inverseName="dalidFood_user_ship" inverseEntity="DalidFood" syncable="YES"/>
+        <relationship name="user_members_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Members" inverseName="members_user_ship" inverseEntity="Members" syncable="YES"/>
+        <relationship name="user_personal_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonalSet" inverseName="personal_user_ship" inverseEntity="PersonalSet" syncable="YES"/>
+        <relationship name="user_sportItemValue_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sport_Item_Value" inverseName="sportItemValue_user_ship" inverseEntity="Sport_Item_Value" syncable="YES"/>
+        <relationship name="user_userItemInfo_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Item_Info" inverseName="userItemInfo_user_ship" inverseEntity="User_Item_Info" syncable="YES"/>
+    </entity>
+    <entity name="User_Comprehensive_Eval" syncable="YES">
+        <attribute name="cid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="synchronizedStatus" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="未同步" value="0"/>
+                <entry key="已同步" value="1"/>
+            </userInfo>
+        </attribute>
+        <attribute name="testDate" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="testScore" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="comprehensiveEval_user_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="user_comprehensiveEval_ship" inverseEntity="User" syncable="YES"/>
+        <relationship name="comprehensiveEval_userItemInfo_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Item_Info" inverseName="userItemInfo_comprehensiveEval_ship" inverseEntity="User_Item_Info" syncable="YES"/>
+    </entity>
+    <entity name="User_Item_Info" syncable="YES">
+        <attribute name="cid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="macModel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="testDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="testValue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="userItemInfo_comprehensiveEval_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Comprehensive_Eval" inverseName="comprehensiveEval_userItemInfo_ship" inverseEntity="User_Comprehensive_Eval" syncable="YES"/>
+        <relationship name="userItemInfo_healthItems_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Health_Items" inverseName="healthItems_UserIteminfo_ship" inverseEntity="Health_Items" syncable="YES"/>
+        <relationship name="userItemInfo_user_ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="user_userItemInfo_ship" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="UserCoreValues" syncable="YES">
+        <attribute name="calorieValue" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="coreId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="createTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="kmCount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lastCalorieValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastCoreStep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lightSleepCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sleepTimeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="soberSleepCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="stepCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeLenght" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="UserDevices" representedClassName="" syncable="YES">
+        <attribute name="deviceType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="UserLog" syncable="YES">
+        <attribute name="lastLoginTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="UserMessage" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="messageType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="更新通知" value="1"/>
+                <entry key="消息通知" value="0"/>
+            </userInfo>
+        </attribute>
+    </entity>
+    <elements>
+        <element name="DalidFood" positionX="-8156" positionY="-4788" width="128" height="180"/>
+        <element name="FoodClass" positionX="-8174" positionY="-4320" width="128" height="103"/>
+        <element name="FoodDictionary" positionX="-8165" positionY="-4536" width="128" height="163"/>
+        <element name="Health_Items" positionX="-7587" positionY="-4392" width="128" height="105"/>
+        <element name="ItemDataSyncStatus" positionX="-8100" positionY="-4896" width="128" height="90"/>
+        <element name="Members" positionX="-8138" positionY="-4923" width="128" height="103"/>
+        <element name="PersonalSet" positionX="-8019" positionY="-4464" width="128" height="268"/>
+        <element name="Sport_Item_Value" positionX="-7884" positionY="-4437" width="128" height="148"/>
+        <element name="Sport_Items" positionX="-7731" positionY="-4390" width="128" height="148"/>
+        <element name="SportCoefficient" positionX="-8298" positionY="-4779" width="128" height="90"/>
+        <element name="SystemInfo" positionX="-7920" positionY="-4905" width="128" height="88"/>
+        <element name="User" positionX="-7940" positionY="-4786" width="128" height="283"/>
+        <element name="User_Comprehensive_Eval" positionX="-7632" positionY="-4878" width="128" height="163"/>
+        <element name="User_Item_Info" positionX="-7641" positionY="-4653" width="128" height="210"/>
+        <element name="UserCoreValues" positionX="-8298" positionY="-4671" width="128" height="253"/>
+        <element name="UserDevices" positionX="-7983" positionY="-5040" width="128" height="88"/>
+        <element name="UserLog" positionX="-8298" positionY="-4923" width="128" height="88"/>
+        <element name="UserMessage" positionX="-7778" positionY="-4923" width="128" height="88"/>
+    </elements>
+</model>

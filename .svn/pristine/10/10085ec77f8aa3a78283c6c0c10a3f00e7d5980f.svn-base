@@ -1,0 +1,374 @@
+//
+//  BodyAnalysisViewController.m
+//  TFHealth
+//
+//  Created by hzth hzth－mac2 on 5/27/14.
+//  Copyright (c) 2014 studio37. All rights reserved.
+//
+
+#import "BodyAnalysisViewController.h"
+#import "SportSuggestionsViewController.h"
+#import "FoodSuggestionsViewController.h"
+#import "UIViewController+MMDrawerController.h"
+#import "AppDelegate.h"
+#import "User_Item_Info.h"
+#import "TestItemID.h"
+#import "TestItemCalc.h"
+#import "UIViewController+CWPopup.h"
+#import "BodyStyleViewController.h"
+#import "NTSlidingViewController.h"
+
+@interface BodyAnalysisViewController ()
+
+@property (weak, nonatomic) IBOutlet UIView *centerView;
+@property (strong, nonatomic) IBOutlet UIView *view_container;
+
+
+//上面那块的图片和按钮
+@property (weak, nonatomic) IBOutlet UIImageView *bodyImageView;//体型图片
+@property (weak, nonatomic) IBOutlet UIButton *bodyButton;//体型判定按钮
+@property (weak, nonatomic) IBOutlet UIButton *ageButton;//年龄
+@property (weak, nonatomic) IBOutlet UIButton *totalScoreButton;//状态指数
+@property (weak, nonatomic) IBOutlet UIButton *bmrButton;//基础代谢
+@property (weak, nonatomic) IBOutlet UIButton *testDateButton;
+
+//中间那块的视图
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;//综合评定文字输出
+//中间左边圆圈
+@property (weak, nonatomic) IBOutlet UILabel *leftWhiteLabel;//左边圆圈上面的白色百分比label
+@property (weak, nonatomic) IBOutlet UILabel *weightPersentageLabel;//体重百分比label
+@property (weak, nonatomic) IBOutlet UILabel *weightVaryLabel;//体重变化率label
+
+//中间右边圆圈
+@property (weak, nonatomic) IBOutlet UILabel *rightWhiteLabel;//右边圆圈上面的白色百分比label
+@property (weak, nonatomic) IBOutlet UILabel *fatPersentageLabel;//脂肪率label
+@property (weak, nonatomic) IBOutlet UILabel *fatVaryLabel;//脂肪率变化label
+
+//底部两个按钮
+@property (weak, nonatomic) IBOutlet UIButton *sportsSuggestionButton;//运动建议按钮
+
+@property (weak, nonatomic) IBOutlet UIButton *nutritionSuggestionButton;//营养建议按钮
+
+@end
+
+@implementation BodyAnalysisViewController
+
+@synthesize superview;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+#pragma mark - 运动建议
+- (IBAction)sportSuggestionClick:(id)sender {
+    SportSuggestionsViewController * ssvc = [self.storyboard instantiateViewControllerWithIdentifier:@"SportSuggestionsViewController"];
+    ssvc.navBar.title = @"运动建议";
+    ssvc.suggestion = @"根据您的体测成绩，建议您按以下的运行方案进行运动，以达到您的减重目标。";
+    NTSlidingViewController *uv = (NTSlidingViewController *)superview;
+    [UIView animateWithDuration:5.0 animations:^{
+        uv.navigationBar.hidden=YES;
+    }];
+    [self presentPopupViewController:ssvc animated:YES completion:^(void) {
+        
+    }];
+    //[self.navigationController pushViewController:ssvc animated:YES];
+    
+}
+
+#pragma mark - 营养建议
+- (IBAction)nutritionSuggestionClick:(id)sender {
+    FoodSuggestionsViewController * ssvc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodSuggestionsViewController"];
+    ssvc.navBar.title = @"营养建议";
+    ssvc.suggestion=@"根据您的体测成绩，建议您多吃新鲜蔬菜，如青菜可以补充VC，它可以让您更健康。";
+    NTSlidingViewController *uv = (NTSlidingViewController *)superview;
+    [UIView animateWithDuration:5.0 animations:^{
+        uv.navigationBar.hidden=YES;
+    }];
+    [self presentPopupViewController:ssvc animated:YES completion:^(void) {
+        
+    }];
+    
+    //[self.navigationController pushViewController:ssvc animated:YES];
+}
+
+- (IBAction)backButtonClikc:(id)sender {
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+
+#pragma mark - 体型判断
+-(void)bodyImageClicked:(UITapGestureRecognizer *)sender
+{
+    BodyStyleViewController * bodyStyleViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"BodyStyleViewController"];
+    NTSlidingViewController *uv = (NTSlidingViewController *)superview;
+    [UIView animateWithDuration:5.0 animations:^{
+        uv.navigationBar.hidden=YES;
+    }];
+    [self presentPopupViewController:bodyStyleViewController animated:YES completion:^(void) {
+        [bodyStyleViewController initBodyStyle:self.bodyButton.titleLabel.text];
+        NSLog(@"popup view presented");
+    }];
+    
+}
+
+- (void)dismissPopup {
+    if (self.popupViewController != nil) {
+        [self dismissPopupViewControllerAnimated:YES completion:^{
+            NTSlidingViewController *uv = (NTSlidingViewController *)superview;
+            [UIView animateWithDuration:3.3 animations:^{
+                uv.navigationBar.hidden=NO;
+            }];
+            NSLog(@"popup view dismissed");
+        }];
+    }
+}
+
+#pragma mark - gesture recognizer delegate functions
+
+// so that tapping popup view doesnt dismiss it
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return touch.view != self.popupViewController.view;
+}
+
+- (void)didClickOnImageIndex:(NSInteger *)imageIndex
+{
+    NSLog(@"%d",(int)imageIndex);
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.delegate = self;
+    [self.view addGestureRecognizer:tapRecognizer];
+    self.useBlurForPopup = YES;
+    
+    self.centerView.layer.cornerRadius = 10;
+    self.centerView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.centerView.layer.borderWidth = 1;
+    _bodyImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bodyImageClicked:)];
+    [_bodyImageView addGestureRecognizer:singleTap];
+    
+    AppDelegate *appdelegate =(AppDelegate*) [[UIApplication sharedApplication] delegate];
+    
+    User* user = appdelegate.user;
+    User_Item_Info* lastWeightItem = [User_Item_Info MR_findFirstWithPredicate:[NSPredicate predicateWithFormat:@"userId==%d AND itemId==%d",user.userId.intValue,[TestItemID getWeight]] sortedBy:@"testDate" ascending:false inContext:[NSManagedObjectContext MR_defaultContext]];
+    User_Item_Info* lastFatItem =[User_Item_Info MR_findFirstWithPredicate:[NSPredicate predicateWithFormat:@"userId==%d AND itemId==%d",user.userId.intValue,[TestItemID getFat]] sortedBy:@"testDate" ascending:false inContext:[NSManagedObjectContext MR_defaultContext]];
+    User_Item_Info* lastBodyAgeItem = [User_Item_Info MR_findFirstWithPredicate:[NSPredicate predicateWithFormat:@"userId==%d AND itemId==%d",user.userId.intValue,[TestItemID getBodyAge]] sortedBy:@"testDate" ascending:false inContext:[NSManagedObjectContext MR_defaultContext]];
+    User_Item_Info* lastMuscleItem =[User_Item_Info MR_findFirstWithPredicate:[NSPredicate predicateWithFormat:@"userId==%d AND itemId==%d",user.userId.intValue,[TestItemID getMuscle]] sortedBy:@"testDate" ascending:false inContext:[NSManagedObjectContext MR_defaultContext]];
+    
+    if(lastWeightItem!=nil)
+    {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init] ;
+        [dateFormatter setDateFormat:@"yy-MM-dd"];
+        
+        [self.testDateButton setTitle:[dateFormatter stringFromDate:lastWeightItem.testDate] forState:UIControlStateNormal];
+    }
+    if(lastWeightItem!=nil && lastFatItem!=nil && user!=nil)
+    {
+        NSNumber* pbf = [TestItemCalc calcPBF:lastWeightItem.testValue pFat:lastFatItem.testValue];
+        NSNumber* bmi =[TestItemCalc calcBMI:lastWeightItem.testValue pHeight:user.height];
+        NSString* type = [TestItemCalc calcSomatotype:pbf pBMI:bmi pSexy:user.sex.intValue==1];
+        [self.bodyButton setTitle:type forState:UIControlStateNormal];
+    }
+    else
+    {
+//        [self.bodyButton setTitle:@"无数据" forState:UIControlStateNormal];
+        [self.bodyButton setTitle:CustomLocalizedString(@"noData", nil) forState:UIControlStateNormal];
+    }
+    if(lastBodyAgeItem!=nil)
+    {
+        [self.ageButton setTitle:[NSString stringWithFormat:@"%d",lastBodyAgeItem.testValue.intValue] forState:UIControlStateNormal];
+    }
+    else
+    {
+//        [self.ageButton setTitle:@"无数据" forState:UIControlStateNormal];
+        [self.ageButton setTitle:CustomLocalizedString(@"noData", nil) forState:UIControlStateNormal];
+    }
+    User_Item_Info* lastScoreItem = [User_Item_Info MR_findFirstWithPredicate:[NSPredicate predicateWithFormat:@"userId==%d AND itemId==%d",user.userId.intValue,[TestItemID getHealthScore]] sortedBy:@"testDate" ascending:false inContext:[NSManagedObjectContext MR_defaultContext]];
+    if(lastScoreItem!=nil)
+    {
+        [self.totalScoreButton setTitle:[NSString stringWithFormat:@"%3.1f",lastScoreItem.testValue.doubleValue] forState:UIControlStateNormal];
+    }
+    else
+    {
+//        [self.totalScoreButton setTitle:@"无数据" forState:UIControlStateNormal];
+        [self.totalScoreButton setTitle:CustomLocalizedString(@"noData", nil) forState:UIControlStateNormal];
+
+    }
+    if(lastWeightItem!=nil && user!=nil)
+    {
+       NSNumber* bmr = [TestItemCalc calcBMR:lastWeightItem.testValue pHeight:user.height pAge:user.birthday.intValue pSexy:user.sex.intValue==1];
+        [self.bmrButton setTitle:[NSString stringWithFormat:@"%2.0f",bmr.doubleValue] forState:UIControlStateNormal];
+    }
+    else
+    {
+//        [self.bmrButton setTitle:@"无数据" forState:UIControlStateNormal];
+        [self.bmrButton setTitle:CustomLocalizedString(@"noData", nil) forState:UIControlStateNormal];
+    }
+    
+    NSString* description;
+    if(user!=nil && lastWeightItem!=nil && lastFatItem!=nil && lastMuscleItem!=nil)
+    {
+//        NSString* pbfState=@"正常";
+        NSString* pbfState=CustomLocalizedString(@"labelNormal", nil);
+//        NSString* pbfLimit=@"正常";
+        NSString* pbfLimit=CustomLocalizedString(@"labelNormal", nil);
+        NSNumber* pbf = [TestItemCalc calcPBF:lastWeightItem.testValue pFat:lastFatItem.testValue];
+        NSNumber* minPbf = [TestItemCalc calcMinPBF:lastWeightItem.testValue pFat:lastFatItem.testValue pSexy:user.sex.intValue==1];
+        NSNumber* maxPbf = [TestItemCalc calcMaxPBF:lastWeightItem.testValue pFat:lastFatItem.testValue pSexy:user.sex.intValue==1];
+//        [_fatVaryLabel setText:@"正常"];
+        [_fatVaryLabel setText:CustomLocalizedString(@"labelNormal", nil)];
+        if(pbf.doubleValue<minPbf.doubleValue)
+        {
+//            pbfState=@"偏低";
+            pbfState = CustomLocalizedString(@"littleLow", nil);
+            pbfLimit=[NSString stringWithFormat:@"%2.1f%%",minPbf.doubleValue];
+            //NSLog([NSString stringWithFormat:@"%2.1f%%",(pbf.doubleValue-minPbf.doubleValue)/minPbf.doubleValue*100.0 ]);
+            //[_fatVaryLabel setText:[NSString stringWithFormat:@"%2.1f%%",(pbf.doubleValue-minPbf.doubleValue)/minPbf.doubleValue*100 ]];
+            [_fatVaryLabel setText:[NSString stringWithFormat:@"%2.1f%%",(minPbf.doubleValue-pbf.doubleValue) ]];
+        }
+        else if(pbf.doubleValue>maxPbf.doubleValue)
+        {
+//            pbfState=@"偏高";
+            pbfState = CustomLocalizedString(@"littleHigh", nil);
+            pbfLimit=[NSString stringWithFormat:@"%2.1f%%",maxPbf.doubleValue];
+            
+            //[_fatVaryLabel setText:[NSString stringWithFormat:@"%2.1f%%",(pbf.doubleValue-maxPbf.doubleValue)/100 ]];
+            [_fatVaryLabel setText:[NSString stringWithFormat:@"%2.1f%%",(pbf.doubleValue-maxPbf.doubleValue) ]];
+        }
+        NSNumber* minWeight = [TestItemCalc calcMinWeight:user.height pSexy:user.sex.intValue==1];
+        NSNumber* maxWeight = [TestItemCalc calcMinWeight:user.height pSexy:user.sex.intValue==1];
+//        NSString* weightState =@"标准";
+        NSString* weightState = CustomLocalizedString(@"standard", nil);
+        if(lastWeightItem.testValue.doubleValue<minWeight.doubleValue)
+        {
+//            weightState=@"偏低";
+            weightState=CustomLocalizedString(@"littleLow", nil);
+        }
+        else if(lastWeightItem.testValue.doubleValue>maxWeight.doubleValue)
+        {
+//            weightState=@"偏高";
+            weightState=CustomLocalizedString(@"littleHigh", nil);
+        }
+        NSNumber* standardWeight =[TestItemCalc calcStandardWeight:user.height pSexy:user.sex.intValue==1];
+        NSNumber* lbmWeight=[NSNumber numberWithDouble: lastWeightItem.testValue.doubleValue-lastFatItem.testValue.doubleValue];
+        NSNumber* fatControl =[TestItemCalc calcFatControl:lastWeightItem.testValue pFat:lastFatItem.testValue pSexy:user.sex.intValue==1];
+        NSNumber* muscleControl=[TestItemCalc calcMuscleControl:user.height pMuscle:lastMuscleItem.testValue pSexy:user.sex.intValue==1];
+        
+        NSNumber* bmi =[TestItemCalc calcBMI:lastWeightItem.testValue pHeight:user.height];
+        NSNumber* minBMI=[TestItemCalc calcMinBMI];
+        NSNumber* maxBMI=[TestItemCalc calcMaxBMI];
+//        NSString* bmiState = @"正常";
+//        NSString* bmiLimit = @"正常";
+//        [_weightVaryLabel setText:@"正常"];
+        NSString* bmiState = CustomLocalizedString(@"labelNormal", nil);
+        NSString* bmiLimit = CustomLocalizedString(@"labelNormal", nil);
+        [_weightVaryLabel setText:CustomLocalizedString(@"labelNormal", nil)];
+        if(bmi.doubleValue<minBMI.doubleValue)
+        {
+//            bmiState=@"偏低";
+            bmiState=CustomLocalizedString(@"littleLow", nil);
+            bmiLimit=[NSString stringWithFormat:@"%2.1f",minBMI.doubleValue];
+            [_weightVaryLabel setText:[NSString stringWithFormat:@"%2.1f",(bmi.doubleValue-minBMI.doubleValue)]];
+        }
+        else if(bmi.doubleValue>maxBMI.doubleValue)
+        {
+//            bmiState=@"偏高";
+            bmiState=CustomLocalizedString(@"littleHigh", nil);
+            bmiLimit=[NSString stringWithFormat:@"%2.1f",maxBMI.doubleValue];
+            [_weightVaryLabel setText:[NSString stringWithFormat:@"%2.1f",(bmi.doubleValue-maxBMI.doubleValue)]];
+        }
+        
+        //description = [NSString stringWithFormat:@"亲,根据您的测试情况,您的标准体重应该为:%3.1fkg,去脂体重为%3.1fkg,为了您的健康, 体重控制量为:%3.1fkg,其中脂肪控制量为%3.1fkg,肌肉控制量为%3.1fkg ",standardWeight.doubleValue,lbmWeight.doubleValue,fatControl.doubleValue+muscleControl.doubleValue,fatControl.doubleValue,muscleControl.doubleValue];
+        
+        //二狗子说体重控制量=标准体重-体重
+        //description = [NSString stringWithFormat:@"亲,根据您的测试情况,您的标准体重应该为:%3.1fkg,去脂体重为%3.1fkg,为了您的健康, 体重控制量为:%3.1fkg,其中脂肪控制量为%3.1fkg,肌肉控制量为%3.1fkg ",standardWeight.doubleValue,lbmWeight.doubleValue,standardWeight.doubleValue-lastWeightItem.testValue.doubleValue,fatControl.doubleValue,muscleControl.doubleValue];
+//        description = [NSString stringWithFormat:@"标准体重：   %3.1fkg\n去脂体重：   %3.1fkg\n体重控制量：%3.1fkg\n脂肪控制量：%3.1fkg\n肌肉控制量：%3.1fkg ",standardWeight.doubleValue,lbmWeight.doubleValue,standardWeight.doubleValue-lastWeightItem.testValue.doubleValue,fatControl.doubleValue,muscleControl.doubleValue];
+        description = [NSString stringWithFormat:@"%@：%3.1fkg\n%@：%3.1fkg\n%@：%3.1fkg\n%@：%3.1fkg\n%@：%3.1fkg ",CustomLocalizedString(@"idealWeight", nil),standardWeight.doubleValue,CustomLocalizedString(@"FFM", nil),lbmWeight.doubleValue,CustomLocalizedString(@"WeightControl", nil),standardWeight.doubleValue-lastWeightItem.testValue.doubleValue,CustomLocalizedString(@"FatControl", nil),fatControl.doubleValue,CustomLocalizedString(@"MuscleControl", nil),muscleControl.doubleValue];
+
+        [_weightPersentageLabel setText:[NSString stringWithFormat:@"%2.1f",bmi.doubleValue]];
+        [_fatPersentageLabel setText:[NSString stringWithFormat:@"%2.1f%%",pbf.doubleValue]];
+        [_leftWhiteLabel setText:bmiLimit];
+        [_rightWhiteLabel setText:pbfLimit];
+    }
+    else
+    {
+        description=CustomLocalizedString(@"description", nil);
+        [_leftWhiteLabel setText:@"0"];
+        [_rightWhiteLabel setText:@"0%"];
+        [_weightPersentageLabel setText:@"0"];
+        [_fatPersentageLabel setText:@"0%"];
+        [_weightVaryLabel setText:@"0"];
+        [_fatVaryLabel setText:@"0"];
+    }
+    [_descriptionTextView setText:description];
+
+    int styleIndex=[self getStyleIndex:self.bodyButton.titleLabel.text];
+    for (int i=0; i<9; i++) {
+        if (styleIndex==i) {
+            if (user.sex.intValue==2) {
+                [_bodyImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"11_girlbody%d",i+1]]];
+            }
+            else
+            {
+                [_bodyImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"11_body%d",i+1]]];
+            }
+        }
+        
+    }
+
+    //
+    
+    // Do any additional setup after loading the view.
+}
+
+-(int)getStyleIndex:(NSString*)name
+{
+//    NSArray *texts = [[NSArray alloc] initWithObjects:@"消瘦型",@"低脂肪型",@"运动员型",@"肌肉不足型",@"健康匀称型",@"超重肌肉型",@"隐性肥胖型",@"脂肪过多型",@"肥胖型",nil];
+    /*
+     "thin" = "消瘦型";
+     "lowFat" = "低脂肪型";
+     "athletic" = "运动员型";
+     "lightlyMuscled" = "肌肉不足型";
+     "fit" = "健康匀称型";
+     "muscular" = "超重肌肉型";
+     "invisibleFat" = "隐性肥胖型";
+     "fatty" = "脂肪过多型";
+     "obese" = "肥胖型";
+     */
+    NSArray *texts = [NSArray arrayWithObjects:CustomLocalizedString(@"thin", nil),CustomLocalizedString(@"lowFat", nil),CustomLocalizedString(@"athletic", nil),CustomLocalizedString(@"lightlyMuscled", nil),CustomLocalizedString(@"fit", nil),CustomLocalizedString(@"muscular", nil),CustomLocalizedString(@"invisibleFat", nil),CustomLocalizedString(@"fatty", nil),CustomLocalizedString(@"obese", nil), nil];
+    int index =0;
+    for (int i=0; i<9; i++) {
+        if ([name isEqualToString:[texts objectAtIndex:i]]) {
+            index = i;
+        }
+    }
+    return index;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+@end

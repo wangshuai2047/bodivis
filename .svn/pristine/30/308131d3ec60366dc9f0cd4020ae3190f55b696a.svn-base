@@ -1,0 +1,85 @@
+/* 
+  Localizable.strings
+  TFHealth
+
+  Created by 王帅 on 16/11/30.
+  Copyright © 2016年 studio37. All rights reserved.
+*/
+
+//左侧表格
+"labelBodyAssessment" = "BodyAssessment";
+"labelSportsMate" = "SportsMate";
+"labelDiteManagement" = "DiteManagement";
+"labelInterimReport" = "InterimReport";
+"labelRankingList" = "RankingList";
+"labelHelp" = "Help";
+"labelHotline" = "Hotline";
+
+//右侧表格
+"labelPersonalSetting" = "PersonalSetting";
+"labelFamilyMembersManagement" = "FamilyMembersManagement";
+"labelGuestMode" = "GuestMode";
+"labelModifyDatabase" = "ModifyDatabase";
+"labelExitAccount" = "ExitAccount";
+
+//主页（体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；体脂率：深度分析labelPBF；骨质：深度分析labelBone；蛋白质：深度分析labelProtein）
+"labelYaoYiYao" = "Shake,Shake";
+"labelBodyScore" = "BodyScore";//身体评估界面状态指数；
+"labelHistoryCurve" = "HistoryCurve";//历史曲线界面主标题
+"labelShare" = "Share";
+"labelLow" = "Low";
+"labelNormal" = "Normal";
+"labelHigh" = "High";
+
+//主页的分享界面
+"labelMicroBlog" = "MicroBlog";
+"labelTencentMicroBlog" = "TencentMicroBlog";
+"labelQzone" = "Qzone";
+"labelDouban" = "Douban";
+"labelFriendCircle" = "FriendCircle";
+"labelWetChat" = "WetChat";
+"labelMessage" = "Message";
+
+//历史曲线（历史曲线：主页labelHistoryCurve；体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；脂肪：深度分析labelFat）
+"labelWeek" = "Week";
+"labelMonth" = "Month";
+"labelSeason" = "Season";
+"labelYear" = "Year";
+
+
+//深度分析
+"labelDeepAnalysis" = "DeepAnalysis";
+"labelNormalItem" = "According to the test,following is the normal item. Click to see the details.";
+"labelUnormalItem" = "According to the test,following is the unnormal item. Click to see the details.";
+"labelWeight" = "Weight";//主页体重；阶段报告体重
+"labelPBF" = "PBF";//主页体脂率；阶段报告体脂率
+"labelBone" = "Bone";//主页骨质；
+"labelProtein" = "Protein";//主页蛋白质；
+"labelWater" = "Water";//主页水分；历史曲线界面水分
+"labelMuscle" = "Muscle";//主页肌肉；历史曲线界面肌肉
+"labelFat" = "Fat";//历史曲线脂肪
+"labelVisceralFatAnalysis" = "VisceralFatAnalysis";
+"labelSMM" = "SMM";
+"labelBMIGrade" = "BMIGrade";
+
+//身体评估（状态指数：主页labelBodyScore）
+"labelAssessmentReport" = "AssessmentReport";
+"labelBodyAge" = "BodyAge";
+"labelBasalMetabolicRate" = "BasalMetabolicRate";
+"labelTestingDate" = "TestingDate";
+"labelComprehensiveAssessment" = "ComprehensiveAssessment";
+"labelWorkoutSuggestion" = "WorkoutSuggestion";
+"labelNutritionSuggestion" = "NutritionSuggestion";
+"labelBreakfast" = "Breakfast";
+"labelLunch" = "Lunch";
+"labelDinner" = "Dinner";
+
+//阶段报告(阶段报告标题：左侧表格labelInterimReport；体重：深度分析labelWeight；体脂率：深度分析labelPBF)
+"labelDietReport" = "DietReport";
+"labelExerciseReport" = "ExerciseReport";
+
+//排行榜(排行榜标题：左侧表格labelRankingList)
+"labelRankingListContent1" = "Your body condition defeated";
+"labelRankingListContent2" = "%% users";
+
+

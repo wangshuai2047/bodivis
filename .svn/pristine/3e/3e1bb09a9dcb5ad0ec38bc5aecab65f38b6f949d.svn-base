@@ -1,0 +1,303 @@
+
+/* Class = "UILabel"; text = "在7月7日到7月15日之间，您共进行了15次运动，共消耗500卡路里热量，在本阶段吸收的卡路里为6500，为了健康，请您多参加体育运动。"; ObjectID = "0Wi-ro-WyK"; */
+"0Wi-ro-WyK.text" = "在7月7日到7月15日之间，您共进行了15次运动，共消耗500卡路里热量，在本阶段吸收的卡路里为6500，为了健康，请您多参加体育运动。";
+
+/* Class = "UILabel"; text = "运动减重"; ObjectID = "0yA-z4-S7F"; */
+"0yA-z4-S7F.text" = "运动减重";
+
+/* Class = "UILabel"; text = "性别"; ObjectID = "1GE-lt-HhS"; */
+"1GE-lt-HhS.text" = "Gender";
+
+/* Class = "UITextField"; text = "50"; ObjectID = "1Tz-6b-4UL"; */
+"1Tz-6b-4UL.text" = "50";
+
+/* Class = "UIButton"; normalTitle = "公里数"; ObjectID = "2zS-3A-vfv"; */
+"2zS-3A-vfv.normalTitle" = "km";
+
+/* Class = "UIButton"; normalTitle = "运动时间"; ObjectID = "3dV-NM-QdY"; */
+"3dV-NM-QdY.normalTitle" = "ExerciseTime";
+
+/* Class = "UILabel"; text = "上传头像"; ObjectID = "5KN-hk-fx9"; */
+"5KN-hk-fx9.text" = "UploadAvatar";
+
+/* Class = "UILabel"; text = "千克"; ObjectID = "85O-MR-S7A"; */
+"85O-MR-S7A.text" = "kg";
+
+/* Class = "UILabel"; text = "百分比"; ObjectID = "8RQ-5J-asL"; */
+"8RQ-5J-asL.text" = "%";
+
+/* Class = "UITextField"; text = "1000"; ObjectID = "8X8-T6-Igr"; */
+"8X8-T6-Igr.text" = "1000";
+
+/* Class = "UIButton"; normalTitle = "关闭"; ObjectID = "9Oz-Xl-XG4"; */
+"9Oz-Xl-XG4.normalTitle" = "close";
+
+/* Class = "UIButton"; selectedTitle = "停止睡眠"; ObjectID = "9Oz-Xl-XG4"; */
+"9Oz-Xl-XG4.selectedTitle" = "停止睡眠";
+
+/* Class = "UIButton"; normalTitle = "女"; ObjectID = "9z6-9z-p1Z"; */
+"9z6-9z-p1Z.normalTitle" = "Female";
+
+/* Class = "UILabel"; text = "姓名"; ObjectID = "AVH-Ka-hKU"; */
+"AVH-Ka-hKU.text" = "FullName";
+
+/* Class = "UINavigationItem"; title = "填写家人资料"; ObjectID = "AoC-uE-9b9"; */
+"AoC-uE-9b9.title" = "FillInFamilyInformation";
+
+/* Class = "UIViewController"; title = "阶段报告"; ObjectID = "Aq7-1Q-HpG"; */
+"Aq7-1Q-HpG.title" = "阶段报告";
+
+/* Class = "UIButton"; normalTitle = "电量0%"; ObjectID = "B0N-mi-yo0"; */
+"B0N-mi-yo0.normalTitle" = "battery 0(%)";
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "BUi-WZ-pbq"; */
+"BUi-WZ-pbq.placeholder" = "password";
+
+/* Class = "UIButton"; normalTitle = "OTA"; ObjectID = "BdI-rl-sJM"; */
+"BdI-rl-sJM.normalTitle" = "OTA";
+
+/* Class = "UILabel"; text = "同方健康科技（北京）有限公司"; ObjectID = "EfP-1A-DaF"; */
+"EfP-1A-DaF.text" = "同方健康科技（北京）有限公司";
+
+/* Class = "UILabel"; text = "(已达成)"; ObjectID = "FCd-XB-fIh"; */
+"FCd-XB-fIh.text" = "(已达成)";
+
+/* Class = "UINavigationItem"; title = "找回密码"; ObjectID = "G11-uE-80T"; */
+"G11-uE-80T.title" = "找回密码";
+
+/* Class = "UINavigationItem"; title = "完善资料"; ObjectID = "Hf9-yb-iiu"; */
+"Hf9-yb-iiu.title" = "CompleteMaterial";
+
+/* Class = "UIButton"; normalTitle = "完成注册"; ObjectID = "I1Y-nS-xzg"; */
+"I1Y-nS-xzg.normalTitle" = "完成注册";
+
+/* Class = "UILabel"; text = "姓名"; ObjectID = "Kxg-tg-4Ka"; */
+"Kxg-tg-4Ka.text" = "FullName";
+
+/* Class = "UITextField"; text = "7.5"; ObjectID = "LHI-Jr-mHC"; */
+"LHI-Jr-mHC.text" = "7.5";
+
+/* Class = "UINavigationItem"; title = "新用户注册"; ObjectID = "LPo-4r-g7i"; */
+"LPo-4r-g7i.title" = "RegisteringNewUser";
+
+/* Class = "UILabel"; text = "性别"; ObjectID = "LXw-Zk-70J"; */
+"LXw-Zk-70J.text" = "Gender";
+
+/* Class = "UILabel"; text = "身高"; ObjectID = "M4p-Yf-ElY"; */
+"M4p-Yf-ElY.text" = "Height";
+
+/* Class = "UIButton"; normalTitle = "继续"; ObjectID = "NR3-jZ-2xc"; */
+"NR3-jZ-2xc.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "身高"; ObjectID = "NeB-CW-ZnP"; */
+"NeB-CW-ZnP.text" = "Height";
+
+/* Class = "UILabel"; text = "年龄"; ObjectID = "NjF-36-XMP"; */
+"NjF-36-XMP.text" = "Age";
+
+/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "Ntv-p4-Cqa"; */
+"Ntv-p4-Cqa.normalTitle" = "log in";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "OQ3-qP-TGg"; */
+"OQ3-qP-TGg.normalTitle" = "save";
+
+/* Class = "UILabel"; text = "千克"; ObjectID = "Ocj-Y6-G7o"; */
+"Ocj-Y6-G7o.text" = "kg";
+
+/* Class = "UIButton"; normalTitle = "步数"; ObjectID = "PWf-fc-xTo"; */
+"PWf-fc-xTo.normalTitle" = "步数";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Q5Z-J6-gyd"; */
+"Q5Z-J6-gyd.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "阶段报告"; ObjectID = "QYt-O1-Z3j"; */
+"QYt-O1-Z3j.title" = "InterimReport";
+
+/* Class = "UIButton"; normalTitle = "男"; ObjectID = "Qrb-5k-DHo"; */
+"Qrb-5k-DHo.normalTitle" = "Male";
+
+/* Class = "UITextField"; text = "0.1"; ObjectID = "RhX-KV-MK6"; */
+"RhX-KV-MK6.text" = "0.1";
+
+/* Class = "UILabel"; text = "年龄"; ObjectID = "Ru1-yU-1N5"; */
+"Ru1-yU-1N5.text" = "Age";
+
+/* Class = "UILabel"; text = "体重"; ObjectID = "SSF-3I-eI0"; */
+"SSF-3I-eI0.text" = "weight";
+
+/* Class = "UILabel"; text = "膳食报告"; ObjectID = "So6-8m-KMC"; */
+"So6-8m-KMC.text" = "diet report";
+
+/* Class = "UIButton"; normalTitle = "运动"; ObjectID = "TDp-cE-dnU"; */
+"TDp-cE-dnU.normalTitle" = "Sports";
+
+/* Class = "UINavigationItem"; title = "个人设定"; ObjectID = "TPF-q6-TiL"; */
+"TPF-q6-TiL.title" = "PersonalSetting";
+
+/* Class = "UIButton"; normalTitle = "忘记密码"; ObjectID = "UC7-cv-fgx"; */
+"UC7-cv-fgx.normalTitle" = "forget password";
+
+/* Class = "UIButton"; normalTitle = "点击连接"; ObjectID = "Ukz-VU-6iC"; */
+"Ukz-VU-6iC.normalTitle" = "点击连接";
+
+/* Class = "UIButton"; selectedTitle = "点击断开"; ObjectID = "Ukz-VU-6iC"; */
+"Ukz-VU-6iC.selectedTitle" = "点击断开";
+
+/* Class = "UILabel"; text = "体重目标"; ObjectID = "V6W-T2-RXF"; */
+"V6W-T2-RXF.text" = "TargetWeight";
+
+/* Class = "UITextField"; placeholder = "邮箱/手机号码"; ObjectID = "VGM-Ew-vPE"; */
+"VGM-Ew-vPE.placeholder" = "Email/Tel";
+
+/* Class = "UILabel"; text = "时:分"; ObjectID = "VYn-07-IEU"; */
+"VYn-07-IEU.text" = "minute";
+
+/* Class = "UILabel"; text = "百分比"; ObjectID = "VhV-0y-VG6"; */
+"VhV-0y-VG6.text" = "%";
+
+/* Class = "UINavigationItem"; title = "选择默认项目"; ObjectID = "Vxd-uc-lSR"; */
+"Vxd-uc-lSR.title" = "select the user type";
+
+/* Class = "UITextField"; placeholder = "邮箱/手机号码"; ObjectID = "Wn0-US-A8R"; */
+"Wn0-US-A8R.placeholder" = "Email/Tel";
+
+/* Class = "UILabel"; text = "膳食减重"; ObjectID = "X4I-k1-z8D"; */
+"X4I-k1-z8D.text" = "膳食减重";
+
+/* Class = "UITextField"; text = "08:00"; ObjectID = "XLE-tc-DGX"; */
+"XLE-tc-DGX.text" = "08:00";
+
+/* Class = "UILabel"; text = "性别"; ObjectID = "XUL-0v-Jqd"; */
+"XUL-0v-Jqd.text" = "Gender";
+
+/* Class = "UILabel"; text = "姓名"; ObjectID = "YFb-Aw-mNB"; */
+"YFb-Aw-mNB.text" = "FullName";
+
+/* Class = "UIButton"; normalTitle = "男"; ObjectID = "Z2R-Vz-y7D"; */
+"Z2R-Vz-y7D.normalTitle" = "Male";
+
+/* Class = "UILabel"; text = "您7月设定体重目标为76kg"; ObjectID = "ZzV-VO-kjg"; */
+"ZzV-VO-kjg.text" = "您7月设定体重目标为76kg";
+
+/* Class = "UIButton"; normalTitle = "睡眠"; ObjectID = "arI-ra-o3y"; */
+"arI-ra-o3y.normalTitle" = "Sleep";
+
+/* Class = "UITextField"; text = "50"; ObjectID = "c0g-tz-4Gj"; */
+"c0g-tz-4Gj.text" = "50";
+
+/* Class = "UIButton"; normalTitle = "电量0%"; ObjectID = "c5W-9C-3bW"; */
+"c5W-9C-3bW.normalTitle" = "battery 0(%)";
+
+/* Class = "UIButton"; normalTitle = "女"; ObjectID = "c7n-BG-oMh"; */
+"c7n-BG-oMh.normalTitle" = "Female";
+
+/* Class = "UILabel"; text = "运动报告"; ObjectID = "cBc-0A-Fa5"; */
+"cBc-0A-Fa5.text" = "sports report";
+
+/* Class = "UINavigationItem"; title = "附近的人"; ObjectID = "d5g-jC-MHh"; */
+"d5g-jC-MHh.title" = "附近的人";
+
+/* Class = "UIButton"; normalTitle = "开始睡眠"; ObjectID = "dF1-uQ-Ckh"; */
+"dF1-uQ-Ckh.normalTitle" = "开始睡眠";
+
+/* Class = "UIButton"; selectedTitle = "停止睡眠"; ObjectID = "dF1-uQ-Ckh"; */
+"dF1-uQ-Ckh.selectedTitle" = "停止睡眠";
+
+/* Class = "UIButton"; normalTitle = "点击连接"; ObjectID = "dyF-Z7-FJ7"; */
+"dyF-Z7-FJ7.normalTitle" = "点击连接";
+
+/* Class = "UIButton"; selectedTitle = "点击断开"; ObjectID = "dyF-Z7-FJ7"; */
+"dyF-Z7-FJ7.selectedTitle" = "点击断开";
+
+/* Class = "UIButton"; normalTitle = "继续下一步"; ObjectID = "efj-se-WW1"; */
+"efj-se-WW1.normalTitle" = "Next";
+
+/* Class = "UITextField"; text = "70"; ObjectID = "fSV-48-1RK"; */
+"fSV-48-1RK.text" = "70";
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "gj7-Lj-xbE"; */
+"gj7-Lj-xbE.placeholder" = "password";
+
+/* Class = "UINavigationItem"; title = "填写访客资料"; ObjectID = "gkg-5T-aej"; */
+"gkg-5T-aej.title" = "FillInGuestData";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "guK-Qj-nJS"; */
+"guK-Qj-nJS.normalTitle" = "save";
+
+/* Class = "UILabel"; text = "年龄"; ObjectID = "h56-HM-yk6"; */
+"h56-HM-yk6.text" = "Age";
+
+/* Class = "UITextField"; placeholder = "确认密码"; ObjectID = "iRX-JF-ghG"; */
+"iRX-JF-ghG.placeholder" = "confirm pasword";
+
+/* Class = "UIButton"; normalTitle = "卡路里"; ObjectID = "kU7-SH-gMz"; */
+"kU7-SH-gMz.normalTitle" = "calorie";
+
+/* Class = "UIButton"; normalTitle = "男"; ObjectID = "mPK-Qe-NC4"; */
+"mPK-Qe-NC4.normalTitle" = "Male";
+
+/* Class = "UILabel"; text = "深睡0.0小时   浅睡0.0小时"; ObjectID = "mXB-hq-cO0"; */
+"mXB-hq-cO0.text" = "深睡0.0小时   浅睡0.0小时";
+
+/* Class = "UIButton"; normalTitle = "注册新用户"; ObjectID = "mca-Zg-d2s"; */
+"mca-Zg-d2s.normalTitle" = "Registering a New User";
+
+/* Class = "UILabel"; text = "脂肪"; ObjectID = "mwN-tu-3gb"; */
+"mwN-tu-3gb.text" = "fat";
+
+/* Class = "UISegmentedControl"; mxH-1O-2gg.segmentTitles[0] = "手环用户"; ObjectID = "mxH-1O-2gg"; */
+"mxH-1O-2gg.segmentTitles[0]" = "braceletUser";
+
+/* Class = "UISegmentedControl"; mxH-1O-2gg.segmentTitles[1] = "秤用户"; ObjectID = "mxH-1O-2gg"; */
+"mxH-1O-2gg.segmentTitles[1]" = "scaleUser";
+
+/* Class = "UISegmentedControl"; mxH-1O-2gg.segmentTitles[2] = "两者都有"; ObjectID = "mxH-1O-2gg"; */
+"mxH-1O-2gg.segmentTitles[2]" = "both";
+
+/* Class = "UILabel"; text = "这里是名字"; ObjectID = "osg-Nb-6AJ"; */
+"osg-Nb-6AJ.text" = "这里是名字";
+
+/* Class = "UIButton"; normalTitle = "设置"; ObjectID = "qvf-Lv-Fi1"; */
+"qvf-Lv-Fi1.normalTitle" = "设置";
+
+/* Class = "UIButton"; normalTitle = "女"; ObjectID = "rVz-Le-RN0"; */
+"rVz-Le-RN0.normalTitle" = "Female";
+
+/* Class = "UILabel"; text = "身高"; ObjectID = "rgm-xF-95I"; */
+"rgm-xF-95I.text" = "Height";
+
+/* Class = "UILabel"; text = "提醒时间"; ObjectID = "rhs-mH-eZ9"; */
+"rhs-mH-eZ9.text" = "ReminderTime";
+
+/* Class = "UILabel"; text = "目标设定"; ObjectID = "sqV-cP-Paj"; */
+"sqV-cP-Paj.text" = "GoalSetting";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "tAM-eI-U7T"; */
+"tAM-eI-U7T.normalTitle" = "save";
+
+/* Class = "UINavigationItem"; title = "睡眠模式"; ObjectID = "tQe-uT-DpQ"; */
+"tQe-uT-DpQ.title" = "睡眠模式";
+
+/* Class = "UINavigationItem"; title = "运动模式"; ObjectID = "tkD-fZ-1Bq"; */
+"tkD-fZ-1Bq.title" = "运动模式";
+
+/* Class = "UILabel"; text = "一周减重"; ObjectID = "uaM-IL-0oz"; */
+"uaM-IL-0oz.text" = "一周减重";
+
+/* Class = "UILabel"; text = "小时"; ObjectID = "v0N-aG-FE3"; */
+"v0N-aG-FE3.text" = "hour";
+
+/* Class = "UILabel"; text = "睡眠时长"; ObjectID = "wEl-ah-MxZ"; */
+"wEl-ah-MxZ.text" = "sleepLength";
+
+/* Class = "UILabel"; text = "步"; ObjectID = "wRj-OD-3mE"; */
+"wRj-OD-3mE.text" = "step";
+
+/* Class = "UIViewController"; title = "用户注册"; ObjectID = "y7q-38-eAr"; */
+"y7q-38-eAr.title" = "用户注册";
+
+/* Class = "UILabel"; text = "在7月7日到7月15日之间，您共吸收了6500卡路里热量，平均每天的吸入量为1000卡路里，人体健康吸入量为600-800卡路里。"; ObjectID = "z4i-v9-koe"; */
+"z4i-v9-koe.text" = "在7月7日到7月15日之间，您共吸收了6500卡路里热量，平均每天的吸入量为1000卡路里，人体健康吸入量为600-800卡路里。";
+
+/* Class = "UILabel"; text = "上传头像"; ObjectID = "zb2-ZN-lgk"; */
+"zb2-ZN-lgk.text" = "UploadAvatar";

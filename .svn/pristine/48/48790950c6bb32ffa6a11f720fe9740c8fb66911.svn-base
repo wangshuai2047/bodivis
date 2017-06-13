@@ -1,0 +1,171 @@
+/* 
+  TFLanguage.strings
+  TFHealth
+
+  Created by 王帅 on 17/3/22.
+  Copyright © 2017年 studio37. All rights reserved.
+*/
+
+
+//左侧表格
+"labelBodyAssessment" = "身体评估";
+"labelSportsMate" = "运动伴侣";
+"labelDiteManagement" = "膳食管理";
+"labelInterimReport" = "阶段报告";
+"labelRankingList" = "排行榜";
+"labelHelp" = "帮助";
+"labelTestVersion" = "检测版本";
+"labelHotline" = "服务热线";
+
+//右侧表格
+"labelPersonalSetting" = "个人设定";
+"labelFamilyMembersManagement" = "家庭成员管理";
+"labelGuestMode" = "访客模式";
+"labelModifyDatabase" = "修改资料";
+"labelSwitchLanguage" = "切换语言";
+"labelExitAccount" = "退出账户";
+
+//主页（体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；体脂率：深度分析labelPBF；骨质：深度分析labelBone；蛋白质：深度分析labelProtein）
+"labelYaoYiYao" = "摇一摇再上秤";
+"labelBodyScore" = "身体状态指数";//身体评估界面状态指数；
+"labelHistoryCurve" = "历史曲线";//历史曲线界面主标题；
+"labelShare" = "分享";
+"labelLow" = "低";
+"labelNormal" = "正常";
+"labelHigh" = "高";
+"noData" = "无数据";
+"nothing" = "无";
+
+//主页的分享界面
+"labelMicroBlog" = "微博";
+"labelQzone" = "QQ空间";
+"labelFriendCircle" = "朋友圈";
+"labelWetChat" = "微信好友";
+
+//历史曲线（历史曲线：主页labelHistoryCurve；体重：深度分析labelWeight；水分：深度分析labelWater；肌肉：深度分析labelMuscle；脂肪：深度分析labelFat）
+"labelWeek" = "周";
+"labelMonth" = "月";
+"labelSeason" = "季";
+"labelYear" = "年";
+
+//深度分析
+"labelDeepAnalysis" = "深度分析";
+"labelNormalItem" = "根据测试，以下为合格项，点击可查看详细";
+"labelUnormalItem" = "根据测试，以下为不合格项，点击可查看详细";
+"labelWeight" = "体重";//主页体重；阶段报告体重
+"labelPBF" = "体脂率";//主页体脂率；阶段报告体脂率
+"labelBone" = "骨质";//主页骨质；
+"labelProtein" = "蛋白质";//主页蛋白质；
+"labelWater" = "水分";//主页水分；历史曲线界面水分
+"labelMuscle" = "肌肉";//主页肌肉；历史曲线界面肌肉
+"labelFat" = "脂肪";//历史曲线脂肪
+"labelVisceralFatAnalysis" = "内脏脂肪";
+"labelSMM" = "骨骼肌";
+"labelBMIGrade" = "肥胖等级";
+
+
+//身体评估（状态指数：主页labelBodyScore）
+"labelAssessmentReport" = "评估报告";
+"labelBodyAge" = "身体年龄";
+"labelBasalMetabolicRate" = "基础代谢";
+"labelTestingDate" = "测试日期";
+"labelComprehensiveAssessment" = "综合评定";
+"labelWorkoutSuggestion" = "运动建议";
+"labelNutritionSuggestion" = "营养建议";
+"labelBreakfast" = "早餐";
+"labelLunch" = "午餐";
+"labelDinner" = "晚餐";
+"standard" = "标准";
+"littleLow" = "偏低";
+"littleHigh" = "偏高";
+"idealWeight" = "标准体重";
+"FFM" = "去脂体重";
+"WeightControl" = "体重控制量";
+"FatControl" = "脂肪控制量";
+"MuscleControl" = "肌肉控制量";
+"thin" = "消瘦型";
+"lowFat" = "低脂肪型";
+"athletic" = "运动员型";
+"lightlyMuscled" = "肌肉不足型";
+"fit" = "健康匀称型";
+"muscular" = "超重肌肉型";
+"invisibleFat" = "隐性肥胖型";
+"fatty" = "脂肪过多型";
+"obese" = "肥胖型";
+
+//膳食管理
+//选择膳食
+"foodNutritionalReservoir" = "食品营养库";
+"myDiet" = "我的项目";
+"userDefined" = "自定义";
+//添加膳食
+"breakfast" = "早餐";
+"lunch" = "午餐";
+"dinner" = "晚餐";
+"snacks" = "加餐";
+"keywordSearch" = "输入关键字搜索";
+
+//阶段报告(阶段报告标题：左侧表格labelInterimReport；体重：深度分析labelWeight；体脂率：深度分析labelPBF)
+"labelDietReport" = "膳食报告";
+"labelExerciseReport" = "运动报告";
+
+//排行榜(排行榜标题：左侧表格labelRankingList)
+"labelRankingListContent1" = "您的身体状况击败了全国%@%%的用户";
+"labelRankingListContent2" = "%%的用户";
+
+//切换语言
+"moreLanguage" = "多语言";
+"save" = "保存";
+
+//家庭成员管理
+"familyMembers" = "家庭成员";
+"delete" = "删除";
+"complete" = "完成";
+"addMember" = "添加成员";
+
+"cancel" = "取消";
+"OK" = "好的";
+"yes" = "是的";
+"update" = "更新";
+"Sports" = "运动";
+"Record" = "记录";
+"tip" = "提示";
+
+"report_desc" = "您%@设定体重目标%.1fkg。";
+"food_desc" = "在%@到%@期间，您共摄入了%.f卡路里热量，平均每天的摄入量为%.f卡路里，人体健康摄入量为600-800卡路里。";
+"todayCalories" = "今日摄入 %.1f 卡路里";
+
+//帮助
+"instructions" = "使用说明";
+"titleLabel1" = "一、使用说明";
+"helpInfoItem1" = "全面监测人体21项健康数据；";
+"helpInfoItem2" = "提供运动监测和睡眠监测；";
+"helpInfoItem3" = "智能健康云为您提供专业的运动建议和营养膳食建议。";
+"helpInfoItem4" = "使用流程：";
+"helpInfoItemA" = "A．下载并安装App；";
+"helpInfoItemB" = "B．注册并登录App；";
+"helpInfoItemC" = "C．摇一摇，上秤测试，测试完毕后下秤；";
+"helpInfoItemD" = "D．查看21项健康数据，查看运动和膳食建议；";
+"helpInfoItemE" = "E．使用手环进行运动和睡眠监测。";
+
+"titleLabel2" = "二、注册登录";
+"helpLoginItemA" = "A．输入手机号或者邮箱地址，填写密码；";
+"helpLoginItemB" = "B．填写个人信息（身高、年龄、性别）；";
+"helpLoginItemC" = "C．选择您的用户类型，分为手环、成分称和两者皆有；";
+"helpLoginItemD" = "D．注册完毕，输入用户名和密码，登录。";
+
+"titleLabel3" = "三、测试";
+"helpTestItem1" = "1．打开蓝牙。";
+"helpTestItem1A" = "蓝牙默认为系统自动打开，打开后，手机右上方会出现蓝牙图标。";
+"helpTestItem1B" = "如蓝牙为关闭状态，请手动打开蓝牙，蓝牙的打开方式为：进入手机里的“设定”-“连接”-“蓝牙”，打开蓝牙即可。";
+"helpTestItem2" = "2．打开并登录App，进入测试界面，摇一摇，然后上称，测试完成后下称，通过手机App查看测试数据和智能数据分析。";
+
+"helpWarnItem1" = "警告：";
+"helpWarnItem2" = "体内装有心脏起搏器及金属装置者禁用！";
+"helpWarnItem3" = "孕妇请勿使用。";
+"helpWarnItem4" = "适用年龄：7-99岁";
+
+
+
+
+
