@@ -321,6 +321,11 @@
     
     //接收是否弹出alert通知
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showAlertView:) name:@"showAlertView" object:nil];
+    
+    /*
+     
+     测试使用
+     */
 }
 
 -(void)showAlertView:(NSNotification*)sender
